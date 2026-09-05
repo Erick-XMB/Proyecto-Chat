@@ -6,7 +6,7 @@ servidor:
 cliente:
 	dotnet build src/cliente/ClienteChat.csproj
 
-run-cliente:
+runCliente:
 	dotnet run --project src/cliente/ClienteChat.csproj
 
 clean:

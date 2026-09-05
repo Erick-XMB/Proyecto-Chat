@@ -5,5 +5,26 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ClienteChat.MainWindow"
         Title="ClienteChat">
-    Welcome to Avalonia!
+
+        
+        <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="20">
+
+        <TextBlock Text="Proyecto Chat"
+                   FontSize="28"
+                   HorizontalAlignment="Center"/>
+
+        <Button Content="Conectar"
+                Click="Conectar_Click"
+                Width="150"
+                Height="40"/>
+
+        <TextBlock x:Name="EstadoTexto"
+                   Text="Estado: Desconectado"
+                   FontSize="18"
+                   HorizontalAlignment="Center"/>
+
+    </StackPanel>
+
 </Window>
