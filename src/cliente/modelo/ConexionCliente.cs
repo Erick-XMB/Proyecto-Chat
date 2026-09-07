@@ -26,7 +26,7 @@ public class ConexionCliente
         string servidor = "127.0.0.1";
 
         /** Este el numero del puerto que estara esperando conexiones*/
-        int puerto = 5022;
+        int puerto = 5032;
 
         try
         {   
@@ -50,7 +50,7 @@ public class ConexionCliente
     /// Metodo que envia un mensaje al servidor usando la conexion de TCP
     /// </summary>
     /// <param name="mensaje">
-    /// Cadena de texto que se quiere enviar al servidor
+    /// texto que se quiere enviar al servidor
     /// </param>
     public void EnviarMensaje(string mensaje)
     {   
@@ -67,9 +67,9 @@ public class ConexionCliente
 
         /** Enviamos los bytes que tenemos en datos usando el NetWorkStream*/
         stream.Write(datos, 0, datos.Length);
-
-
     }
+
+
 
 
 

@@ -6,25 +6,35 @@
         x:Class="ClienteChat.MainWindow"
         Title="ClienteChat">
 
-        
+
         <StackPanel HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Spacing="20">
 
-        <TextBlock Text="Proyecto Chat"
-                   FontSize="28"
-                   HorizontalAlignment="Center"/>
+                <TextBlock Text="Proyecto Chat"
+                        FontSize="28"
+                        HorizontalAlignment="Center" />
 
-        <Button Content="Conectar"
-                Click="Conectar_Click"
-                Width="150"
-                Height="40"/>
+                <Button Content="Conectar"
+                        Click="Conectar_Click"
+                        Width="150"
+                        Height="40" />
 
-        <TextBlock x:Name="EstadoTexto"
-                   Text="Estado: Desconectado"
-                   FontSize="18"
-                   HorizontalAlignment="Center"/>
+                <TextBlock x:Name="EstadoTexto"
+                        Text="Estado: Desconectado"
+                        FontSize="18"
+                        HorizontalAlignment="Center" />
 
-    </StackPanel>
+
+                <TextBlock x:Name="EscribirMensaje"
+                        Text="Escribe tu mensaje: "
+                        FontSize="18"
+                        HorizontalAlignment="Center" />
+
+
+
+
+
+        </StackPanel>
 
 </Window>
