@@ -5,8 +5,9 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 
-#define PORT 5034
+#define PORT 5041
 
 int iniciarServidor()
 {
@@ -50,10 +51,15 @@ int iniciarServidor()
             continue;
         }
 
-        /** recibimos al cliente y esta  parte por ahora manda un mensaje al servidor
-         * diciendo que el cliente se conecto
-         */
-        recibirCliente(sockCliente);
+        char buffer[1024];
+
+        int bytes = recibirMensaje(sockCliente, buffer, sizeof(buffer));
+
+        if(bytes > 0)
+        {
+            printf("Mensaje recibido: %s\n",  buffer);
+        }
+        
 
         close(sockCliente);
     }

@@ -31,8 +31,9 @@
                         FontSize="18"
                         HorizontalAlignment="Center" />
 
-
-
+                <TextBox Width="200"
+                        PlaceholderText="Escribe tu nombre aquí..."
+                        VerticalAlignment="Bottom" />
 
 
         </StackPanel>

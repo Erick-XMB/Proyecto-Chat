@@ -9,6 +9,9 @@ cliente:
 runCliente:
 	dotnet run --project src/cliente/ClienteChat.csproj
 
+limpiarCliente:
+	dotnet clean src/cliente/ClienteChat.csproj
+
 clean:
 	$(MAKE) -C src/servidor clean
 	dotnet clean src/cliente/ClienteChat.csproj

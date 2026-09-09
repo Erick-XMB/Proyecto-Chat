@@ -4,3 +4,4 @@ int crearSocket();
 int enlaceSocket(int sock, struct sockaddr_in *servidor);
 int listenSocket(int sock);
 int acceptCliente(int sock, struct sockaddr_in *cliente);
+int recibirMensaje(int sockCliente, char *buffer, int tamanio);
