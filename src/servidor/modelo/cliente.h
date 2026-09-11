@@ -1,1 +1,0 @@
-void recibirCliente(int sock);

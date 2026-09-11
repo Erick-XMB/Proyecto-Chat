@@ -1,7 +1,13 @@
 all: servidor cliente
 
 servidor: 
-	$(MAKE) -C src/servidor all
+	dotnet build src/servidor/ServidorChat.csproj
+
+runServidor: 
+	dotnet run --project src/servidor/ServidorChat.csproj
+
+limpiarServidor:
+	dotnet clean src/servidor/ServidorChat.csproj
 
 cliente:
 	dotnet build src/cliente/ClienteChat.csproj
@@ -13,5 +19,6 @@ limpiarCliente:
 	dotnet clean src/cliente/ClienteChat.csproj
 
 clean:
-	$(MAKE) -C src/servidor clean
+	dotnet clean src/servidor/ServidorChat.csproj
 	dotnet clean src/cliente/ClienteChat.csproj
+	

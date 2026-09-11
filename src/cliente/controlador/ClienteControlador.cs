@@ -1,17 +1,17 @@
-using Cliente.modelo;
+using ClienteChat.modelo;
 
-namespace Cliente.controlador;
+namespace ClienteChat.controlador;
 
 public class ClienteControlador{
 
-    // Este es un dato que no se permite cambiar en tiempo de ejecucion
-    private readonly ConexionCliente cliente;
+
+    private readonly ConexionCl cliente;
 
     /// <summary>
     /// Constructor de CLienteControlador
     /// </summary>
     public ClienteControlador(){
-        cliente = new ConexionCliente();
+        cliente = new ConexionCl();
     }
 
     /// <summary>

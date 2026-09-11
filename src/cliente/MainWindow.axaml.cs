@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Cliente.controlador;
+using ClienteChat.controlador;
 
 namespace ClienteChat;
 
@@ -44,8 +44,6 @@ public partial class MainWindow : Window
             /** Se modificsa el texto que tenemos en MainWindow.axml*/
             EstadoTexto.Text = "Estado: Conectado";
 
-
-
         }
         else
         {
@@ -56,5 +54,24 @@ public partial class MainWindow : Window
     }
 
 
+    private void Enviar_Click(object? sender, RoutedEventArgs e)
+    {
+        /** variable que guarda la informacion de nuestra TextBox*/
+        string? informacion = MensajeTextBox.Text;
 
+
+        /** veriificamos que la informacion no sea vacia */
+        if (informacion != null)
+        {
+
+            /** Enviamos la informacion a nuestro servidor*/
+            controlador.EnviarMensaje(informacion);
+
+        } else
+        {   
+            /** si es vacia*/
+            controlador.EnviarMensaje("Nada que enviar");
+        }
+
+    }
 }

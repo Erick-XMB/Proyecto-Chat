@@ -2,9 +2,9 @@ using System;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Cliente.modelo;
+namespace ClienteChat.modelo;
 
-public class ConexionCliente
+public class ConexionCl
 {
 
     /** Checa el estado de la conexion TCP*/
@@ -26,7 +26,7 @@ public class ConexionCliente
         string servidor = "127.0.0.1";
 
         /** Este el numero del puerto que estara esperando conexiones*/
-        int puerto = 5041;
+        int puerto = 5048;
 
         try
         {   

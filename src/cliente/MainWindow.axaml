@@ -15,7 +15,7 @@
                         FontSize="28"
                         HorizontalAlignment="Center" />
 
-                <Button Content="Conectar"
+                <Button Content="Inicar Sesion"
                         Click="Conectar_Click"
                         Width="150"
                         Height="40" />
@@ -31,10 +31,15 @@
                         FontSize="18"
                         HorizontalAlignment="Center" />
 
-                <TextBox Width="200"
-                        PlaceholderText="Escribe tu nombre aquí..."
-                        VerticalAlignment="Bottom" />
+                <TextBox x:Name="MensajeTextBox"
+                        Width="200"
+                        PlaceholderText="Escribe tu mensaje aquí..." />
 
+                <Button 
+                        Content= "Enviar"
+                        Click = "Enviar_Click"
+                        Width="150"
+                        Height="40"/>
 
         </StackPanel>
 
