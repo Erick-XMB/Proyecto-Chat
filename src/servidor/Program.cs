@@ -1,7 +1,9 @@
 ﻿using ServidorChat.Modelo;
 using ServidorChat.controlador;
 
-ServidorControlador servidorControlador = new ServidorControlador(5048);
+int puerto = int.Parse(args[0]);
+
+ServidorControlador servidorControlador = new ServidorControlador(puerto);
 
 do
 {

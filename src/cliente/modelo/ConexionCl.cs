@@ -26,7 +26,7 @@ public class ConexionCl
         string servidor = "127.0.0.1";
 
         /** Este el numero del puerto que estara esperando conexiones*/
-        int puerto = 5048;
+        int puerto = 5049;
 
         try
         {   

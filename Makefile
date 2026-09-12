@@ -1,10 +1,10 @@
-all: servidor cliente
+all: servidor cliente 
 
 servidor: 
 	dotnet build src/servidor/ServidorChat.csproj
 
 runServidor: 
-	dotnet run --project src/servidor/ServidorChat.csproj
+	dotnet run --project src/servidor/ServidorChat.csproj -- $(p)
 
 limpiarServidor:
 	dotnet clean src/servidor/ServidorChat.csproj
