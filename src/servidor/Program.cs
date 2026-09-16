@@ -8,7 +8,7 @@ ServidorControlador servidorControlador = new ServidorControlador(puerto);
 do
 {
     await servidorControlador.Iniciar();
-
+    servidorControlador.MostrarListaDeCliente();
 
 
 

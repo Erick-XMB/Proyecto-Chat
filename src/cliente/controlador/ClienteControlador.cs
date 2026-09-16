@@ -1,17 +1,20 @@
+using System;
 using ClienteChat.modelo;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace ClienteChat.controlador;
 
 public class ClienteControlador{
 
 
-    private readonly ConexionCl cliente;
+    private readonly ConexionServidor cliente;
 
     /// <summary>
     /// Constructor de CLienteControlador
     /// </summary>
     public ClienteControlador(){
-        cliente = new ConexionCl();
+        cliente = new ConexionServidor();
     }
 
     /// <summary>
@@ -21,8 +24,8 @@ public class ClienteControlador{
     /// <c>true</c> si la conexion se establezca correctamente
     /// <c>false</c> si hay un error
     /// </returns>
-    public bool Conectar(){
-        return cliente.Conectar();
+    public bool Conectar(int puerto){
+        return cliente.Conectar(puerto);
     }
 
     /// <summary>
@@ -36,5 +39,17 @@ public class ClienteControlador{
     }
 
 
+    /** { "type": "IDENTIFY","username": "Kimberly" }*/
+    public void Identificar(string username)
+    {   
+        Identify mensaje = new Identify(username);
+        string json =  JsonSerializer.Serialize(mensaje);
+        cliente.EnviarMensaje(json);
+    }
+
+    public async Task RecibirMensaje()
+    {
+       await cliente.RecibirMensajes();
+    }
 
 }

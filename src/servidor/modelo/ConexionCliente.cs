@@ -21,7 +21,19 @@ public class ConexionCliente
     /// </summary>
     private readonly NetworkStream stream;
 
-    public event Action<String>? mensajeRecibido;
+    public event Action<ConexionCliente, String>? mensajeRecibido;
+
+    private string username;
+
+    public string getUsername()
+    {
+        return this.username;
+    }
+
+    public void setUsername(string username)
+    {
+        this.username = username;
+    }
 
     /// <summary>
     /// Constructor de la clase ConexionCliente
@@ -33,18 +45,23 @@ public class ConexionCliente
         this.stream = tcpCliente.GetStream();
     }
 
+    public void Desconectar()
+    {
+        stream.Close();
+        tcpCliente.Close();
+    }
 
     /// <summary>
     /// Metodo por el cual recibimos mensajes de manera asincrona
     /// </summary>
     /// <returns> Una tarea que representa el recibir mensajes</returns>
     public async Task RecibirMensajes()
-    {   
+    {
         /** Aqui es donde guardaremos el flujo de bytes que nos mande el cliente*/
         byte[] buffer = new byte[1024];
 
         while (true)
-        {   
+        {
             /** Representa bytes leidos*/
             int bytesLeidos;
 
@@ -58,7 +75,7 @@ public class ConexionCliente
                 string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
 
                 /**Disparamos el evento de mensajeRecibido usando como parametro el mensaje */
-                mensajeRecibido?.Invoke(mensaje);
+                mensajeRecibido?.Invoke(this,mensaje);
             }
             catch (Exception)
             {
@@ -72,7 +89,11 @@ public class ConexionCliente
         }
     }
 
+    public async Task EnviarMensaje(string mensaje)
+    {
+        byte[] datosAEnviar = Encoding.UTF8.GetBytes(mensaje);
 
+        await  stream.WriteAsync(datosAEnviar,0,datosAEnviar.Length);
 
-
+    }
 }

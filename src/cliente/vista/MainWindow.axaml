@@ -15,6 +15,15 @@
                         FontSize="28"
                         HorizontalAlignment="Center" />
 
+                <TextBlock x:Name="EscribirMensaje"
+                        Text="Escribe tu nombre: "
+                        FontSize="18"
+                        HorizontalAlignment="Center" />
+
+                <TextBox x:Name="MensajeTextBox"
+                        Width="200"
+                        PlaceholderText="Ingresa tu nombre aqui..." />
+
                 <Button Content="Inicar Sesion"
                         Click="Conectar_Click"
                         Width="150"
@@ -25,21 +34,6 @@
                         FontSize="18"
                         HorizontalAlignment="Center" />
 
-
-                <TextBlock x:Name="EscribirMensaje"
-                        Text="Escribe tu mensaje: "
-                        FontSize="18"
-                        HorizontalAlignment="Center" />
-
-                <TextBox x:Name="MensajeTextBox"
-                        Width="200"
-                        PlaceholderText="Escribe tu mensaje aquí..." />
-
-                <Button 
-                        Content= "Enviar"
-                        Click = "Enviar_Click"
-                        Width="150"
-                        Height="40"/>
 
         </StackPanel>
 

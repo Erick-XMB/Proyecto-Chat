@@ -1,5 +1,6 @@
 
 using ServidorChat.Modelo;
+using System.Text.Json;
 
 namespace ServidorChat.controlador;
 /// <summary>
@@ -65,9 +66,49 @@ public class ServidorControlador
     /// Metodo que nos muetsra el mensaje recibido
     /// </summary>
     /// <param name="mensaje"> El mensaje que queremos mostrar</param>
-    public void MensajeRecibido(string mensaje)
+    public async void MensajeRecibido(ConexionCliente cliente, string mensaje)
     {
-        Console.WriteLine($"Mensaje recibido: {mensaje}");
+        Identify identify = JsonSerializer.Deserialize<Identify>(mensaje);
+
+        bool repetido = false;
+
+        if (identify.type.Equals("IDENTIFY"))
+        {
+
+            foreach (ConexionCliente c in clientes)
+            {
+                if (c.getUsername() == identify.username)
+                {
+                    repetido = true;
+
+                    UserAlreadyExist respuesta = new UserAlreadyExist(identify.username);
+
+                    string json = JsonSerializer.Serialize(respuesta);
+
+                    await cliente.EnviarMensaje(json);
+
+                    break;
+                }
+            }
+
+            if (!repetido)
+            {
+                cliente.setUsername(identify.username);
+                string identifyMostrar = JsonSerializer.Serialize(identify);
+
+                // { "type": "IDENTIFY","username": "Kimberly" }
+                Console.WriteLine(identifyMostrar);
+            }
+        }
+    }
+
+    public void MostrarListaDeCliente()
+    {
+        foreach (ConexionCliente c in clientes)
+        {
+            Console.WriteLine(c.getUsername + "\n");
+        }
+
     }
 
     /// <summary>
@@ -83,7 +124,7 @@ public class ServidorControlador
     /// Metodo por el cual cerramos el servidor
     /// </summary>
     public void Cerrar()
-    {   
+    {
         servidor.CerrarPuerto();
     }
 

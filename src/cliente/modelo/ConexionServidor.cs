@@ -1,10 +1,11 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ClienteChat.modelo;
 
-public class ConexionCl
+public class ConexionServidor
 {
 
     /** Checa el estado de la conexion TCP*/
@@ -20,16 +21,13 @@ public class ConexionCl
     /// <returns>
     /// <c>true</c> si se pudo establecer conexion, en caso contrario, <c>false</c>.
     /// </returns>
-    public bool Conectar()
-    {   
+    public bool Conectar(int puerto)
+    {
         /** Esta es la drieccion de servdior, usamos la del localhost*/
         string servidor = "127.0.0.1";
 
-        /** Este el numero del puerto que estara esperando conexiones*/
-        int puerto = 5049;
-
         try
-        {   
+        {
             /** CReamos un objeto TcpClient con el servidor y puerto previamente definidos*/
             cliente = new TcpClient(servidor, puerto);
 
@@ -53,7 +51,7 @@ public class ConexionCl
     /// texto que se quiere enviar al servidor
     /// </param>
     public void EnviarMensaje(string mensaje)
-    {   
+    {
         /** Aqui se verifica que haya una conexionn establecida con el servidor
             pues si es null siginifica que todavia no hay conexion*/
         if (stream == null)
@@ -69,10 +67,48 @@ public class ConexionCl
         stream.Write(datos, 0, datos.Length);
     }
 
+    /// <summary>
+    /// Metodo por el cual recibimos mensajes de manera asincrona
+    /// </summary>
+    /// <returns> Una tarea que representa el recibir mensajes</returns>
+    public async Task RecibirMensajes()
+    {
+        /** Aqui es donde guardaremos el flujo de bytes que nos mande el cliente*/
+        byte[] buffer = new byte[1024];
 
+        while (true)
+        {
+            /** Representa bytes leidos*/
+            int bytesLeidos;
 
+            try
+            {
 
+                /** leemos los bytes de manera asincrona y los guardamos en bytesLeidos */
+                bytesLeidos = await stream.ReadAsync(buffer);
 
+                /** guardamos en una cadena los bytes codificados usando el formato UTF8*/
+                string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
+
+                Console.WriteLine(mensaje);
+            }
+            catch (Exception)
+            {
+                break;
+            }
+
+            if (bytesLeidos == 0)
+            {
+                break;
+            }
+        }
+    }
 }
+
+
+
+
+
+
 
 

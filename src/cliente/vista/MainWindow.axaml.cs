@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using ClienteChat.controlador;
@@ -10,6 +11,8 @@ public partial class MainWindow : Window
 {
     /** Variable que hace referencia aun objeto de ClienteCOntrolador*/
     private readonly ClienteControlador controlador;
+
+    private string username = "";
 
 
     /** Constructor de mainWindow*/
@@ -28,21 +31,31 @@ public partial class MainWindow : Window
     /// <sumary>
     /// <param name="sender">Representa el objeto que producjo el evento, es decir el boton.</param>
     /// <param name="e">contiene la informacion relaciona con el evento que ocurrio.</param>
-    private void Conectar_Click(object? sender, RoutedEventArgs e)
+    private async void Conectar_Click(object? sender, RoutedEventArgs e)
     {
+        username = MensajeTextBox.Text;
 
         /** variable que guarda si se pudo establecer la conexion*/
-        bool conectado = controlador.Conectar();
+        bool conectado = controlador.Conectar(5085);
 
 
         /** Si la conexion se hace el */
         if (conectado)
         {
             /** el controlador pasa este mensaje a ConexionCliente y este lo envia usando NetworkStream*/
-            controlador.EnviarMensaje("Cliente se conecto");
+            controlador.Identificar(username);
 
-            /** Se modificsa el texto que tenemos en MainWindow.axml*/
-            EstadoTexto.Text = "Estado: Conectado";
+            VentanaChat ventanaChat = new VentanaChat();
+            ventanaChat.Show();
+
+            Close();
+
+
+            await controlador.RecibirMensaje();
+
+
+
+
 
         }
         else
@@ -51,27 +64,5 @@ public partial class MainWindow : Window
             EstadoTexto.Text = "Estado: Error de conexión";
 
         }
-    }
-
-
-    private void Enviar_Click(object? sender, RoutedEventArgs e)
-    {
-        /** variable que guarda la informacion de nuestra TextBox*/
-        string? informacion = MensajeTextBox.Text;
-
-
-        /** veriificamos que la informacion no sea vacia */
-        if (informacion != null)
-        {
-
-            /** Enviamos la informacion a nuestro servidor*/
-            controlador.EnviarMensaje(informacion);
-
-        } else
-        {   
-            /** si es vacia*/
-            controlador.EnviarMensaje("Nada que enviar");
-        }
-
     }
 }
