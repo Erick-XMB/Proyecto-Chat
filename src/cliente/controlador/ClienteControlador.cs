@@ -47,6 +47,17 @@ public class ClienteControlador{
         cliente.EnviarMensaje(json);
     }
 
+    public void Status(string status)
+    {
+        Status statusUsuaio = new Status(status);   
+        string json = JsonSerializer.Serialize(statusUsuaio);
+
+        Console.WriteLine(json);
+
+        cliente.EnviarMensaje(json);
+
+    }
+
     public async Task RecibirMensaje()
     {
        await cliente.RecibirMensajes();

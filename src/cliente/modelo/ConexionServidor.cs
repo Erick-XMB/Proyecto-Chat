@@ -91,6 +91,7 @@ public class ConexionServidor
                 string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
 
                 Console.WriteLine(mensaje);
+                
             }
             catch (Exception)
             {

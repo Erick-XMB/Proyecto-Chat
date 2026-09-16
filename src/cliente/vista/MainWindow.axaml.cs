@@ -14,6 +14,8 @@ public partial class MainWindow : Window
 
     private string username = "";
 
+    private int puerto = 0;
+
 
     /** Constructor de mainWindow*/
     public MainWindow()
@@ -35,8 +37,10 @@ public partial class MainWindow : Window
     {
         username = MensajeTextBox.Text;
 
+        puerto = int.Parse(PuertoTextBox.Text);
+
         /** variable que guarda si se pudo establecer la conexion*/
-        bool conectado = controlador.Conectar(5085);
+        bool conectado = controlador.Conectar(puerto);
 
 
         /** Si la conexion se hace el */
@@ -45,17 +49,14 @@ public partial class MainWindow : Window
             /** el controlador pasa este mensaje a ConexionCliente y este lo envia usando NetworkStream*/
             controlador.Identificar(username);
 
+            controlador.Status("ACTIVE");
+
             VentanaChat ventanaChat = new VentanaChat();
             ventanaChat.Show();
 
             Close();
 
-
             await controlador.RecibirMensaje();
-
-
-
-
 
         }
         else

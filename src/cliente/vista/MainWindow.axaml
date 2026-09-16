@@ -24,7 +24,16 @@
                         Width="200"
                         PlaceholderText="Ingresa tu nombre aqui..." />
 
-                <Button Content="Inicar Sesion"
+                <TextBlock x:Name="EscribirPuerto"
+                        Text="Ingresa el puerto: "
+                        FontSize="18"
+                        HorizontalAlignment="Center" />
+
+                <TextBox x:Name="PuertoTextBox"
+                        Width="200"
+                        PlaceholderText="Ingresa el puerto aqui..." />
+
+                <Button Content="Iniciar Sesion"
                         Click="Conectar_Click"
                         Width="150"
                         Height="40" />

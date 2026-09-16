@@ -108,7 +108,6 @@ public class ServidorControlador
         {
             Console.WriteLine(c.getUsername + "\n");
         }
-
     }
 
     /// <summary>
