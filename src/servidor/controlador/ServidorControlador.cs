@@ -2,6 +2,7 @@
 using ServidorChat.Modelo;
 using System.Text;
 using System.Text.Json;
+using protocoloMensajes;
 
 namespace ServidorChat.controlador;
 /// <summary>
@@ -188,16 +189,6 @@ public class ServidorControlador
         }
     }
 
-
-
-    public void MostrarListaDeCliente()
-    {
-        foreach (ConexionCliente c in clientes)
-        {
-            Console.WriteLine(c.GetUsername + "\n");
-            
-        }
-    }
 
     /// <summary>
     /// Operacion asincrona que nos permite iniciar le servidor

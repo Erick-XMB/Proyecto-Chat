@@ -1,3 +1,4 @@
+namespace protocoloMensajes;
 public class Response : Mensaje
 {
 

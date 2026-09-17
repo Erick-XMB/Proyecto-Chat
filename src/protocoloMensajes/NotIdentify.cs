@@ -3,6 +3,7 @@
   "operation": "INVALID",
   "result": "NOT_IDENTIFIED" }
   ```*/
+namespace protocoloMensajes;
 public class NotIdentify : Response
 {
     public string operation { get; set; }

@@ -1,3 +1,4 @@
+namespace protocoloMensajes;
 public class NewStatus : Mensaje
 {
     public string username { get; set; }

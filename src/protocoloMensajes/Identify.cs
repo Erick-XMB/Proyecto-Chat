@@ -1,3 +1,4 @@
+namespace protocoloMensajes;
 public class Identify : Mensaje
 {
     public string username { get; set; }

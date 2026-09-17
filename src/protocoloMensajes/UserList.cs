@@ -1,3 +1,4 @@
+namespace protocoloMensajes;
 public class UserList : Mensaje
 {
     public Dictionary<string, string> users { get; set; }

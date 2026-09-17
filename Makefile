@@ -21,4 +21,5 @@ limpiarCliente:
 clean:
 	dotnet clean src/servidor/ServidorChat.csproj
 	dotnet clean src/cliente/ClienteChat.csproj
+	dotnet clean src/protocoloMensajes/protocoloMensajes.csproj
 	

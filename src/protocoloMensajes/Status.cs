@@ -1,3 +1,4 @@
+namespace protocoloMensajes;
 public class Status : Mensaje
 {
   /** { "type": "NEW_STATUS",
