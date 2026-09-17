@@ -40,11 +40,12 @@ public class ClienteControlador{
 
 
     /** { "type": "IDENTIFY","username": "Kimberly" }*/
-    public void Identificar(string username)
+    public bool Identificar(string username)
     {   
         Identify mensaje = new Identify(username);
         string json =  JsonSerializer.Serialize(mensaje);
         cliente.EnviarMensaje(json);
+        return true;
     }
 
     public void Status(string status)
@@ -52,10 +53,16 @@ public class ClienteControlador{
         Status statusUsuaio = new Status(status);   
         string json = JsonSerializer.Serialize(statusUsuaio);
 
-        Console.WriteLine(json);
-
         cliente.EnviarMensaje(json);
 
+    }
+
+    public void Users()
+    {
+        Users users = new Users();
+        string json = JsonSerializer.Serialize(users);
+
+        cliente.EnviarMensaje(json);
     }
 
     public async Task RecibirMensaje()

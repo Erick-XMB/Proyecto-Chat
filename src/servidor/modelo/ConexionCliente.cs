@@ -25,12 +25,24 @@ public class ConexionCliente
 
     private string username;
 
-    public string getUsername()
+    private string status;
+
+    public string GetStatus()
+    {
+        return this.status;
+    }
+
+    public void SetStatus(string status)
+    {
+        this.status = status;
+    }
+
+    public string GetUsername()
     {
         return this.username;
     }
 
-    public void setUsername(string username)
+    public void SetUsername(string username)
     {
         this.username = username;
     }
@@ -47,7 +59,9 @@ public class ConexionCliente
 
     public void Desconectar()
     {
+        /* Cerramos el networkstream*/
         stream.Close();
+        /* Cerramos el tcpClient*/
         tcpCliente.Close();
     }
 
@@ -60,6 +74,9 @@ public class ConexionCliente
         /** Aqui es donde guardaremos el flujo de bytes que nos mande el cliente*/
         byte[] buffer = new byte[1024];
 
+        /* StringBuilder que nos ayuda a juntar las lineas*/
+        StringBuilder acumulador = new StringBuilder();
+
         while (true)
         {
             /** Representa bytes leidos*/
@@ -67,15 +84,8 @@ public class ConexionCliente
 
             try
             {
-
                 /** leemos los bytes de manera asincrona y los guardamos en bytesLeidos */
                 bytesLeidos = await stream.ReadAsync(buffer);
-
-                /** guardamos en una cadena los bytes codificados usando el formato UTF8*/
-                string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
-
-                /**Disparamos el evento de mensajeRecibido usando como parametro el mensaje */
-                mensajeRecibido?.Invoke(this,mensaje);
             }
             catch (Exception)
             {
@@ -86,14 +96,48 @@ public class ConexionCliente
             {
                 break;
             }
+
+            /* guardamos en una cadena los bytes codificados usando el formato UTF8*/
+            string datosRecibidos = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
+
+            /* Juntamos los datos recibidos*/
+            acumulador.Append(datosRecibidos);
+
+            /* pasamos esos datos a un string*/
+            string contenido = acumulador.ToString();
+
+            /* Separamos esos strings cada que encuentre un \n */
+            string[] mensajes = contenido.Split('\n');
+
+            acumulador.Clear();
+            
+            /* pegamos por si el ultimo elemento es un mensaje icompleto*/
+            acumulador.Append(mensajes[mensajes.Length - 1]);
+
+            /* recorremos los mensajes completos*/
+            for (int i = 0; i < mensajes.Length - 1; i++)
+            {   
+                /* obtenemos el actuual*/
+                string mensaje = mensajes[i];
+
+                /* vemos que no esta vacio*/
+                if (!string.IsNullOrEmpty(mensaje))
+                {   
+                    /* invocamos que s genero un mensaje*/
+                    mensajeRecibido?.Invoke(this, mensaje);
+                }
+            }
         }
     }
 
     public async Task EnviarMensaje(string mensaje)
     {
+
+        mensaje += "\n";
+
         byte[] datosAEnviar = Encoding.UTF8.GetBytes(mensaje);
 
-        await  stream.WriteAsync(datosAEnviar,0,datosAEnviar.Length);
+        await stream.WriteAsync(datosAEnviar, 0, datosAEnviar.Length);
 
     }
 }

@@ -1,5 +1,6 @@
 
 using ServidorChat.Modelo;
+using System.Text;
 using System.Text.Json;
 
 namespace ServidorChat.controlador;
@@ -68,45 +69,133 @@ public class ServidorControlador
     /// <param name="mensaje"> El mensaje que queremos mostrar</param>
     public async void MensajeRecibido(ConexionCliente cliente, string mensaje)
     {
-        Identify identify = JsonSerializer.Deserialize<Identify>(mensaje);
 
-        bool repetido = false;
-
-        if (identify.type.Equals("IDENTIFY"))
+        try
         {
+            Mensaje mensajeBase = JsonSerializer.Deserialize<Mensaje>(mensaje);
 
-            foreach (ConexionCliente c in clientes)
+
+            if (mensajeBase.type == "IDENTIFY")
             {
-                if (c.getUsername() == identify.username)
+                Identify identify = JsonSerializer.Deserialize<Identify>(mensaje);
+
+                bool repetido = false;
+
+                foreach (ConexionCliente c in clientes)
                 {
-                    repetido = true;
+                    if (c.GetUsername() == identify.username)
+                    {
+                        repetido = true;
 
-                    UserAlreadyExist respuesta = new UserAlreadyExist(identify.username);
+                        UserAlreadyExist respuesta = new UserAlreadyExist(identify.username);
 
-                    string json = JsonSerializer.Serialize(respuesta);
+                        string jsonUserAlreadyExists = JsonSerializer.Serialize(respuesta);
 
-                    await cliente.EnviarMensaje(json);
+                        // respuesta del servidor
+                        await cliente.EnviarMensaje(jsonUserAlreadyExists);
 
-                    break;
+                        clientes.Remove(cliente);
+
+                        cliente.Desconectar();
+
+                        break;
+                    }
+                }
+
+                if (!repetido)
+                {
+                    cliente.SetUsername(identify.username);
+
+                    Response respuesta = new Response();
+                    respuesta.operation = "IDENTIFY";
+                    respuesta.result = "SUCCESS";
+                    respuesta.extra = identify.username;
+
+                    NewUser newUser = new NewUser(identify.username);
+
+                    string jsonRespuesta = JsonSerializer.Serialize(respuesta);
+
+                    string identifyMostrar = JsonSerializer.Serialize(identify);
+
+                    string newUserMostrar = JsonSerializer.Serialize(newUser);
+
+                    await cliente.EnviarMensaje(identifyMostrar);
+                    await cliente.EnviarMensaje(jsonRespuesta);
+
+                    foreach (ConexionCliente c in clientes)
+                    {
+                        await c.EnviarMensaje(newUserMostrar);
+                    }
+
+                    Console.WriteLine(identifyMostrar);
+
+
+                    // { "type": "IDENTIFY","username": "Kimberly" }
                 }
             }
 
-            if (!repetido)
+            if (mensajeBase.type == "STATUS")
             {
-                cliente.setUsername(identify.username);
-                string identifyMostrar = JsonSerializer.Serialize(identify);
+                Status status = JsonSerializer.Deserialize<Status>(mensaje);
 
-                // { "type": "IDENTIFY","username": "Kimberly" }
-                Console.WriteLine(identifyMostrar);
+                cliente.SetStatus(status.status);
+
+                String mostrarStatus = JsonSerializer.Serialize(status);
+
+                Console.WriteLine(mostrarStatus);
             }
+
+            if (mensajeBase.type == "USERS")
+            {
+                Users usuario = JsonSerializer.Deserialize<Users>(mensaje);
+
+                string mostrarUser = JsonSerializer.Serialize(usuario);
+
+                Console.WriteLine(mostrarUser);
+
+                Dictionary<string, string> users = new Dictionary<string, string>();
+
+                foreach (ConexionCliente c in clientes)
+                {
+                    string username = c.GetUsername();
+                    string status = c.GetStatus();
+
+                    users.Add(username, status);
+                }
+
+                UserList userList = new UserList(users);
+
+                string jsonUserList = JsonSerializer.Serialize(userList);
+
+                await cliente.EnviarMensaje(jsonUserList);
+            }
+
+
+
+            if (mensajeBase.type == null)
+            {
+                NotIdentify notIdentify = new NotIdentify();
+
+                string jsonNotIdentify = JsonSerializer.Serialize(notIdentify);
+
+                Console.WriteLine(jsonNotIdentify);
+            }
+        } catch (JsonException)
+        {
+            NotIdentify notIdentify = new NotIdentify();
+            string jsonNotIdentify = JsonSerializer.Serialize(notIdentify);
+            cliente.EnviarMensaje(jsonNotIdentify);
         }
     }
+
+
 
     public void MostrarListaDeCliente()
     {
         foreach (ConexionCliente c in clientes)
         {
-            Console.WriteLine(c.getUsername + "\n");
+            Console.WriteLine(c.GetUsername + "\n");
+            
         }
     }
 

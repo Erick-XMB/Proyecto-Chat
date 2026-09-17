@@ -1,17 +1,17 @@
 public class Status : Mensaje
 {
-    /** { "type": "NEW_STATUS",
-  "username": "Kimberly",
-  "status": "AWAY" }*/
+  /** { "type": "NEW_STATUS",
+"username": "Kimberly",
+"status": "AWAY" }*/
 
-    public string status;
+  public string status { get; set; }
 
-    public Status(string status)
-    {
-       type = "STATUS";
-       this.status = status;
-    
-    }
+  public Status(string status)
+  {
+    type = "STATUS";
+    this.status = status;
+
+  }
 
 
 }

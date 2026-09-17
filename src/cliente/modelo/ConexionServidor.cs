@@ -1,6 +1,7 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ClienteChat.modelo;
@@ -50,7 +51,7 @@ public class ConexionServidor
     /// <param name="mensaje">
     /// texto que se quiere enviar al servidor
     /// </param>
-    public void EnviarMensaje(string mensaje)
+    public async void EnviarMensaje(string mensaje)
     {
         /** Aqui se verifica que haya una conexionn establecida con el servidor
             pues si es null siginifica que todavia no hay conexion*/
@@ -58,6 +59,8 @@ public class ConexionServidor
         {
             return;
         }
+
+        mensaje += "\n";
 
         /** Aqui se conierten una cadena de texto en un arreglos de numero binarios
             con el formato UTF8*/
@@ -91,7 +94,7 @@ public class ConexionServidor
                 string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
 
                 Console.WriteLine(mensaje);
-                
+
             }
             catch (Exception)
             {

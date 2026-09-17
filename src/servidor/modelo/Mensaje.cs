@@ -1,6 +1,6 @@
 using System;
 
-public abstract class Mensaje
+public class Mensaje
 {
     public string type { get; set;}
 

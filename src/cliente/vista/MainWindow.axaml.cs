@@ -47,16 +47,21 @@ public partial class MainWindow : Window
         if (conectado)
         {
             /** el controlador pasa este mensaje a ConexionCliente y este lo envia usando NetworkStream*/
-            controlador.Identificar(username);
+            if (controlador.Identificar(username))
+            {
 
-            controlador.Status("ACTIVE");
+                controlador.Status("ACTIVE");
 
-            VentanaChat ventanaChat = new VentanaChat();
-            ventanaChat.Show();
+                VentanaChat ventanaChat = new VentanaChat(controlador);
+                ventanaChat.Show();
+                this.Close();
 
-            Close();
-
-            await controlador.RecibirMensaje();
+                await controlador.RecibirMensaje();
+            }
+            else
+            {
+                this.Close();
+            }
 
         }
         else

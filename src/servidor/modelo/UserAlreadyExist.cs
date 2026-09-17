@@ -1,4 +1,4 @@
-public class UserAlreadyExist : Mensaje
+public class UserAlreadyExist : Response
 {
     /** { "type": "RESPONSE",
   "operation": "IDENTIFY",
@@ -12,7 +12,6 @@ public class UserAlreadyExist : Mensaje
 
     public UserAlreadyExist(string extra)
     {
-        type = "RESPONSE";
         operation = "IDENTIFY";
         result = "USER_ALREADY_EXISTS";
         this.extra = extra;

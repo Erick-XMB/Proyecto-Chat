@@ -6,9 +6,11 @@
     x:Class="ClienteChat.VentanaChat"
     Title="ClienteChat">
 
-    <TextBlock Text="holaa"
-                HorizontalAlignment= "Center"
-                VerticalAlignment= "Center"/>
-                
+
+    <Button Content="Mostar lista de usuarios"
+        Click="Lista_Usuarios"
+        Width="150"
+        Height="40" />
+
 
 </Window>
