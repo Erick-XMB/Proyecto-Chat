@@ -80,7 +80,7 @@ public class ConexionServidor
     public async Task RecibirMensajes()
     {
         /** Aqui es donde guardaremos el flujo de bytes que nos mande el cliente*/
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[1024*1024];
 
         while (true)
         {

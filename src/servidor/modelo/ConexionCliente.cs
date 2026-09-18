@@ -97,7 +97,7 @@ public class ConexionCliente
     public async Task RecibirMensajes()
     {
         /** Aqui es donde guardaremos el flujo de bytes que nos mande el cliente*/
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[1024*1024];
 
         /* StringBuilder que nos ayuda a juntar las lineas*/
         StringBuilder acumulador = new StringBuilder();
