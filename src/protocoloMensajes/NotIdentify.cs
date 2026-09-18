@@ -1,15 +1,14 @@
-/*   ```
-{ "type": "RESPONSE",
-  "operation": "INVALID",
-  "result": "NOT_IDENTIFIED" }
-  ```*/
+
 namespace protocoloMensajes;
+
+/// <summary>
+/// Clase que hereda de Response que representa el mensaje notIdentify
+/// </summary>
 public class NotIdentify : Response
 {
-    public string operation { get; set; }
-
-    public string result { get; set; }
-
+    /// <summary>
+    /// Constructor de nuestro mensaje NotIdentify
+    /// </summary>
     public NotIdentify()
     {
         this.operation = "INVALID";

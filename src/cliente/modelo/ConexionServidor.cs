@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClienteChat.modelo;
 
+/// <summary>
+/// Clase que representa las conexiones que el cliente tiene con el servidor
+/// </summary>
 public class ConexionServidor
 {
 

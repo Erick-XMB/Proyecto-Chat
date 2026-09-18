@@ -9,11 +9,19 @@ namespace ClienteChat;
 /** Clase que hereda de la clase window de avalonia*/
 public partial class MainWindow : Window
 {
-    /** Variable que hace referencia aun objeto de ClienteCOntrolador*/
+    /// <summary>
+    /// Variable que hace referencia a un objeto de tipo ClienteControlador
+    /// </summary>
     private readonly ClienteControlador controlador;
 
+    /// <summary>
+    /// Variable que hace referencia al username con el que se quiere iniciar sesion
+    /// </summary>
     private string username = "";
 
+    /// <summary>
+    /// Variable que hace referencia al puerto al que deseamos conectarnos
+    /// </summary>
     private int puerto = 0;
 
 

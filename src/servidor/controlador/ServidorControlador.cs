@@ -20,11 +20,9 @@ public class ServidorControlador
     /// </summary>    
     private readonly List<ConexionCliente> clientes;
 
-
-
     /// <summary>
     /// Constructor de nuestro ServidorControlador, donde iniciamos el servidor
-    /// la lista con las conexiones y hcemos la suscripcion de una nueva conexion con su metodo
+    /// la lista con las conexiones y hcemos la suscripcion de una nueva conexion con su metodos
     /// asignado
     /// </summary>
     /// <param name="puerto"> el puerto del servido. </param>
@@ -65,8 +63,9 @@ public class ServidorControlador
     }
 
     /// <summary>
-    /// Metodo que nos muetsra el mensaje recibido
+    /// Metodo que procesa los dsitintos tipos de mensajes que podamos recibir
     /// </summary>
+    /// <param name="cliente"> Es la conexion cliente que envio el mensaje a</param>
     /// <param name="mensaje"> El mensaje que queremos mostrar</param>
     public async void MensajeRecibido(ConexionCliente cliente, string mensaje)
     {
@@ -75,118 +74,152 @@ public class ServidorControlador
         {
             Mensaje mensajeBase = JsonSerializer.Deserialize<Mensaje>(mensaje);
 
-
-            if (mensajeBase.type == "IDENTIFY")
+            switch (mensajeBase.type)
             {
-                Identify identify = JsonSerializer.Deserialize<Identify>(mensaje);
+                case "IDENTIFY":
+                    ProcesarIdentify(cliente, mensaje);
+                    break;
 
-                bool repetido = false;
+                case "STATUS":
+                    ProcesarStatus(cliente, mensaje);
+                    break;
+                case "USERS":
+                    ProcesarUsers(cliente, mensaje);
+                    break;
 
-                foreach (ConexionCliente c in clientes)
-                {
-                    if (c.GetUsername() == identify.username)
-                    {
-                        repetido = true;
-
-                        UserAlreadyExist respuesta = new UserAlreadyExist(identify.username);
-
-                        string jsonUserAlreadyExists = JsonSerializer.Serialize(respuesta);
-
-                        // respuesta del servidor
-                        await cliente.EnviarMensaje(jsonUserAlreadyExists);
-
-                        clientes.Remove(cliente);
-
-                        cliente.Desconectar();
-
-                        break;
-                    }
-                }
-
-                if (!repetido)
-                {
-                    cliente.SetUsername(identify.username);
-
-                    Response respuesta = new Response();
-                    respuesta.operation = "IDENTIFY";
-                    respuesta.result = "SUCCESS";
-                    respuesta.extra = identify.username;
-
-                    NewUser newUser = new NewUser(identify.username);
-
-                    string jsonRespuesta = JsonSerializer.Serialize(respuesta);
-
-                    string identifyMostrar = JsonSerializer.Serialize(identify);
-
-                    string newUserMostrar = JsonSerializer.Serialize(newUser);
-
-                    await cliente.EnviarMensaje(identifyMostrar);
-                    await cliente.EnviarMensaje(jsonRespuesta);
-
-                    foreach (ConexionCliente c in clientes)
-                    {
-                        await c.EnviarMensaje(newUserMostrar);
-                    }
-
-                    Console.WriteLine(identifyMostrar);
-
-
-                    // { "type": "IDENTIFY","username": "Kimberly" }
-                }
+                default:
+                    ProcesarNotIdentify(cliente);
+                    break;
             }
-
-            if (mensajeBase.type == "STATUS")
-            {
-                Status status = JsonSerializer.Deserialize<Status>(mensaje);
-
-                cliente.SetStatus(status.status);
-
-                String mostrarStatus = JsonSerializer.Serialize(status);
-
-                Console.WriteLine(mostrarStatus);
-            }
-
-            if (mensajeBase.type == "USERS")
-            {
-                Users usuario = JsonSerializer.Deserialize<Users>(mensaje);
-
-                string mostrarUser = JsonSerializer.Serialize(usuario);
-
-                Console.WriteLine(mostrarUser);
-
-                Dictionary<string, string> users = new Dictionary<string, string>();
-
-                foreach (ConexionCliente c in clientes)
-                {
-                    string username = c.GetUsername();
-                    string status = c.GetStatus();
-
-                    users.Add(username, status);
-                }
-
-                UserList userList = new UserList(users);
-
-                string jsonUserList = JsonSerializer.Serialize(userList);
-
-                await cliente.EnviarMensaje(jsonUserList);
-            }
-
-
-
-            if (mensajeBase.type == null)
-            {
-                NotIdentify notIdentify = new NotIdentify();
-
-                string jsonNotIdentify = JsonSerializer.Serialize(notIdentify);
-
-                Console.WriteLine(jsonNotIdentify);
-            }
-        } catch (JsonException)
-        {
-            NotIdentify notIdentify = new NotIdentify();
-            string jsonNotIdentify = JsonSerializer.Serialize(notIdentify);
-            cliente.EnviarMensaje(jsonNotIdentify);
         }
+        catch (JsonException)
+        {
+            ProcesarNotIdentify(cliente);
+        }
+    }
+
+    /// <summary>
+    /// Metodo privado que procesa la intruccion de IDENTIFY enviada al servidor
+    /// Verifica que el nombre de usuario no este registrado, en otro casom registra al cliente y notifica la conexion
+    /// </summary>
+    /// <param name="cliente"> Es la conexion cliente que envio el mensaje a</param>
+    /// <param name="mensaje"> Es el mensaje recibido en formato json </param>
+    private async void ProcesarIdentify(ConexionCliente cliente, string mensaje)
+    {
+        Identify identify = JsonSerializer.Deserialize<Identify>(mensaje);
+
+        bool repetido = false;
+
+        foreach (ConexionCliente c in clientes)
+        {
+            if (c.GetUsername() == identify.username)
+            {
+                repetido = true;
+
+                UserAlreadyExist respuesta = new UserAlreadyExist(identify.username);
+
+                string jsonUserAlreadyExists = JsonSerializer.Serialize(respuesta);
+
+                // respuesta del servidor
+                await cliente.EnviarMensaje(jsonUserAlreadyExists);
+
+                clientes.Remove(cliente);
+
+                cliente.Desconectar();
+
+                break;
+            }
+        }
+
+        if (!repetido)
+        {
+            cliente.SetUsername(identify.username);
+
+            Response respuesta = new Response();
+            respuesta.operation = "IDENTIFY";
+            respuesta.result = "SUCCESS";
+            respuesta.extra = identify.username;
+
+            NewUser newUser = new NewUser(identify.username);
+
+            string jsonRespuesta = JsonSerializer.Serialize(respuesta);
+
+            string identifyMostrar = JsonSerializer.Serialize(identify);
+
+            string newUserMostrar = JsonSerializer.Serialize(newUser);
+
+            await cliente.EnviarMensaje(identifyMostrar);
+            await cliente.EnviarMensaje(jsonRespuesta);
+
+            foreach (ConexionCliente c in clientes)
+            {
+                await c.EnviarMensaje(newUserMostrar);
+            }
+
+            Console.WriteLine(identifyMostrar);
+        }
+    }
+
+    /// <summary>
+    /// Metodo privado que procesa la intruccion de STATUS enviada al servidor
+    /// Asigamos el status a nuestro cliente y motrsamos el mensaje de status
+    /// </summary>
+    /// <param name="cliente"> Es la conexion cliente que envio el mensaje a</param>
+    /// <param name="mensaje"> Es el mensaje recibido en formato json </param>
+    private void ProcesarStatus(ConexionCliente cliente, string mensaje)
+    {
+        Status status = JsonSerializer.Deserialize<Status>(mensaje);
+        cliente.SetStatus(status.status);
+
+        String mostrarStatus = JsonSerializer.Serialize(status);
+
+        Console.WriteLine(mostrarStatus);
+    }
+
+    /// <summary>
+    /// Metodo privado que procesa la intruccion de USERS enviada al servidor
+    /// Mostramos el mensaje USERS, creamos un diccionario que contenga entrada de username y status
+    /// de cada cliente en la lista de clientes obtenemos su nombre y su status y lo agregamos al diccionario
+    /// Serializamos como UserList y lo regresamos al cliente
+    /// 
+    /// </summary>
+    /// <param name="cliente"> Es la conexion cliente que envio el mensaje a</param>
+    /// <param name="mensaje"> Es el mensaje recibido en formato json </param>
+    private async void ProcesarUsers(ConexionCliente cliente, string mensaje)
+    {
+        Users usuario = JsonSerializer.Deserialize<Users>(mensaje);
+
+        string mostrarUser = JsonSerializer.Serialize(usuario);
+
+        Console.WriteLine(mostrarUser);
+
+        Dictionary<string, string> users = new Dictionary<string, string>();
+
+        foreach (ConexionCliente c in clientes)
+        {
+            string username = c.GetUsername();
+            string status = c.GetStatus();
+
+            users.Add(username, status);
+        }
+
+        UserList userList = new UserList(users);
+
+        string jsonUserList = JsonSerializer.Serialize(userList);
+
+        await cliente.EnviarMensaje(jsonUserList);
+    }
+
+    /// <summary>
+    /// Metodo privado que procesa los mensajes distintos a Identify enviados al servidor
+    /// Creamos el mensaje notIdentify lo serializamos y lo regresamos al cliente
+    /// </summary>
+    /// <param name="cliente"> Es la conexion cliente que envio el mensaje a</param>
+    private async void ProcesarNotIdentify(ConexionCliente cliente)
+    {
+        NotIdentify notIdentify = new NotIdentify();
+        string jsonNotIdentify = JsonSerializer.Serialize(notIdentify);
+        await cliente.EnviarMensaje(jsonNotIdentify);
     }
 
 

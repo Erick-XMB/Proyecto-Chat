@@ -23,25 +23,47 @@ public class ConexionCliente
 
     public event Action<ConexionCliente, String>? mensajeRecibido;
 
+    /// <summary>
+    /// Atributo string que representa el nombre de usuario de la conexion
+    /// </summary>
     private string username;
 
+    /// <summary>
+    /// Atributo string que representa el estado de la conexion
+    /// </summary>
     private string status;
 
+    /// <summary>
+    /// Metodo para obtener el estado de la conexion
+    /// </summary>
+    /// <returns> el estado de la conexion </returns>
     public string GetStatus()
     {
         return this.status;
     }
 
+    /// <summary>
+    /// Metodo para asignar el estado de la conexion
+    /// <param name="status"> Es el estado que queremos asignar</param>
+    /// </summary>
     public void SetStatus(string status)
     {
         this.status = status;
     }
 
+    /// <summary>
+    /// Metodo para obtener el nombre de la conexion
+    /// </summary>
+    /// <returns> el nombre de la conexion</returns>
     public string GetUsername()
     {
         return this.username;
     }
 
+    /// <summary>
+    /// Metodo para asignar el nombre de la conexion
+    /// <param name="username"> Es el nombre que queremos asignar</param>
+    /// </summary>
     public void SetUsername(string username)
     {
         this.username = username;
@@ -57,6 +79,9 @@ public class ConexionCliente
         this.stream = tcpCliente.GetStream();
     }
 
+    /// <summary>
+    /// Metodo para desconectar la conexion del servidor, cerramos el NetWorkStream y el TcpClient
+    /// </summary>
     public void Desconectar()
     {
         /* Cerramos el networkstream*/
@@ -110,19 +135,19 @@ public class ConexionCliente
             string[] mensajes = contenido.Split('\n');
 
             acumulador.Clear();
-            
+
             /* pegamos por si el ultimo elemento es un mensaje icompleto*/
             acumulador.Append(mensajes[mensajes.Length - 1]);
 
             /* recorremos los mensajes completos*/
             for (int i = 0; i < mensajes.Length - 1; i++)
-            {   
+            {
                 /* obtenemos el actuual*/
                 string mensaje = mensajes[i];
 
                 /* vemos que no esta vacio*/
                 if (!string.IsNullOrEmpty(mensaje))
-                {   
+                {
                     /* invocamos que s genero un mensaje*/
                     mensajeRecibido?.Invoke(this, mensaje);
                 }
@@ -130,6 +155,11 @@ public class ConexionCliente
         }
     }
 
+    /// <summary>
+    /// Metodo para enviar un mensaje al cliente, delimitamos con \n como dice el protocolo
+    /// </summary>
+    /// <param name="mensaje"> es el mensaje que queremos enviar </param>
+    /// <returns> tarea que representa la operacion de enviar el mensaje </returns>
     public async Task EnviarMensaje(string mensaje)
     {
 

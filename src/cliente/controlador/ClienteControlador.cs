@@ -6,15 +6,23 @@ using protocoloMensajes;
 
 namespace ClienteChat.controlador;
 
-public class ClienteControlador{
+/// <summary>
+/// Clase que representa el controlador de nuestro cliente
+/// </summary>
+public class ClienteControlador
+{
 
 
+    /// <summary>
+    /// Atributo que representa la conexion
+    /// </summary>
     private readonly ConexionServidor cliente;
 
     /// <summary>
     /// Constructor de CLienteControlador
     /// </summary>
-    public ClienteControlador(){
+    public ClienteControlador()
+    {
         cliente = new ConexionServidor();
     }
 
@@ -25,7 +33,8 @@ public class ClienteControlador{
     /// <c>true</c> si la conexion se establezca correctamente
     /// <c>false</c> si hay un error
     /// </returns>
-    public bool Conectar(int puerto){
+    public bool Conectar(int puerto)
+    {
         return cliente.Conectar(puerto);
     }
 
@@ -35,29 +44,43 @@ public class ClienteControlador{
     /// <param name="mensaje">
     /// Cadena de texto que se quiere enviar al servidor
     /// </param>
-    public void EnviarMensaje(string mensaje){
+    public void EnviarMensaje(string mensaje)
+    {
         cliente.EnviarMensaje(mensaje);
     }
 
 
-    /** { "type": "IDENTIFY","username": "Kimberly" }*/
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de identificarse
+    /// </summary>
+    /// <param name="username">
+    /// nombre de usuario con el que el cliente desea identificarse</param>
+    /// <returns> true si se identifico </returns>
     public bool Identificar(string username)
-    {   
+    {
         Identify mensaje = new Identify(username);
-        string json =  JsonSerializer.Serialize(mensaje);
+        string json = JsonSerializer.Serialize(mensaje);
         cliente.EnviarMensaje(json);
         return true;
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de status
+    /// </summary>
+    /// <param name="status">
+    ///  Es el status que queremos enviar</param>
     public void Status(string status)
     {
-        Status statusUsuaio = new Status(status);   
+        Status statusUsuaio = new Status(status);
         string json = JsonSerializer.Serialize(statusUsuaio);
 
         cliente.EnviarMensaje(json);
 
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de users
+    /// </summary>
     public void Users()
     {
         Users users = new Users();
@@ -66,9 +89,13 @@ public class ClienteControlador{
         cliente.EnviarMensaje(json);
     }
 
+    /// <summary>
+    /// Metodo que recibe mensajes que le llegan al cliente
+    /// </summary>
+    /// <returns> Una tarea que reprsenta la operacion de recibir mensajes</returns>
     public async Task RecibirMensaje()
     {
-       await cliente.RecibirMensajes();
+        await cliente.RecibirMensajes();
     }
 
 }
