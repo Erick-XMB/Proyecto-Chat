@@ -90,6 +90,17 @@ public class ClienteControlador
     }
 
     /// <summary>
+    /// Metodo que envia al serivdor la solicitud de PublicText
+    /// </summary>
+    /// <param name="text"> es el texto que queremos enviar </param>
+    public async void PublicText(string text)
+    {
+        PublicText publicText = new PublicText(text);
+        string jsonPublicText =  JsonSerializer.Serialize(publicText);
+        cliente.EnviarMensaje(jsonPublicText);
+    }
+
+    /// <summary>
     /// Metodo que recibe mensajes que le llegan al cliente
     /// </summary>
     /// <returns> Una tarea que reprsenta la operacion de recibir mensajes</returns>

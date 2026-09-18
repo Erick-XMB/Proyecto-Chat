@@ -35,4 +35,11 @@ public partial class VentanaChat : Window
         controlador.Users();
         await controlador.RecibirMensaje();
     }
+
+    public async void EnviarMensaje_Click(object? sender, RoutedEventArgs e)
+    {   
+        string? text = EnviarMensajeTextBox.Text;
+        controlador.PublicText(text);
+        EnviarMensajeTextBox.Clear();
+    }
 }

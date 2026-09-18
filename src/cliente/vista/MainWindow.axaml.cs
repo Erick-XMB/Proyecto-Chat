@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -43,40 +44,41 @@ public partial class MainWindow : Window
     /// <param name="e">contiene la informacion relaciona con el evento que ocurrio.</param>
     private async void Conectar_Click(object? sender, RoutedEventArgs e)
     {
-        username = MensajeTextBox.Text;
+            username = MensajeTextBox.Text;
 
-        puerto = int.Parse(PuertoTextBox.Text);
+            puerto = int.Parse(PuertoTextBox.Text);
 
-        /** variable que guarda si se pudo establecer la conexion*/
-        bool conectado = controlador.Conectar(puerto);
+            /** variable que guarda si se pudo establecer la conexion*/
+            bool conectado = controlador.Conectar(puerto);
 
 
-        /** Si la conexion se hace el */
-        if (conectado)
-        {
-            /** el controlador pasa este mensaje a ConexionCliente y este lo envia usando NetworkStream*/
-            if (controlador.Identificar(username))
+            /** Si la conexion se hace el */
+            if (conectado)
             {
+                /** el controlador pasa este mensaje a ConexionCliente y este lo envia usando NetworkStream*/
+                if (controlador.Identificar(username))
+                {
 
-                controlador.Status("ACTIVE");
+                    controlador.Status("ACTIVE");
 
-                VentanaChat ventanaChat = new VentanaChat(controlador);
-                ventanaChat.Show();
-                this.Close();
+                    VentanaChat ventanaChat = new VentanaChat(controlador);
+                    ventanaChat.Show();
+                    this.Close();
 
-                await controlador.RecibirMensaje();
+                    await controlador.RecibirMensaje();
+                }
+                else
+                {
+                    this.Close();
+                }
+
             }
             else
             {
-                this.Close();
+                /** Se modifica el texto que tenemos en MainWindow en caso de que la conexion se pudo hacer*/
+                EstadoTexto.Text = "Estado: Error de conexión";
+
             }
-
-        }
-        else
-        {
-            /** Se modifica el texto que tenemos en MainWindow en caso de que la conexion se pudo hacer*/
-            EstadoTexto.Text = "Estado: Error de conexión";
-
-        }
+        
     }
 }

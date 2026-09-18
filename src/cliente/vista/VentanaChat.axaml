@@ -7,10 +7,32 @@
     Title="ClienteChat">
 
 
-    <Button Content="Mostar lista de usuarios"
-        Click="Lista_Usuarios"
-        Width="150"
-        Height="40" />
+    <Grid RowDefinitions="*,Auto"
+        ColumnDefinitions="*,Auto">
+        <Button Content="Mostrar lista de usuarios"
+            Click="Lista_Usuarios"
+            Width="300"
+            Height="40"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Margin="10" />
 
+        <TextBox Grid.Row="1"
+            Grid.Column="0"
+            x:Name="EnviarMensajeTextBox"
+            Height="40"
+            Margin="10"
+            PlaceholderText="Enviar mensaje..." />
+
+
+        <Button Grid.Row="1"
+            Grid.Column="1"
+            Content="Enviar"
+            Click="EnviarMensaje_Click"
+            Width="150"
+            Height="40"
+            Margin="10" />
+
+    </Grid>
 
 </Window>

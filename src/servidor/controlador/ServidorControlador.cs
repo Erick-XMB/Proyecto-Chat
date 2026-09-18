@@ -62,6 +62,12 @@ public class ServidorControlador
         await cliente.RecibirMensajes();
     }
 
+    public void CerrarConexion(ConexionCliente cliente)
+    {   
+        clientes.Remove(cliente);
+        cliente.Desconectar();
+    }
+
     /// <summary>
     /// Metodo que procesa los dsitintos tipos de mensajes que podamos recibir
     /// </summary>
@@ -86,6 +92,9 @@ public class ServidorControlador
                 case "USERS":
                     ProcesarUsers(cliente, mensaje);
                     break;
+                case "PUBLIC_TEXT":
+                    ProcesarPublicText(cliente, mensaje);
+                    break;
 
                 default:
                     ProcesarNotIdentify(cliente);
@@ -94,7 +103,8 @@ public class ServidorControlador
         }
         catch (JsonException)
         {
-            ProcesarNotIdentify(cliente);
+            ProcesarJsonNoValido(cliente);
+            CerrarConexion(cliente);
         }
     }
 
@@ -125,7 +135,7 @@ public class ServidorControlador
 
                 clientes.Remove(cliente);
 
-                cliente.Desconectar();
+                CerrarConexion(cliente);
 
                 break;
             }
@@ -148,7 +158,6 @@ public class ServidorControlador
 
             string newUserMostrar = JsonSerializer.Serialize(newUser);
 
-            await cliente.EnviarMensaje(identifyMostrar);
             await cliente.EnviarMensaje(jsonRespuesta);
 
             foreach (ConexionCliente c in clientes)
@@ -166,13 +175,16 @@ public class ServidorControlador
     /// </summary>
     /// <param name="cliente"> Es la conexion cliente que envio el mensaje a</param>
     /// <param name="mensaje"> Es el mensaje recibido en formato json </param>
-    private void ProcesarStatus(ConexionCliente cliente, string mensaje)
+    private async void ProcesarStatus(ConexionCliente cliente, string mensaje)
     {
         Status status = JsonSerializer.Deserialize<Status>(mensaje);
         cliente.SetStatus(status.status);
 
-        String mostrarStatus = JsonSerializer.Serialize(status);
+        NewStatus newStatus = new NewStatus(cliente.GetUsername(), cliente.GetStatus());
+        string jsonNewStatus = JsonSerializer.Serialize(newStatus);
+        await cliente.EnviarMensaje(jsonNewStatus);
 
+        String mostrarStatus = JsonSerializer.Serialize(status);
         Console.WriteLine(mostrarStatus);
     }
 
@@ -222,6 +234,31 @@ public class ServidorControlador
         await cliente.EnviarMensaje(jsonNotIdentify);
     }
 
+    private async void ProcesarPublicText(ConexionCliente cliente, string mensaje)
+    {   
+        Console.WriteLine(mensaje);
+
+        PublicText publicText = JsonSerializer.Deserialize<PublicText>(mensaje);
+
+        PublicTextFrom publicTextFrom = new PublicTextFrom(cliente.GetUsername(), publicText.text);
+
+        string jsonPublicTextFrom = JsonSerializer.Serialize(publicTextFrom);
+
+        foreach(ConexionCliente c in clientes)
+        {
+            await c.EnviarMensaje(jsonPublicTextFrom);
+        }
+    }
+
+    private async void ProcesarJsonNoValido(ConexionCliente cliente)
+    {
+        Response response = new Response();
+        response.operation = "INVALID";
+        response.result = "INVALID";
+
+        string jsonNovalido = JsonSerializer.Serialize(response);
+        await cliente.EnviarMensaje(jsonNovalido);
+    }
 
     /// <summary>
     /// Operacion asincrona que nos permite iniciar le servidor
