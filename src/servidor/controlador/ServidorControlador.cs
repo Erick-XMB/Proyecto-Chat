@@ -3,6 +3,7 @@ using ServidorChat.Modelo;
 using System.Text;
 using System.Text.Json;
 using protocoloMensajes;
+using Microsoft.VisualBasic.FileIO;
 
 namespace ServidorChat.controlador;
 /// <summary>
@@ -63,7 +64,7 @@ public class ServidorControlador
     }
 
     public void CerrarConexion(ConexionCliente cliente)
-    {   
+    {
         clientes.Remove(cliente);
         cliente.Desconectar();
     }
@@ -95,9 +96,21 @@ public class ServidorControlador
                 case "PUBLIC_TEXT":
                     ProcesarPublicText(cliente, mensaje);
                     break;
+                case "TEXT":
+                    ProcesarText(cliente, mensaje);
+                    break;
 
                 default:
-                    ProcesarNotIdentify(cliente);
+                    if (mensajeBase.type != "IDENTIFY" && mensajeBase.type != null)
+                    {
+                        ProcesarNotIdentify(cliente);
+                        CerrarConexion(cliente);
+                    }
+                    else
+                    {
+                        ProcesarJsonNoValido(cliente);
+                        CerrarConexion(cliente);
+                    }
                     break;
             }
         }
@@ -145,30 +158,39 @@ public class ServidorControlador
         {
             cliente.SetUsername(identify.username);
 
+            cliente.SetStatus("ACTIVE");
+
             Response respuesta = new Response();
             respuesta.operation = "IDENTIFY";
             respuesta.result = "SUCCESS";
             respuesta.extra = identify.username;
 
-            NewUser newUser = new NewUser(identify.username);
-
             string jsonRespuesta = JsonSerializer.Serialize(respuesta);
 
             string identifyMostrar = JsonSerializer.Serialize(identify);
 
-            string newUserMostrar = JsonSerializer.Serialize(newUser);
+            ProcesarNewUser(cliente);
 
             await cliente.EnviarMensaje(jsonRespuesta);
-
-            foreach (ConexionCliente c in clientes)
-            {
-                await c.EnviarMensaje(newUserMostrar);
-            }
 
             Console.WriteLine(identifyMostrar);
         }
     }
 
+
+    private async void ProcesarNewUser(ConexionCliente cliente)
+    {
+        NewUser newUser = new NewUser(cliente.GetUsername());
+        string jsonNewUser = JsonSerializer.Serialize(newUser);
+
+        foreach (ConexionCliente c in clientes)
+        {
+            if (c != cliente)
+            {
+                await c.EnviarMensaje(jsonNewUser);
+            }
+        }
+    }
     /// <summary>
     /// Metodo privado que procesa la intruccion de STATUS enviada al servidor
     /// Asigamos el status a nuestro cliente y motrsamos el mensaje de status
@@ -181,8 +203,17 @@ public class ServidorControlador
         cliente.SetStatus(status.status);
 
         NewStatus newStatus = new NewStatus(cliente.GetUsername(), cliente.GetStatus());
+
         string jsonNewStatus = JsonSerializer.Serialize(newStatus);
-        await cliente.EnviarMensaje(jsonNewStatus);
+
+        foreach (ConexionCliente c in clientes)
+        {
+            if (c != cliente)
+            {
+
+                await c.EnviarMensaje(jsonNewStatus);
+            }
+        }
 
         String mostrarStatus = JsonSerializer.Serialize(status);
         Console.WriteLine(mostrarStatus);
@@ -235,7 +266,7 @@ public class ServidorControlador
     }
 
     private async void ProcesarPublicText(ConexionCliente cliente, string mensaje)
-    {   
+    {
         Console.WriteLine(mensaje);
 
         PublicText publicText = JsonSerializer.Deserialize<PublicText>(mensaje);
@@ -244,9 +275,49 @@ public class ServidorControlador
 
         string jsonPublicTextFrom = JsonSerializer.Serialize(publicTextFrom);
 
-        foreach(ConexionCliente c in clientes)
+        foreach (ConexionCliente c in clientes)
         {
-            await c.EnviarMensaje(jsonPublicTextFrom);
+            if (c != cliente)
+            {
+                await c.EnviarMensaje(jsonPublicTextFrom);
+            }
+        }
+    }
+
+    private async void ProcesarText(ConexionCliente cliente, string mensaje)
+    {
+        // recibimos el mensaje de text
+        Console.WriteLine(mensaje);
+        PrivText privText = JsonSerializer.Deserialize<PrivText>(mensaje);
+
+        // guardamos la informacion
+        string usernameDestino = privText.username;
+        string usernameOrigen = cliente.GetUsername();
+        string textoDelMensaje = privText.text;
+
+        // creamos el textFrom
+        PrivTextFrom privTextFrom = new PrivTextFrom(usernameOrigen, textoDelMensaje);
+        string jsonPrivTextFrom = JsonSerializer.Serialize(privTextFrom);
+
+        bool usuarioEncontrado = false;
+
+        // enviamos cmo respuesta el PrivTextFrom
+        foreach (ConexionCliente c in clientes)
+        {
+            if (c.GetUsername() == usernameDestino)
+            {
+                await c.EnviarMensaje(jsonPrivTextFrom);
+                usuarioEncontrado = true;
+                break;
+            }
+        }
+
+        // si el usuario no esta en las conexiones
+        if (!usuarioEncontrado)
+        {
+            NoSuchUser noSuchUser = new NoSuchUser(usernameDestino);
+            string jsonNoSuchUser = JsonSerializer.Serialize(noSuchUser);
+            await cliente.EnviarMensaje(jsonNoSuchUser);
         }
     }
 
@@ -276,7 +347,5 @@ public class ServidorControlador
     {
         servidor.CerrarPuerto();
     }
-
-
 }
 
