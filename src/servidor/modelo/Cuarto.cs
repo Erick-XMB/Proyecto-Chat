@@ -65,8 +65,6 @@ public class Cuarto
         return new List<ConexionCliente>(invitados);
     }
 
-
-
     /// <summary>
     /// Metodo que invita a una conexion al cuarto
     /// Verificamos si ya esta en el cuarto o si fue invitado
