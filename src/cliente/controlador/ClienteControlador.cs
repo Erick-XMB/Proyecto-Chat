@@ -199,6 +199,16 @@ public class ClienteControlador
                 PrivTextFrom? privTextFrom = JsonSerializer.Deserialize<PrivTextFrom>(mensaje);
                 MensajeParaInterfaz?.Invoke(privTextFrom);
                 break;
+            case "RESPONSE":
+                Response? response = JsonSerializer.Deserialize<Response>(mensaje);
+
+                if(response?.result == "NO_SUCH_USER")
+                {
+                    NoSuchUser? noSuchUser = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
+                    MensajeParaInterfaz?.Invoke(noSuchUser);
+                }
+
+                break;  
         }
     }
 

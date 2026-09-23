@@ -57,14 +57,13 @@ public partial class ChatPrivado : UserControl
     {
         switch (mensaje)
         {
-            case PrivTextFrom privTextFrom when privTextFrom.text == this.username:
+            case PrivTextFrom privTextFrom when privTextFrom.username == this.username:
                 MensajesPrivadosTextBox.Text += $"{privTextFrom.username}: {privTextFrom.text}\n";
                 break;
             case NoSuchUser noSuchUser when noSuchUser.extra == this.username:
-                // mostrar una pantalla de usuario no ecnontrado
-                // cerrar usando el equivalente a this.close()
+                MensajesPrivadosTextBox.Text += $"ERROR: USUARIO {noSuchUser.extra} NO ENCONTRADO\n";
+                MensajesPrivadosTextBox.IsEnabled = false;
                 break;
-
         }
     }
 
