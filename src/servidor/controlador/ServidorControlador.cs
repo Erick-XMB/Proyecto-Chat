@@ -111,7 +111,7 @@ public class ServidorControlador
             }
         }
     }
-    
+
     /// <summary>
     /// Metodo que nos permite cerrar la conexion de un cliente
     /// lo quitamos de la lista de clientes, lo sacamos de todos los cuartos en los que este
@@ -169,7 +169,7 @@ public class ServidorControlador
 
         try
         {
-            Mensaje mensajeBase = JsonSerializer.Deserialize<Mensaje>(mensaje);
+            Mensaje? mensajeBase = JsonSerializer.Deserialize<Mensaje>(mensaje);
 
             switch (mensajeBase.type)
             {
@@ -227,8 +227,8 @@ public class ServidorControlador
         }
         catch (JsonException)
         {
-            ProcesarJsonNoValido(cliente);
-            CerrarConexion(cliente);
+            await ProcesarJsonNoValido(cliente);
+            await CerrarConexion(cliente);
         }
     }
 
@@ -241,7 +241,7 @@ public class ServidorControlador
     /// <returns> Una tarea que representa la operacion asincrona de procesar un IDENTIFY</returns>
     private async Task ProcesarIdentify(ConexionCliente cliente, string mensaje)
     {
-        Identify identify = JsonSerializer.Deserialize<Identify>(mensaje);
+        Identify? identify = JsonSerializer.Deserialize<Identify>(mensaje);
 
         bool repetido = false;
 
@@ -260,7 +260,7 @@ public class ServidorControlador
 
                 clientes.Remove(cliente);
 
-                CerrarConexion(cliente);
+                await CerrarConexion(cliente);
 
                 break;
             }
@@ -281,7 +281,7 @@ public class ServidorControlador
 
             string identifyMostrar = JsonSerializer.Serialize(identify);
 
-            ProcesarNewUser(cliente);
+            await ProcesarNewUser(cliente);
 
             await cliente.EnviarMensaje(jsonRespuesta);
 
@@ -311,7 +311,7 @@ public class ServidorControlador
     /// <returns> Una tarea que representa la operacion asincrona de procesar un STATUS</returns>
     private async Task ProcesarStatus(ConexionCliente cliente, string mensaje)
     {
-        Status status = JsonSerializer.Deserialize<Status>(mensaje);
+        Status? status = JsonSerializer.Deserialize<Status>(mensaje);
         cliente.SetStatus(status.status);
 
         NewStatus newStatus = new NewStatus(cliente.GetUsername(), cliente.GetStatus());
@@ -343,7 +343,7 @@ public class ServidorControlador
     /// <returns> Una tarea que representa la operacion asincrona de procesar un USERS</returns>
     private async Task ProcesarUsers(ConexionCliente cliente, string mensaje)
     {
-        Users usuario = JsonSerializer.Deserialize<Users>(mensaje);
+        Users? usuario = JsonSerializer.Deserialize<Users>(mensaje);
 
         string mostrarUser = JsonSerializer.Serialize(usuario);
 
@@ -390,7 +390,7 @@ public class ServidorControlador
     {
         Console.WriteLine(mensaje);
 
-        PublicText publicText = JsonSerializer.Deserialize<PublicText>(mensaje);
+        PublicText? publicText = JsonSerializer.Deserialize<PublicText>(mensaje);
 
         PublicTextFrom publicTextFrom = new PublicTextFrom(cliente.GetUsername(), publicText.text);
 
@@ -416,7 +416,7 @@ public class ServidorControlador
     {
         // recibimos el mensaje de text
         Console.WriteLine(mensaje);
-        PrivText privText = JsonSerializer.Deserialize<PrivText>(mensaje);
+        PrivText? privText = JsonSerializer.Deserialize<PrivText>(mensaje);
 
         // guardamos la informacion
         string usernameDestino = privText.username;
@@ -453,7 +453,7 @@ public class ServidorControlador
     /// Metodo privado que procesa una instruccion que no pueda ser identificada por un type
     /// </summary>
     /// <param name="cliente"> es la conexion del cliente que envio el mensaje</param>
-        /// <returns> Una tarea que representa la operacion asincrona de procesar un type no valido </returns>
+    /// <returns> Una tarea que representa la operacion asincrona de procesar un type no valido </returns>
     private async Task ProcesarJsonNoValido(ConexionCliente cliente)
     {
         Response response = new Response();
@@ -475,12 +475,12 @@ public class ServidorControlador
     private async Task ProcesarNewRoom(ConexionCliente cliente, string mensaje)
     {
         Console.WriteLine(mensaje);
-        NewRoom newRoom = JsonSerializer.Deserialize<NewRoom>(mensaje);
+        NewRoom? newRoom = JsonSerializer.Deserialize<NewRoom>(mensaje);
         string roomname = newRoom.roomname;
 
         if (string.IsNullOrEmpty(roomname) || roomname.Length > 16)
         {
-            ProcesarJsonNoValido(cliente);
+            await ProcesarJsonNoValido(cliente);
             return;
         }
 
@@ -513,15 +513,15 @@ public class ServidorControlador
     private async Task ProcesarInvite(ConexionCliente cliente, string mensaje)
     {
         Console.WriteLine(mensaje);
-        Invite invite = JsonSerializer.Deserialize<Invite>(mensaje);
+        Invite? invite = JsonSerializer.Deserialize<Invite>(mensaje);
 
         string roomname = invite.roomname;
         List<string> usernames = invite.usernames;
 
         if (string.IsNullOrEmpty(roomname) || usernames == null || usernames.Contains(null))
         {
-            ProcesarJsonNoValido(cliente);
-            CerrarConexion(cliente);
+            await ProcesarJsonNoValido(cliente);
+            await CerrarConexion(cliente);
             return;
         }
 
@@ -530,8 +530,8 @@ public class ServidorControlador
         // verifivamos que quien invita esta en el cuarto
         if (!cuartos[roomname].EstaEnElCuarto(cliente))
         {
-            ProcesarJsonNoValido(cliente);
-            CerrarConexion(cliente);
+            await ProcesarJsonNoValido(cliente);
+            await CerrarConexion(cliente);
             return;
         }
 
@@ -583,14 +583,14 @@ public class ServidorControlador
     private async Task ProcesarJoinRoom(ConexionCliente cliente, string mensaje)
     {
         Console.WriteLine(mensaje);
-        JoinRoom joinRoom = JsonSerializer.Deserialize<JoinRoom>(mensaje);
+        JoinRoom? joinRoom = JsonSerializer.Deserialize<JoinRoom>(mensaje);
         string roomname = joinRoom.roomname;
 
 
         if (string.IsNullOrEmpty(roomname))
         {
-            ProcesarJsonNoValido(cliente);
-            CerrarConexion(cliente);
+            await ProcesarJsonNoValido(cliente);
+            await CerrarConexion(cliente);
             return;
         }
 
@@ -703,15 +703,15 @@ public class ServidorControlador
     private async Task ProcesarRoomText(ConexionCliente cliente, string mensaje)
     {
         Console.WriteLine(mensaje);
-        RoomText roomText = JsonSerializer.Deserialize<RoomText>(mensaje);
+        RoomText? roomText = JsonSerializer.Deserialize<RoomText>(mensaje);
         string roomname = roomText.roomname;
         string text = roomText.text;
         string username = cliente.GetUsername();
 
         if (string.IsNullOrEmpty(roomname) || text == null)
         {
-            ProcesarJsonNoValido(cliente);
-            CerrarConexion(cliente);
+            await ProcesarJsonNoValido(cliente);
+            await CerrarConexion(cliente);
             return;
         }
 
@@ -757,14 +757,14 @@ public class ServidorControlador
     private async Task ProcesarLeaveRoom(ConexionCliente cliente, string mensaje)
     {
         Console.WriteLine(mensaje);
-        LeaveRoom leaveRoom = JsonSerializer.Deserialize<LeaveRoom>(mensaje);
+        LeaveRoom? leaveRoom = JsonSerializer.Deserialize<LeaveRoom>(mensaje);
         string roomname = leaveRoom.roomname;
         string username = cliente.GetUsername();
 
         if (string.IsNullOrEmpty(roomname))
         {
-            ProcesarJsonNoValido(cliente);
-            CerrarConexion(cliente);
+            await ProcesarJsonNoValido(cliente);
+            await CerrarConexion(cliente);
             return;
         }
 
@@ -847,12 +847,5 @@ public class ServidorControlador
         await servidor.Iniciar();
     }
 
-    /// <summary>
-    /// Metodo por el cual cerramos el servidor
-    /// </summary>
-    public void Cerrar()
-    {
-        servidor.CerrarPuerto();
-    }
 }
 

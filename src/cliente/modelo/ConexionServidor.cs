@@ -18,6 +18,8 @@ public class ConexionServidor
     /** Atributo que maneja el flujo de la lectura*/
     private NetworkStream stream;
 
+    public event Action<string?> MensajeRecibido;
+
 
     /// <summary>
     /// Metodo que nos permite conectarnos al servidor
@@ -45,7 +47,6 @@ public class ConexionServidor
         {
             return false;
         }
-
     }
 
     /// <summary>
@@ -93,10 +94,11 @@ public class ConexionServidor
                 /** leemos los bytes de manera asincrona y los guardamos en bytesLeidos */
                 bytesLeidos = await stream.ReadAsync(buffer);
 
+
                 /** guardamos en una cadena los bytes codificados usando el formato UTF8*/
                 string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
 
-                Console.WriteLine(mensaje);
+                MensajeRecibido?.Invoke(mensaje);
 
             }
             catch (Exception)

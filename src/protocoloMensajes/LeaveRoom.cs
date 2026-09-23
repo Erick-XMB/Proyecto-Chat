@@ -11,7 +11,6 @@ public class LeaveRoom : Mensaje
     /// </summary>
     public string roomname {get; set;}
 
-
     /// <summary>
     /// Constructor de la clase LeaveRoom
     /// </summary>

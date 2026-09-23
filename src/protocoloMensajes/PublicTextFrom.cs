@@ -1,10 +1,3 @@
-//```
-//{ "type": "PUBLIC_TEXT_FROM",
-//  "username": "Kimberly",
-//  "text": "¡Hola todos!" }
-//```
-
-
 namespace protocoloMensajes;
 
 /// <summary>
@@ -25,14 +18,12 @@ public class PublicTextFrom : Mensaje
     /// <summary>
     /// Constructor del mensaje Public text from
     /// </summary>
-    /// <param name="username"></param>
-    /// <param name="text"></param>
+    /// <param name="username"> es el nombre de quien envua el mensaje </param>
+    /// <param name="text"> es el mensaje que se esta enviando </param>
     public PublicTextFrom(string username, string text)
     {
         type = "PUBLIC_TEXT_FROM";
         this.username = username;
         this.text = text;
-    }
-
-    
+    }   
 }

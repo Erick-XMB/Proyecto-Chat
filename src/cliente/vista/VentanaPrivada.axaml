@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="ClienteChat.VentanaPrivada"
+    Title="ClienteChat">
+
+    <StackPanel Margin="20"
+        Spacing="10">
+
+        <TextBlock Text="Usuario" />
+
+        <TextBox x:Name="UsuarioTextBox"
+            PlaceholderText="Nombre del usuario..." />
+
+        <Button Content="Cancelar"
+            Click="Cancelar_Click" />
+
+        <Button Content="Aceptar"
+            Click="Aceptar_Click" />
+
+    </StackPanel>
+    
+</Window>

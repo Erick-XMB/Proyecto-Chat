@@ -148,7 +148,7 @@ public class ConexionCliente
                 /* vemos que no esta vacio*/
                 if (!string.IsNullOrEmpty(mensaje))
                 {
-                    /* invocamos que s genero un mensaje*/
+                    /* invocamos que se genero un mensaje*/
                     mensajeRecibido?.Invoke(this, mensaje);
                 }
             }

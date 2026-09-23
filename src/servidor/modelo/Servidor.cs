@@ -70,18 +70,6 @@ public class Servidor
     }
 
     /// <summary>
-    /// Metodo que desactiva el servidor y detiene al TcpListener
-    /// </summary>
-    public void CerrarPuerto()
-    {
-        /** Pasamos el atributo de activo a falso */
-        activo = false;
-
-        /** Usamos la funcion Stop() que nos proporciona TcpListener para detener el servidor */
-        listener.Stop();
-    }
-
-    /// <summary>
     /// Metodo privado que acepta clientes TCP de manera asincrona
     /// y crea una instancia ConexionCliente para cada nueva conexion
     /// </summary>
