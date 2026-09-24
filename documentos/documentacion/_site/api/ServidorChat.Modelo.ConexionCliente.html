@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ConexionCliente | Documentacion Proyecto Chat </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ConexionCliente | Documentacion Proyecto Chat ">
+      
+      <meta name="description" content="Representa las conexiones TCP de los clientes del sistema de chat.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Erick-XMB/Proyecto-Chat/new/dev/apiSpec/new?filename=ServidorChat_Modelo_ConexionCliente.md&amp;value=---%0Auid%3A%20ServidorChat.Modelo.ConexionCliente%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Documentacion Proyecto Chat">
+            Documentacion Proyecto Chat
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ServidorChat.Modelo.ConexionCliente">
+
+
+
+  <h1 id="ServidorChat_Modelo_ConexionCliente" data-uid="ServidorChat.Modelo.ConexionCliente" class="text-break">
+Class ConexionCliente  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ServidorChat.html">ServidorChat</a>.<a class="xref" href="ServidorChat.Modelo.html">Modelo</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ServidorChat.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Representa las conexiones
+TCP de los clientes del sistema de chat.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ConexionCliente</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ConexionCliente</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente__ctor_" data-uid="ServidorChat.Modelo.ConexionCliente.#ctor*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente__ctor_System_Net_Sockets_TcpClient_" data-uid="ServidorChat.Modelo.ConexionCliente.#ctor(System.Net.Sockets.TcpClient)">
+  ConexionCliente(TcpClient)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor de la clase ConexionCliente</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConexionCliente(TcpClient tcpCliente)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tcpCliente</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.sockets.tcpclient">TcpClient</a></dt>
+    <dd><p>Es la conexion de cliente con la que trabajeremos</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente_Desconectar_" data-uid="ServidorChat.Modelo.ConexionCliente.Desconectar*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_Desconectar" data-uid="ServidorChat.Modelo.ConexionCliente.Desconectar">
+  Desconectar()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Metodo para desconectar la conexion del servidor, cerramos el NetWorkStream y el TcpClient</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Desconectar()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente_EnviarMensaje_" data-uid="ServidorChat.Modelo.ConexionCliente.EnviarMensaje*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_EnviarMensaje_System_String_" data-uid="ServidorChat.Modelo.ConexionCliente.EnviarMensaje(System.String)">
+  EnviarMensaje(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Metodo para enviar un mensaje al cliente, delimitamos con \n como dice el protocolo</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task EnviarMensaje(string mensaje)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mensaje</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>es el mensaje que queremos enviar</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>tarea que representa la operacion de enviar el mensaje</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente_GetStatus_" data-uid="ServidorChat.Modelo.ConexionCliente.GetStatus*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_GetStatus" data-uid="ServidorChat.Modelo.ConexionCliente.GetStatus">
+  GetStatus()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Metodo para obtener el estado de la conexion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetStatus()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>el estado de la conexion</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente_GetUsername_" data-uid="ServidorChat.Modelo.ConexionCliente.GetUsername*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_GetUsername" data-uid="ServidorChat.Modelo.ConexionCliente.GetUsername">
+  GetUsername()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Metodo para obtener el nombre de la conexion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetUsername()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>el nombre de la conexion</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente_RecibirMensajes_" data-uid="ServidorChat.Modelo.ConexionCliente.RecibirMensajes*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_RecibirMensajes" data-uid="ServidorChat.Modelo.ConexionCliente.RecibirMensajes">
+  RecibirMensajes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Metodo por el cual recibimos mensajes de manera asincrona</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RecibirMensajes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>Una tarea que representa el recibir mensajes</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente_SetStatus_" data-uid="ServidorChat.Modelo.ConexionCliente.SetStatus*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_SetStatus_System_String_" data-uid="ServidorChat.Modelo.ConexionCliente.SetStatus(System.String)">
+  SetStatus(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Metodo para asignar el estado de la conexion</p>
+<param name="status"> Es el estado que queremos asignar
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStatus(string status)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>status</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ServidorChat_Modelo_ConexionCliente_SetUsername_" data-uid="ServidorChat.Modelo.ConexionCliente.SetUsername*"></a>
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_SetUsername_System_String_" data-uid="ServidorChat.Modelo.ConexionCliente.SetUsername(System.String)">
+  SetUsername(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Metodo para asignar el nombre de la conexion</p>
+<param name="username"> Es el nombre que queremos asignar
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetUsername(string username)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>username</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="ServidorChat_Modelo_ConexionCliente_mensajeRecibido" data-uid="ServidorChat.Modelo.ConexionCliente.mensajeRecibido">
+  mensajeRecibido
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;ConexionCliente, string&gt;? mensajeRecibido</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="ServidorChat.Modelo.ConexionCliente.html">ConexionCliente</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/servidor/modelo/ConexionCliente.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

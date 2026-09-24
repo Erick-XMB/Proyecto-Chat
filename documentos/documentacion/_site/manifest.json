@@ -1,0 +1,844 @@
+{
+  "source_base_path": "/home/killomanlinux/Documentos/modelado&programacion/Proyecto-Chat/documentos/documentacion",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.App.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.App.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.App",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.ChatPrivado.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.ChatPrivado.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.ChatPrivado",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.CuartoPrivado.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.CuartoPrivado.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.CuartoPrivado",
+      "Summary": "<p sourcefile=\"api/ClienteChat.CuartoPrivado.yml\" sourcestartlinenumber=\"1\">Clase que hereda de UserControl de avalonia</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.MainWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.MainWindow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.MainWindow",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.VentanaChat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.VentanaChat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.VentanaChat",
+      "Summary": "<p sourcefile=\"api/ClienteChat.VentanaChat.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Window de Avalonia</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.VentanaCuarto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.VentanaCuarto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.VentanaCuarto",
+      "Summary": "<p sourcefile=\"api/ClienteChat.VentanaCuarto.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Window de avalonia</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.VentanaPrivada.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.VentanaPrivada.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.VentanaPrivada",
+      "Summary": "<p sourcefile=\"api/ClienteChat.VentanaPrivada.yml\" sourcestartlinenumber=\"1\">Clase VentanaPrivada que hereda de Window</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.controlador.ClienteControlador.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.controlador.ClienteControlador.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.controlador.ClienteControlador",
+      "Summary": "<p sourcefile=\"api/ClienteChat.controlador.ClienteControlador.yml\" sourcestartlinenumber=\"1\">Clase que representa el controlador de nuestro cliente</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.controlador.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.controlador.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.controlador",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.modelo.ConexionServidor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.modelo.ConexionServidor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.modelo.ConexionServidor",
+      "Summary": "<p sourcefile=\"api/ClienteChat.modelo.ConexionServidor.yml\" sourcestartlinenumber=\"1\">Clase que representa las conexiones que el cliente tiene con el servidor</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.modelo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.modelo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat.modelo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ClienteChat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ClienteChat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ClienteChat",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ServidorChat.Modelo.ConexionCliente.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ServidorChat.Modelo.ConexionCliente.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ServidorChat.Modelo.ConexionCliente",
+      "Summary": "<p sourcefile=\"api/ServidorChat.Modelo.ConexionCliente.yml\" sourcestartlinenumber=\"1\">Representa las conexiones\nTCP de los clientes del sistema de chat.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ServidorChat.Modelo.Servidor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ServidorChat.Modelo.Servidor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ServidorChat.Modelo.Servidor",
+      "Summary": "<p sourcefile=\"api/ServidorChat.Modelo.Servidor.yml\" sourcestartlinenumber=\"1\">Clase que representa el servidor encargado de aceptar y administrar las conexiones\nde los clientes del sistema de chat.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ServidorChat.Modelo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ServidorChat.Modelo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ServidorChat.Modelo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ServidorChat.controlador.ServidorControlador.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ServidorChat.controlador.ServidorControlador.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ServidorChat.controlador.ServidorControlador",
+      "Summary": "<p sourcefile=\"api/ServidorChat.controlador.ServidorControlador.yml\" sourcestartlinenumber=\"1\">Clase que representa el controlador de nuestro servidor</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ServidorChat.controlador.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ServidorChat.controlador.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ServidorChat.controlador",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Disconnect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Disconnect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Disconnect",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Disconnect.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa\nla peticion de desconeccion</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Disconnected.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Disconnected.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Disconnected",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Disconnected.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa el mensaje\nque alguien se desconecto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Identify.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Identify.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Identify",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Identify.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje con la operacion Identify</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.IdentifySuccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.IdentifySuccess.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.IdentifySuccess",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.IdentifySuccess.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa\nQue una identificacion fue exitosa</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Invalid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Invalid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Invalid",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Invalid.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa\nuna operacion invalida</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Invitation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Invitation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Invitation",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Invitation.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa que se te invito a un cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Invite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Invite.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Invite",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Invite.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa la invitacion a un cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.JoinRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.JoinRoom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.JoinRoom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.JoinRoom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa el unirse\na un cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.JoinRoomSuccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.JoinRoomSuccess.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.JoinRoomSuccess",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.JoinRoomSuccess.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa\nQue unirse a un cuarto fue exitoso</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.JoinedRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.JoinedRoom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.JoinedRoom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.JoinedRoom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa el mensaje\nque alguien se unio al cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.LeaveRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.LeaveRoom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.LeaveRoom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.LeaveRoom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa la peticion\nde abandonar una sala</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.LeftRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.LeftRoom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.LeftRoom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.LeftRoom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa la operacion\nde avisar que alguien abandono un cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Mensaje.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Mensaje.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Mensaje",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Mensaje.yml\" sourcestartlinenumber=\"1\">Clase que representa un mensaje</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NewRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NewRoom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NewRoom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NewRoom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa la instruccion de crear un nuevo cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NewRoomSucess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NewRoomSucess.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NewRoomSucess",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NewRoomSucess.yml\" sourcestartlinenumber=\"1\">Clase que hereda de response que representa que se pudo\ncrear de manera exitosa un cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NewStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NewStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NewStatus",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NewStatus.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa un mensaje de NewStatus</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NewUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NewUser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NewUser",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NewUser.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa un mensaje de NewUser</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NoSuchRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NoSuchRoom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NoSuchRoom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NoSuchRoom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa\ncuando no se pude encontrar la sala</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NoSuchUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NoSuchUser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NoSuchUser",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NoSuchUser.yml\" sourcestartlinenumber=\"1\">Clase que hereda de response que representa cuando\nno se encontro un usuario</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NotIdentify.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NotIdentify.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NotIdentify",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NotIdentify.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa el mensaje notIdentify</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NotInvited.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NotInvited.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NotInvited",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NotInvited.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa\nel mensaje que alguien no fue previamente invitado</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.NotJoined.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.NotJoined.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.NotJoined",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.NotJoined.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa el mensaje\nNot Joined</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.PrivText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.PrivText.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.PrivText",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.PrivText.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa enviar un texto privado</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.PrivTextFrom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.PrivTextFrom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.PrivTextFrom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.PrivTextFrom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa un texto privado</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.PublicText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.PublicText.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.PublicText",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.PublicText.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa el mensaje Public Text</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.PublicTextFrom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.PublicTextFrom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.PublicTextFrom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.PublicTextFrom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa la instruccion PublicTextFrom</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Response.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Response.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Response",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Response.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa el tipo de mensaje Response</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.RoomAlreadyExists.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.RoomAlreadyExists.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.RoomAlreadyExists",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.RoomAlreadyExists.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa que un cuarto\nya existe con el nombre propuesto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.RoomText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.RoomText.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.RoomText",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.RoomText.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa\nla peticion de enviar un mensaje a un cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.RoomTextFrom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.RoomTextFrom.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.RoomTextFrom",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.RoomTextFrom.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa\nquien envia un texto al cuarto</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.RoomUserList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.RoomUserList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.RoomUserList",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.RoomUserList.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa\nla lista de usuarios de una sala</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.RoomUsers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.RoomUsers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.RoomUsers",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.RoomUsers.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa\nla operacion de ROOM_USERS</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Status.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Status.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Status",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Status.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa la oepracion Status</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.UserAlreadyExist.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.UserAlreadyExist.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.UserAlreadyExist",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.UserAlreadyExist.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Response que representa el mensaje UserAlreadyExits</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.UserList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.UserList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.UserList",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.UserList.yml\" sourcestartlinenumber=\"1\">Clase que hereda de mensaje que representa el mensaje de UserList</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.Users.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.Users.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes.Users",
+      "Summary": "<p sourcefile=\"api/protocoloMensajes.Users.yml\" sourcestartlinenumber=\"1\">Clase que hereda de Mensaje que representa el mensaje de Users</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/protocoloMensajes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/protocoloMensajes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "protocoloMensajes",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

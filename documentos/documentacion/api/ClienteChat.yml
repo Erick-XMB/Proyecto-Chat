@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: ClienteChat
+  commentId: N:ClienteChat
+  id: ClienteChat
+  children:
+  - ClienteChat.App
+  - ClienteChat.ChatPrivado
+  - ClienteChat.CuartoPrivado
+  - ClienteChat.MainWindow
+  - ClienteChat.VentanaChat
+  - ClienteChat.VentanaCuarto
+  - ClienteChat.VentanaPrivada
+  langs:
+  - csharp
+  - vb
+  name: ClienteChat
+  nameWithType: ClienteChat
+  fullName: ClienteChat
+  type: Namespace
+  assemblies:
+  - ClienteChat
+references:
+- uid: ClienteChat.App
+  commentId: T:ClienteChat.App
+  href: ClienteChat.App.html
+  name: App
+  nameWithType: App
+  fullName: ClienteChat.App
+- uid: ClienteChat.ChatPrivado
+  commentId: T:ClienteChat.ChatPrivado
+  href: ClienteChat.ChatPrivado.html
+  name: ChatPrivado
+  nameWithType: ChatPrivado
+  fullName: ClienteChat.ChatPrivado
+- uid: ClienteChat.CuartoPrivado
+  commentId: T:ClienteChat.CuartoPrivado
+  href: ClienteChat.CuartoPrivado.html
+  name: CuartoPrivado
+  nameWithType: CuartoPrivado
+  fullName: ClienteChat.CuartoPrivado
+- uid: ClienteChat.MainWindow
+  commentId: T:ClienteChat.MainWindow
+  href: ClienteChat.MainWindow.html
+  name: MainWindow
+  nameWithType: MainWindow
+  fullName: ClienteChat.MainWindow
+- uid: ClienteChat.VentanaChat
+  commentId: T:ClienteChat.VentanaChat
+  href: ClienteChat.VentanaChat.html
+  name: VentanaChat
+  nameWithType: VentanaChat
+  fullName: ClienteChat.VentanaChat
+- uid: ClienteChat.VentanaCuarto
+  commentId: T:ClienteChat.VentanaCuarto
+  href: ClienteChat.VentanaCuarto.html
+  name: VentanaCuarto
+  nameWithType: VentanaCuarto
+  fullName: ClienteChat.VentanaCuarto
+- uid: ClienteChat.VentanaPrivada
+  commentId: T:ClienteChat.VentanaPrivada
+  href: ClienteChat.VentanaPrivada.html
+  name: VentanaPrivada
+  nameWithType: VentanaPrivada
+  fullName: ClienteChat.VentanaPrivada

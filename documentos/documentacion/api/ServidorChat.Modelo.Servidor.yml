@@ -1,0 +1,582 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServidorChat.Modelo.Servidor
+  commentId: T:ServidorChat.Modelo.Servidor
+  id: Servidor
+  parent: ServidorChat.Modelo
+  children:
+  - ServidorChat.Modelo.Servidor.#ctor(System.Int32)
+  - ServidorChat.Modelo.Servidor.GetActivo
+  - ServidorChat.Modelo.Servidor.Iniciar
+  - ServidorChat.Modelo.Servidor.nuevaConexion
+  langs:
+  - csharp
+  - vb
+  name: Servidor
+  nameWithType: Servidor
+  fullName: ServidorChat.Modelo.Servidor
+  type: Class
+  source:
+    remote:
+      path: src/servidor/modelo/Servidor.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: Servidor
+    path: ../../src/servidor/modelo/Servidor.cs
+    startLine: 10
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: >-
+    Clase que representa el servidor encargado de aceptar y administrar las conexiones
+
+    de los clientes del sistema de chat.
+  example: []
+  syntax:
+    content: public class Servidor
+    content.vb: Public Class Servidor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ServidorChat.Modelo.Servidor.nuevaConexion
+  commentId: E:ServidorChat.Modelo.Servidor.nuevaConexion
+  id: nuevaConexion
+  parent: ServidorChat.Modelo.Servidor
+  langs:
+  - csharp
+  - vb
+  name: nuevaConexion
+  nameWithType: Servidor.nuevaConexion
+  fullName: ServidorChat.Modelo.Servidor.nuevaConexion
+  type: Event
+  source:
+    remote:
+      path: src/servidor/modelo/Servidor.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: nuevaConexion
+    path: ../../src/servidor/modelo/Servidor.cs
+    startLine: 31
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Evento que notifica cuando se establece una nueva conexion con un cliente
+  example: []
+  syntax:
+    content: public event Action<ConexionCliente>? nuevaConexion
+    return:
+      type: System.Action{ServidorChat.Modelo.ConexionCliente}
+    content.vb: Public Event nuevaConexion As Action(Of ConexionCliente)
+- uid: ServidorChat.Modelo.Servidor.GetActivo
+  commentId: M:ServidorChat.Modelo.Servidor.GetActivo
+  id: GetActivo
+  parent: ServidorChat.Modelo.Servidor
+  langs:
+  - csharp
+  - vb
+  name: GetActivo()
+  nameWithType: Servidor.GetActivo()
+  fullName: ServidorChat.Modelo.Servidor.GetActivo()
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/Servidor.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: GetActivo
+    path: ../../src/servidor/modelo/Servidor.cs
+    startLine: 38
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Metodo que devuelve el atributo activo del sevidor
+  example: []
+  syntax:
+    content: public bool GetActivo()
+    return:
+      type: System.Boolean
+      description: El estado activo del servidor
+    content.vb: Public Function GetActivo() As Boolean
+  overload: ServidorChat.Modelo.Servidor.GetActivo*
+- uid: ServidorChat.Modelo.Servidor.#ctor(System.Int32)
+  commentId: M:ServidorChat.Modelo.Servidor.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: ServidorChat.Modelo.Servidor
+  langs:
+  - csharp
+  - vb
+  name: Servidor(int)
+  nameWithType: Servidor.Servidor(int)
+  fullName: ServidorChat.Modelo.Servidor.Servidor(int)
+  type: Constructor
+  source:
+    remote:
+      path: src/servidor/modelo/Servidor.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: .ctor
+    path: ../../src/servidor/modelo/Servidor.cs
+    startLine: 47
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Constructor de la clase Servidor
+  example: []
+  syntax:
+    content: public Servidor(int puerto)
+    parameters:
+    - id: puerto
+      type: System.Int32
+      description: Numero entero que representa el puerto del servidor.
+    content.vb: Public Sub New(puerto As Integer)
+  overload: ServidorChat.Modelo.Servidor.#ctor*
+  nameWithType.vb: Servidor.New(Integer)
+  fullName.vb: ServidorChat.Modelo.Servidor.New(Integer)
+  name.vb: New(Integer)
+- uid: ServidorChat.Modelo.Servidor.Iniciar
+  commentId: M:ServidorChat.Modelo.Servidor.Iniciar
+  id: Iniciar
+  parent: ServidorChat.Modelo.Servidor
+  langs:
+  - csharp
+  - vb
+  name: Iniciar()
+  nameWithType: Servidor.Iniciar()
+  fullName: ServidorChat.Modelo.Servidor.Iniciar()
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/Servidor.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: Iniciar
+    path: ../../src/servidor/modelo/Servidor.cs
+    startLine: 57
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Metodo que activa el servidor, inicia el TcpListener y comienza a aceptar clientes de manera asincrona
+  example: []
+  syntax:
+    content: public Task Iniciar()
+    return:
+      type: System.Threading.Tasks.Task
+      description: Una tarea que representa la operacion asincorna de aceptar clientes
+    content.vb: Public Function Iniciar() As Task
+  overload: ServidorChat.Modelo.Servidor.Iniciar*
+references:
+- uid: ServidorChat.Modelo
+  commentId: N:ServidorChat.Modelo
+  href: ServidorChat.html
+  name: ServidorChat.Modelo
+  nameWithType: ServidorChat.Modelo
+  fullName: ServidorChat.Modelo
+  spec.csharp:
+  - uid: ServidorChat
+    name: ServidorChat
+    href: ServidorChat.html
+  - name: .
+  - uid: ServidorChat.Modelo
+    name: Modelo
+    href: ServidorChat.Modelo.html
+  spec.vb:
+  - uid: ServidorChat
+    name: ServidorChat
+    href: ServidorChat.html
+  - name: .
+  - uid: ServidorChat.Modelo
+    name: Modelo
+    href: ServidorChat.Modelo.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action{ServidorChat.Modelo.ConexionCliente}
+  commentId: T:System.Action{ServidorChat.Modelo.ConexionCliente}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<ConexionCliente>
+  nameWithType: Action<ConexionCliente>
+  fullName: System.Action<ServidorChat.Modelo.ConexionCliente>
+  nameWithType.vb: Action(Of ConexionCliente)
+  fullName.vb: System.Action(Of ServidorChat.Modelo.ConexionCliente)
+  name.vb: Action(Of ConexionCliente)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: ServidorChat.Modelo.ConexionCliente
+    name: ConexionCliente
+    href: ServidorChat.Modelo.ConexionCliente.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServidorChat.Modelo.ConexionCliente
+    name: ConexionCliente
+    href: ServidorChat.Modelo.ConexionCliente.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServidorChat.Modelo.Servidor.GetActivo*
+  commentId: Overload:ServidorChat.Modelo.Servidor.GetActivo
+  href: ServidorChat.Modelo.Servidor.html#ServidorChat_Modelo_Servidor_GetActivo
+  name: GetActivo
+  nameWithType: Servidor.GetActivo
+  fullName: ServidorChat.Modelo.Servidor.GetActivo
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ServidorChat.Modelo.Servidor.#ctor*
+  commentId: Overload:ServidorChat.Modelo.Servidor.#ctor
+  href: ServidorChat.Modelo.Servidor.html#ServidorChat_Modelo_Servidor__ctor_System_Int32_
+  name: Servidor
+  nameWithType: Servidor.Servidor
+  fullName: ServidorChat.Modelo.Servidor.Servidor
+  nameWithType.vb: Servidor.New
+  fullName.vb: ServidorChat.Modelo.Servidor.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServidorChat.Modelo.Servidor.Iniciar*
+  commentId: Overload:ServidorChat.Modelo.Servidor.Iniciar
+  href: ServidorChat.Modelo.Servidor.html#ServidorChat_Modelo_Servidor_Iniciar
+  name: Iniciar
+  nameWithType: Servidor.Iniciar
+  fullName: ServidorChat.Modelo.Servidor.Iniciar
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

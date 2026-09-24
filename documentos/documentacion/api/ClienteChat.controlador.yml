@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: ClienteChat.controlador
+  commentId: N:ClienteChat.controlador
+  id: ClienteChat.controlador
+  children:
+  - ClienteChat.controlador.ClienteControlador
+  langs:
+  - csharp
+  - vb
+  name: ClienteChat.controlador
+  nameWithType: ClienteChat.controlador
+  fullName: ClienteChat.controlador
+  type: Namespace
+  assemblies:
+  - ClienteChat
+references:
+- uid: ClienteChat.controlador.ClienteControlador
+  commentId: T:ClienteChat.controlador.ClienteControlador
+  parent: ClienteChat.controlador
+  href: ClienteChat.controlador.ClienteControlador.html
+  name: ClienteControlador
+  nameWithType: ClienteControlador
+  fullName: ClienteChat.controlador.ClienteControlador
+- uid: ClienteChat.controlador
+  commentId: N:ClienteChat.controlador
+  href: ClienteChat.html
+  name: ClienteChat.controlador
+  nameWithType: ClienteChat.controlador
+  fullName: ClienteChat.controlador
+  spec.csharp:
+  - uid: ClienteChat
+    name: ClienteChat
+    href: ClienteChat.html
+  - name: .
+  - uid: ClienteChat.controlador
+    name: controlador
+    href: ClienteChat.controlador.html
+  spec.vb:
+  - uid: ClienteChat
+    name: ClienteChat
+    href: ClienteChat.html
+  - name: .
+  - uid: ClienteChat.controlador
+    name: controlador
+    href: ClienteChat.controlador.html

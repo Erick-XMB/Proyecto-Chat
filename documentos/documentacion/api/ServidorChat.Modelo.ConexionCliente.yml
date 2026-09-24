@@ -1,0 +1,838 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServidorChat.Modelo.ConexionCliente
+  commentId: T:ServidorChat.Modelo.ConexionCliente
+  id: ConexionCliente
+  parent: ServidorChat.Modelo
+  children:
+  - ServidorChat.Modelo.ConexionCliente.#ctor(System.Net.Sockets.TcpClient)
+  - ServidorChat.Modelo.ConexionCliente.Desconectar
+  - ServidorChat.Modelo.ConexionCliente.EnviarMensaje(System.String)
+  - ServidorChat.Modelo.ConexionCliente.GetStatus
+  - ServidorChat.Modelo.ConexionCliente.GetUsername
+  - ServidorChat.Modelo.ConexionCliente.RecibirMensajes
+  - ServidorChat.Modelo.ConexionCliente.SetStatus(System.String)
+  - ServidorChat.Modelo.ConexionCliente.SetUsername(System.String)
+  - ServidorChat.Modelo.ConexionCliente.mensajeRecibido
+  langs:
+  - csharp
+  - vb
+  name: ConexionCliente
+  nameWithType: ConexionCliente
+  fullName: ServidorChat.Modelo.ConexionCliente
+  type: Class
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: ConexionCliente
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 10
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: >-
+    Representa las conexiones 
+
+    TCP de los clientes del sistema de chat.
+  example: []
+  syntax:
+    content: public class ConexionCliente
+    content.vb: Public Class ConexionCliente
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ServidorChat.Modelo.ConexionCliente.mensajeRecibido
+  commentId: E:ServidorChat.Modelo.ConexionCliente.mensajeRecibido
+  id: mensajeRecibido
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: mensajeRecibido
+  nameWithType: ConexionCliente.mensajeRecibido
+  fullName: ServidorChat.Modelo.ConexionCliente.mensajeRecibido
+  type: Event
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: mensajeRecibido
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 23
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  syntax:
+    content: public event Action<ConexionCliente, string>? mensajeRecibido
+    return:
+      type: System.Action{ServidorChat.Modelo.ConexionCliente,System.String}
+    content.vb: Public Event mensajeRecibido As Action(Of ConexionCliente, String)
+- uid: ServidorChat.Modelo.ConexionCliente.GetStatus
+  commentId: M:ServidorChat.Modelo.ConexionCliente.GetStatus
+  id: GetStatus
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: GetStatus()
+  nameWithType: ConexionCliente.GetStatus()
+  fullName: ServidorChat.Modelo.ConexionCliente.GetStatus()
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: GetStatus
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 39
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Metodo para obtener el estado de la conexion
+  example: []
+  syntax:
+    content: public string GetStatus()
+    return:
+      type: System.String
+      description: el estado de la conexion
+    content.vb: Public Function GetStatus() As String
+  overload: ServidorChat.Modelo.ConexionCliente.GetStatus*
+- uid: ServidorChat.Modelo.ConexionCliente.SetStatus(System.String)
+  commentId: M:ServidorChat.Modelo.ConexionCliente.SetStatus(System.String)
+  id: SetStatus(System.String)
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: SetStatus(string)
+  nameWithType: ConexionCliente.SetStatus(string)
+  fullName: ServidorChat.Modelo.ConexionCliente.SetStatus(string)
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: SetStatus
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 48
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: >-
+    Metodo para asignar el estado de la conexion
+
+    <param name="status"> Es el estado que queremos asignar</param>
+  example: []
+  syntax:
+    content: public void SetStatus(string status)
+    parameters:
+    - id: status
+      type: System.String
+    content.vb: Public Sub SetStatus(status As String)
+  overload: ServidorChat.Modelo.ConexionCliente.SetStatus*
+  nameWithType.vb: ConexionCliente.SetStatus(String)
+  fullName.vb: ServidorChat.Modelo.ConexionCliente.SetStatus(String)
+  name.vb: SetStatus(String)
+- uid: ServidorChat.Modelo.ConexionCliente.GetUsername
+  commentId: M:ServidorChat.Modelo.ConexionCliente.GetUsername
+  id: GetUsername
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: GetUsername()
+  nameWithType: ConexionCliente.GetUsername()
+  fullName: ServidorChat.Modelo.ConexionCliente.GetUsername()
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: GetUsername
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 57
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Metodo para obtener el nombre de la conexion
+  example: []
+  syntax:
+    content: public string GetUsername()
+    return:
+      type: System.String
+      description: el nombre de la conexion
+    content.vb: Public Function GetUsername() As String
+  overload: ServidorChat.Modelo.ConexionCliente.GetUsername*
+- uid: ServidorChat.Modelo.ConexionCliente.SetUsername(System.String)
+  commentId: M:ServidorChat.Modelo.ConexionCliente.SetUsername(System.String)
+  id: SetUsername(System.String)
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: SetUsername(string)
+  nameWithType: ConexionCliente.SetUsername(string)
+  fullName: ServidorChat.Modelo.ConexionCliente.SetUsername(string)
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: SetUsername
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 66
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: >-
+    Metodo para asignar el nombre de la conexion
+
+    <param name="username"> Es el nombre que queremos asignar</param>
+  example: []
+  syntax:
+    content: public void SetUsername(string username)
+    parameters:
+    - id: username
+      type: System.String
+    content.vb: Public Sub SetUsername(username As String)
+  overload: ServidorChat.Modelo.ConexionCliente.SetUsername*
+  nameWithType.vb: ConexionCliente.SetUsername(String)
+  fullName.vb: ServidorChat.Modelo.ConexionCliente.SetUsername(String)
+  name.vb: SetUsername(String)
+- uid: ServidorChat.Modelo.ConexionCliente.#ctor(System.Net.Sockets.TcpClient)
+  commentId: M:ServidorChat.Modelo.ConexionCliente.#ctor(System.Net.Sockets.TcpClient)
+  id: '#ctor(System.Net.Sockets.TcpClient)'
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: ConexionCliente(TcpClient)
+  nameWithType: ConexionCliente.ConexionCliente(TcpClient)
+  fullName: ServidorChat.Modelo.ConexionCliente.ConexionCliente(System.Net.Sockets.TcpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: .ctor
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 75
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Constructor de la clase ConexionCliente
+  example: []
+  syntax:
+    content: public ConexionCliente(TcpClient tcpCliente)
+    parameters:
+    - id: tcpCliente
+      type: System.Net.Sockets.TcpClient
+      description: Es la conexion de cliente con la que trabajeremos
+    content.vb: Public Sub New(tcpCliente As TcpClient)
+  overload: ServidorChat.Modelo.ConexionCliente.#ctor*
+  nameWithType.vb: ConexionCliente.New(TcpClient)
+  fullName.vb: ServidorChat.Modelo.ConexionCliente.New(System.Net.Sockets.TcpClient)
+  name.vb: New(TcpClient)
+- uid: ServidorChat.Modelo.ConexionCliente.Desconectar
+  commentId: M:ServidorChat.Modelo.ConexionCliente.Desconectar
+  id: Desconectar
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: Desconectar()
+  nameWithType: ConexionCliente.Desconectar()
+  fullName: ServidorChat.Modelo.ConexionCliente.Desconectar()
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: Desconectar
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 84
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Metodo para desconectar la conexion del servidor, cerramos el NetWorkStream y el TcpClient
+  example: []
+  syntax:
+    content: public void Desconectar()
+    content.vb: Public Sub Desconectar()
+  overload: ServidorChat.Modelo.ConexionCliente.Desconectar*
+- uid: ServidorChat.Modelo.ConexionCliente.RecibirMensajes
+  commentId: M:ServidorChat.Modelo.ConexionCliente.RecibirMensajes
+  id: RecibirMensajes
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: RecibirMensajes()
+  nameWithType: ConexionCliente.RecibirMensajes()
+  fullName: ServidorChat.Modelo.ConexionCliente.RecibirMensajes()
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: RecibirMensajes
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 96
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Metodo por el cual recibimos mensajes de manera asincrona
+  example: []
+  syntax:
+    content: public Task RecibirMensajes()
+    return:
+      type: System.Threading.Tasks.Task
+      description: Una tarea que representa el recibir mensajes
+    content.vb: Public Function RecibirMensajes() As Task
+  overload: ServidorChat.Modelo.ConexionCliente.RecibirMensajes*
+- uid: ServidorChat.Modelo.ConexionCliente.EnviarMensaje(System.String)
+  commentId: M:ServidorChat.Modelo.ConexionCliente.EnviarMensaje(System.String)
+  id: EnviarMensaje(System.String)
+  parent: ServidorChat.Modelo.ConexionCliente
+  langs:
+  - csharp
+  - vb
+  name: EnviarMensaje(string)
+  nameWithType: ConexionCliente.EnviarMensaje(string)
+  fullName: ServidorChat.Modelo.ConexionCliente.EnviarMensaje(string)
+  type: Method
+  source:
+    remote:
+      path: src/servidor/modelo/ConexionCliente.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: EnviarMensaje
+    path: ../../src/servidor/modelo/ConexionCliente.cs
+    startLine: 162
+  assemblies:
+  - ServidorChat
+  namespace: ServidorChat.Modelo
+  summary: Metodo para enviar un mensaje al cliente, delimitamos con \n como dice el protocolo
+  example: []
+  syntax:
+    content: public Task EnviarMensaje(string mensaje)
+    parameters:
+    - id: mensaje
+      type: System.String
+      description: es el mensaje que queremos enviar
+    return:
+      type: System.Threading.Tasks.Task
+      description: tarea que representa la operacion de enviar el mensaje
+    content.vb: Public Function EnviarMensaje(mensaje As String) As Task
+  overload: ServidorChat.Modelo.ConexionCliente.EnviarMensaje*
+  nameWithType.vb: ConexionCliente.EnviarMensaje(String)
+  fullName.vb: ServidorChat.Modelo.ConexionCliente.EnviarMensaje(String)
+  name.vb: EnviarMensaje(String)
+references:
+- uid: ServidorChat.Modelo
+  commentId: N:ServidorChat.Modelo
+  href: ServidorChat.html
+  name: ServidorChat.Modelo
+  nameWithType: ServidorChat.Modelo
+  fullName: ServidorChat.Modelo
+  spec.csharp:
+  - uid: ServidorChat
+    name: ServidorChat
+    href: ServidorChat.html
+  - name: .
+  - uid: ServidorChat.Modelo
+    name: Modelo
+    href: ServidorChat.Modelo.html
+  spec.vb:
+  - uid: ServidorChat
+    name: ServidorChat
+    href: ServidorChat.html
+  - name: .
+  - uid: ServidorChat.Modelo
+    name: Modelo
+    href: ServidorChat.Modelo.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Action{ServidorChat.Modelo.ConexionCliente,System.String}
+  commentId: T:System.Action{ServidorChat.Modelo.ConexionCliente,System.String}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<ConexionCliente, string>
+  nameWithType: Action<ConexionCliente, string>
+  fullName: System.Action<ServidorChat.Modelo.ConexionCliente, string>
+  nameWithType.vb: Action(Of ConexionCliente, String)
+  fullName.vb: System.Action(Of ServidorChat.Modelo.ConexionCliente, String)
+  name.vb: Action(Of ConexionCliente, String)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: ServidorChat.Modelo.ConexionCliente
+    name: ConexionCliente
+    href: ServidorChat.Modelo.ConexionCliente.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServidorChat.Modelo.ConexionCliente
+    name: ConexionCliente
+    href: ServidorChat.Modelo.ConexionCliente.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: ServidorChat.Modelo.ConexionCliente.GetStatus*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.GetStatus
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente_GetStatus
+  name: GetStatus
+  nameWithType: ConexionCliente.GetStatus
+  fullName: ServidorChat.Modelo.ConexionCliente.GetStatus
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServidorChat.Modelo.ConexionCliente.SetStatus*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.SetStatus
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente_SetStatus_System_String_
+  name: SetStatus
+  nameWithType: ConexionCliente.SetStatus
+  fullName: ServidorChat.Modelo.ConexionCliente.SetStatus
+- uid: ServidorChat.Modelo.ConexionCliente.GetUsername*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.GetUsername
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente_GetUsername
+  name: GetUsername
+  nameWithType: ConexionCliente.GetUsername
+  fullName: ServidorChat.Modelo.ConexionCliente.GetUsername
+- uid: ServidorChat.Modelo.ConexionCliente.SetUsername*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.SetUsername
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente_SetUsername_System_String_
+  name: SetUsername
+  nameWithType: ConexionCliente.SetUsername
+  fullName: ServidorChat.Modelo.ConexionCliente.SetUsername
+- uid: ServidorChat.Modelo.ConexionCliente.#ctor*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.#ctor
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente__ctor_System_Net_Sockets_TcpClient_
+  name: ConexionCliente
+  nameWithType: ConexionCliente.ConexionCliente
+  fullName: ServidorChat.Modelo.ConexionCliente.ConexionCliente
+  nameWithType.vb: ConexionCliente.New
+  fullName.vb: ServidorChat.Modelo.ConexionCliente.New
+  name.vb: New
+- uid: System.Net.Sockets.TcpClient
+  commentId: T:System.Net.Sockets.TcpClient
+  parent: System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.sockets.tcpclient
+  name: TcpClient
+  nameWithType: TcpClient
+  fullName: System.Net.Sockets.TcpClient
+- uid: System.Net.Sockets
+  commentId: N:System.Net.Sockets
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Sockets
+  nameWithType: System.Net.Sockets
+  fullName: System.Net.Sockets
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Sockets
+    name: Sockets
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.sockets
+- uid: ServidorChat.Modelo.ConexionCliente.Desconectar*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.Desconectar
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente_Desconectar
+  name: Desconectar
+  nameWithType: ConexionCliente.Desconectar
+  fullName: ServidorChat.Modelo.ConexionCliente.Desconectar
+- uid: ServidorChat.Modelo.ConexionCliente.RecibirMensajes*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.RecibirMensajes
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente_RecibirMensajes
+  name: RecibirMensajes
+  nameWithType: ConexionCliente.RecibirMensajes
+  fullName: ServidorChat.Modelo.ConexionCliente.RecibirMensajes
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ServidorChat.Modelo.ConexionCliente.EnviarMensaje*
+  commentId: Overload:ServidorChat.Modelo.ConexionCliente.EnviarMensaje
+  href: ServidorChat.Modelo.ConexionCliente.html#ServidorChat_Modelo_ConexionCliente_EnviarMensaje_System_String_
+  name: EnviarMensaje
+  nameWithType: ConexionCliente.EnviarMensaje
+  fullName: ServidorChat.Modelo.ConexionCliente.EnviarMensaje

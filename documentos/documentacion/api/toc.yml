@@ -1,0 +1,171 @@
+### YamlMime:TableOfContent
+items:
+- uid: ClienteChat
+  name: ClienteChat
+  type: Namespace
+  items:
+  - uid: ClienteChat.App
+    name: App
+    type: Class
+  - uid: ClienteChat.ChatPrivado
+    name: ChatPrivado
+    type: Class
+  - uid: ClienteChat.CuartoPrivado
+    name: CuartoPrivado
+    type: Class
+  - uid: ClienteChat.MainWindow
+    name: MainWindow
+    type: Class
+  - uid: ClienteChat.VentanaChat
+    name: VentanaChat
+    type: Class
+  - uid: ClienteChat.VentanaCuarto
+    name: VentanaCuarto
+    type: Class
+  - uid: ClienteChat.VentanaPrivada
+    name: VentanaPrivada
+    type: Class
+- uid: ClienteChat.controlador
+  name: ClienteChat.controlador
+  type: Namespace
+  items:
+  - uid: ClienteChat.controlador.ClienteControlador
+    name: ClienteControlador
+    type: Class
+- uid: ClienteChat.modelo
+  name: ClienteChat.modelo
+  type: Namespace
+  items:
+  - uid: ClienteChat.modelo.ConexionServidor
+    name: ConexionServidor
+    type: Class
+- uid: ServidorChat.Modelo
+  name: ServidorChat.Modelo
+  type: Namespace
+  items:
+  - uid: ServidorChat.Modelo.ConexionCliente
+    name: ConexionCliente
+    type: Class
+  - uid: ServidorChat.Modelo.Servidor
+    name: Servidor
+    type: Class
+- uid: ServidorChat.controlador
+  name: ServidorChat.controlador
+  type: Namespace
+  items:
+  - uid: ServidorChat.controlador.ServidorControlador
+    name: ServidorControlador
+    type: Class
+- uid: protocoloMensajes
+  name: protocoloMensajes
+  type: Namespace
+  items:
+  - uid: protocoloMensajes.Disconnect
+    name: Disconnect
+    type: Class
+  - uid: protocoloMensajes.Disconnected
+    name: Disconnected
+    type: Class
+  - uid: protocoloMensajes.Identify
+    name: Identify
+    type: Class
+  - uid: protocoloMensajes.IdentifySuccess
+    name: IdentifySuccess
+    type: Class
+  - uid: protocoloMensajes.Invalid
+    name: Invalid
+    type: Class
+  - uid: protocoloMensajes.Invitation
+    name: Invitation
+    type: Class
+  - uid: protocoloMensajes.Invite
+    name: Invite
+    type: Class
+  - uid: protocoloMensajes.JoinRoom
+    name: JoinRoom
+    type: Class
+  - uid: protocoloMensajes.JoinRoomSuccess
+    name: JoinRoomSuccess
+    type: Class
+  - uid: protocoloMensajes.JoinedRoom
+    name: JoinedRoom
+    type: Class
+  - uid: protocoloMensajes.LeaveRoom
+    name: LeaveRoom
+    type: Class
+  - uid: protocoloMensajes.LeftRoom
+    name: LeftRoom
+    type: Class
+  - uid: protocoloMensajes.Mensaje
+    name: Mensaje
+    type: Class
+  - uid: protocoloMensajes.NewRoom
+    name: NewRoom
+    type: Class
+  - uid: protocoloMensajes.NewRoomSucess
+    name: NewRoomSucess
+    type: Class
+  - uid: protocoloMensajes.NewStatus
+    name: NewStatus
+    type: Class
+  - uid: protocoloMensajes.NewUser
+    name: NewUser
+    type: Class
+  - uid: protocoloMensajes.NoSuchRoom
+    name: NoSuchRoom
+    type: Class
+  - uid: protocoloMensajes.NoSuchUser
+    name: NoSuchUser
+    type: Class
+  - uid: protocoloMensajes.NotIdentify
+    name: NotIdentify
+    type: Class
+  - uid: protocoloMensajes.NotInvited
+    name: NotInvited
+    type: Class
+  - uid: protocoloMensajes.NotJoined
+    name: NotJoined
+    type: Class
+  - uid: protocoloMensajes.PrivText
+    name: PrivText
+    type: Class
+  - uid: protocoloMensajes.PrivTextFrom
+    name: PrivTextFrom
+    type: Class
+  - uid: protocoloMensajes.PublicText
+    name: PublicText
+    type: Class
+  - uid: protocoloMensajes.PublicTextFrom
+    name: PublicTextFrom
+    type: Class
+  - uid: protocoloMensajes.Response
+    name: Response
+    type: Class
+  - uid: protocoloMensajes.RoomAlreadyExists
+    name: RoomAlreadyExists
+    type: Class
+  - uid: protocoloMensajes.RoomText
+    name: RoomText
+    type: Class
+  - uid: protocoloMensajes.RoomTextFrom
+    name: RoomTextFrom
+    type: Class
+  - uid: protocoloMensajes.RoomUserList
+    name: RoomUserList
+    type: Class
+  - uid: protocoloMensajes.RoomUsers
+    name: RoomUsers
+    type: Class
+  - uid: protocoloMensajes.Status
+    name: Status
+    type: Class
+  - uid: protocoloMensajes.UserAlreadyExist
+    name: UserAlreadyExist
+    type: Class
+  - uid: protocoloMensajes.UserList
+    name: UserList
+    type: Class
+  - uid: protocoloMensajes.Users
+    name: Users
+    type: Class
+memberLayout: SamePage

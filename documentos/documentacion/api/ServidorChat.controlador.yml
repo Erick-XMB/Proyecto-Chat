@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServidorChat.controlador
+  commentId: N:ServidorChat.controlador
+  id: ServidorChat.controlador
+  children:
+  - ServidorChat.controlador.ServidorControlador
+  langs:
+  - csharp
+  - vb
+  name: ServidorChat.controlador
+  nameWithType: ServidorChat.controlador
+  fullName: ServidorChat.controlador
+  type: Namespace
+  assemblies:
+  - ServidorChat
+references:
+- uid: ServidorChat.controlador.ServidorControlador
+  commentId: T:ServidorChat.controlador.ServidorControlador
+  href: ServidorChat.controlador.ServidorControlador.html
+  name: ServidorControlador
+  nameWithType: ServidorControlador
+  fullName: ServidorChat.controlador.ServidorControlador
