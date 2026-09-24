@@ -5,7 +5,16 @@ namespace protocoloMensajes;
 /// el mensaje que alguien no fue previamente invitado
 /// </summary>
 public class NotInvited : Response
-{   
+{
+
+    /// <summary>
+    /// Constructor vacio 
+    /// </summary>
+    public NotInvited()
+    {
+
+    }
+
     /// <summary>
     /// Clase que construye el mensaje de NoSuchRoom
     /// </summary>
@@ -14,7 +23,7 @@ public class NotInvited : Response
     {
         operation = "JOIN_ROOM";
         result = "NOT_INVITED";
-        extra =roomname;
+        extra = roomname;
     }
 
 

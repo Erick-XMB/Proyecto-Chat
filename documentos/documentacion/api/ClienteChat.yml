@@ -9,8 +9,6 @@ items:
   - ClienteChat.CuartoPrivado
   - ClienteChat.MainWindow
   - ClienteChat.VentanaChat
-  - ClienteChat.VentanaCuarto
-  - ClienteChat.VentanaPrivada
   langs:
   - csharp
   - vb
@@ -51,15 +49,3 @@ references:
   name: VentanaChat
   nameWithType: VentanaChat
   fullName: ClienteChat.VentanaChat
-- uid: ClienteChat.VentanaCuarto
-  commentId: T:ClienteChat.VentanaCuarto
-  href: ClienteChat.VentanaCuarto.html
-  name: VentanaCuarto
-  nameWithType: VentanaCuarto
-  fullName: ClienteChat.VentanaCuarto
-- uid: ClienteChat.VentanaPrivada
-  commentId: T:ClienteChat.VentanaPrivada
-  href: ClienteChat.VentanaPrivada.html
-  name: VentanaPrivada
-  nameWithType: VentanaPrivada
-  fullName: ClienteChat.VentanaPrivada

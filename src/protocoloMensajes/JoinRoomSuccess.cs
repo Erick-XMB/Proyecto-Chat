@@ -5,7 +5,15 @@ namespace protocoloMensajes;
 /// Que unirse a un cuarto fue exitoso
 /// </summary>
 public class JoinRoomSuccess : Response
-{
+{       
+    /// <summary>
+    /// Constructor vacio 
+    /// </summary>
+    public JoinRoomSuccess()
+    {
+        
+    }
+
     /// <summary>
     /// Constructor de la clase JoinRoomSucces
     /// </summary>

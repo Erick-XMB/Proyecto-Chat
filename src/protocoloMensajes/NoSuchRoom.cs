@@ -7,6 +7,14 @@ namespace protocoloMensajes;
 public class NoSuchRoom : Response
 {
     /// <summary>
+    /// Constructor vacio 
+    /// </summary>
+    public NoSuchRoom()
+    {
+
+    }
+
+    /// <summary>
     /// Constrcuctor del mensaje NoSuhcRoom
     /// </summary>
     /// <param name="operation"> es la operacion que se hizo </param>

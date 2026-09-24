@@ -554,7 +554,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 26
+    startLine: 38
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -589,7 +589,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: OpcionActive
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 151
+    startLine: 196
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -627,7 +627,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: OpcionAway
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 161
+    startLine: 206
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -665,7 +665,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: OpcionBusy
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 171
+    startLine: 216
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -703,7 +703,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: EnviarMensaje_Click
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 182
+    startLine: 227
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -740,7 +740,7 @@ items:
   source:
     id: InitializeComponent
     path: /home/killomanlinux/Documentos/modelado&programacion/Proyecto-Chat/src/cliente/obj/Release/net10.0/Avalonia.Generators/Avalonia.Generators.NameGenerator.AvaloniaNameIncrementalGenerator/ClienteChat.VentanaChat.g.cs
-    startLine: 24
+    startLine: 32
   assemblies:
   - ClienteChat
   namespace: ClienteChat

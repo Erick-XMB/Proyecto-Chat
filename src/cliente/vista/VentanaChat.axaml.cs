@@ -19,6 +19,18 @@ public partial class VentanaChat : Window
     /// </summary>
     private readonly ClienteControlador controlador;
 
+    /// <summary>
+    /// Variable que hace referencia al nombre de la sala que escribimos en los botones
+    /// asociadas a las salas
+    /// </summary>
+    private string roomnameEscrito;
+
+    /// <summary>
+    /// Variable que hace referencia al nombre de usuario que escribimos en el boton de 
+    /// escribir un mensaje privado
+    /// </summary>
+    private string usuarioEscrito;
+
 
     /// <summary>
     /// Constructor de la clase VentanaChat
@@ -53,32 +65,57 @@ public partial class VentanaChat : Window
     /// <param name="e">contiene la informacion relaciona con el evento que ocurrio</param>
     private async void MensajePrivado_Click(object? sender, RoutedEventArgs e)
     {
-        VentanaPrivada ventana = new VentanaPrivada();
-        string? usuario = await ventana.ShowDialog<string?>(this);
+        var cajaDeTextoEscribirPrivado = this.FindControl<TextBox>("EscribirPrivado");
+        usuarioEscrito = cajaDeTextoEscribirPrivado.Text;
 
-        if (string.IsNullOrWhiteSpace(usuario))
+        if (string.IsNullOrWhiteSpace(usuarioEscrito))
         {
             return;
         }
 
-        CrearConversacionPrivada(usuario, true);
+        CrearConversacionPrivada(usuarioEscrito, true);
+    }
+
+    /// <summary>
+    /// Metodo que nos permite que al dar click en UnirseCuarto mandemos el mensaje de JoinRoom 
+    /// al servidor
+    /// </summary>
+    /// <param name="sender">Representa el objeto que producjo el evento, es decir el boton</param>
+    /// <param name="e">contiene la informacion relaciona con el evento que ocurrio</param>
+    private async void UnirseCuarto_Click(object? sender, RoutedEventArgs e)
+    {
+
+        var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("UnirseCuarto");
+        roomnameEscrito = cajaDeTextoEscribirCuarto.Text;
+        if (string.IsNullOrWhiteSpace(roomnameEscrito))
+        {
+            return;
+        }
+
+        controlador.JoinRoom(roomnameEscrito);
+        cajaDeTextoEscribirCuarto.Clear();
     }
 
     /// <summary>
     /// Metodo asocidado con el boton de Crear Cuarto, es analogo a MensajePrivado_Click es solo
-    /// que aqui no creamos el cuarto
+    /// que aqui no creamos el tab del cuarto
     /// </summary>
     /// <param name="sender">Representa el objeto que producjo el evento, es decir el boton</param>
     /// <param name="e">contiene la informacion relaciona con el evento que ocurrio</param>
-    private async void CrearCuarto_Click(object? sender, RoutedEventArgs e)
+    private void CrearCuarto_Click(object? sender, RoutedEventArgs e)
     {
-        VentanaCuarto ventana = new VentanaCuarto(controlador);
-        string? roomname = await ventana.ShowDialog<string?>(this);
+        //VentanaCuarto ventana = new VentanaCuarto(controlador);
+        //string? roomname = await ventana.ShowDialog<string?>(this);
 
-        if (string.IsNullOrWhiteSpace(roomname))
+        var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("EscribirCuarto");
+        roomnameEscrito = cajaDeTextoEscribirCuarto.Text;
+        if (string.IsNullOrWhiteSpace(roomnameEscrito))
         {
             return;
         }
+
+        controlador.NewRoom(roomnameEscrito);
+        cajaDeTextoEscribirCuarto.Clear();
     }
 
     /// <summary>
@@ -88,11 +125,19 @@ public partial class VentanaChat : Window
     /// <param name="roomname"> es el nombre del cuarto </param>
     private void CrearCuartoPrivado(string roomname)
     {
+        foreach (TabItem? tabItem in ConversacionesTabControl.Items)
+        {
+            if (tabItem.Tag?.ToString() == roomname)
+            {
+                return;
+            }
+        }
+
         TabItem nuevaPestana = new TabItem
         {
             Header = roomname,
             Tag = roomname,
-            Content = new CuartoPrivado(controlador)
+            Content = new CuartoPrivado(controlador, roomname)
         };
 
         ConversacionesTabControl.Items.Add(nuevaPestana);
@@ -234,6 +279,23 @@ public partial class VentanaChat : Window
 
             case RoomAlreadyExists roomAlreadyExists:
                 MensajesTextBox.Text += $"La sala {roomAlreadyExists.extra} YA EXISTE\n";
+                break;
+
+            case NoSuchRoom noSuchRoom when noSuchRoom.operation == "JOIN_ROOM":
+                MensajesTextBox.Text += $"La sala {noSuchRoom.extra} NO EXISTE\n";
+                break;
+
+            case Invitation invitation:
+                var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("InvitacionesCuarto");
+                cajaDeTextoEscribirCuarto.Text += $"Invitado a '{invitation.roomname}' por '{invitation.username}' \n";
+                break;
+
+            case JoinRoomSuccess joinRoomSuccess:
+                CrearCuartoPrivado(joinRoomSuccess.extra);
+                break;
+
+            case NotInvited notInvited:
+                MensajesTextBox.Text += $"NO FUISTE INVITADO A LA SALA '{notInvited.extra}'";
                 break;
 
             case Response response:

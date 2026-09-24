@@ -211,7 +211,6 @@ public class ClienteControlador
             return;
         }
 
-
         try
         {
             Console.WriteLine(mensaje);
@@ -232,10 +231,31 @@ public class ClienteControlador
                     MensajeParaInterfaz?.Invoke(newUser);
                     break;
 
+                case "INVITATION":
+                    Invitation? invitation = JsonSerializer.Deserialize<Invitation>(mensaje);
+                    MensajeParaInterfaz?.Invoke(invitation);
+                    break;
+
+                case "JOINED_ROOM":
+                    JoinedRoom? joinedRoom = JsonSerializer.Deserialize<JoinedRoom>(mensaje);
+                    MensajeParaInterfaz?.Invoke(joinedRoom);
+                    break;
+
                 case "PUBLIC_TEXT_FROM":
                     PublicTextFrom? PublicTextFrom = JsonSerializer.Deserialize<PublicTextFrom>(mensaje);
                     MensajeParaInterfaz?.Invoke(PublicTextFrom);
                     break;
+
+                case "ROOM_USER_LIST":
+                    RoomUserList? roomUserList = JsonSerializer.Deserialize<RoomUserList>(mensaje);
+                    MensajeParaInterfaz?.Invoke(roomUserList);
+                    break;
+
+                case "LEFT_ROOM":
+                    LeftRoom? leftRoom = JsonSerializer.Deserialize<LeftRoom>(mensaje);
+                    MensajeParaInterfaz?.Invoke(leftRoom);
+                    break;
+
                 case "DISCONNECTED":
                     Disconnected? disconnected = JsonSerializer.Deserialize<Disconnected>(mensaje);
                     MensajeParaInterfaz?.Invoke(disconnected);
@@ -251,6 +271,11 @@ public class ClienteControlador
                     MensajeParaInterfaz?.Invoke(userList);
                     break;
 
+                case "ROOM_TEXT_FROM":
+                    RoomTextFrom? roomTextFrom = JsonSerializer.Deserialize<RoomTextFrom>(mensaje);
+                    MensajeParaInterfaz?.Invoke(roomTextFrom);
+                    break;
+
                 case "TEXT_FROM":
                     PrivTextFrom? privTextFrom = JsonSerializer.Deserialize<PrivTextFrom>(mensaje);
                     MensajeParaInterfaz?.Invoke(privTextFrom);
@@ -262,10 +287,60 @@ public class ClienteControlador
 
                     switch (resultadoResponse)
                     {
-                        case "NO_SUCH_USER":
+                        case "NO_SUCH_USER" when operacionResponse == "TEXT":
                             NoSuchUser? noSuchUser = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
                             MensajeParaInterfaz?.Invoke(noSuchUser);
                             break;
+                        case "NO_SUCH_USER" when operacionResponse == "INVITE":
+                            NoSuchUser? noSuchUserInvite = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
+                            MensajeParaInterfaz?.Invoke(noSuchUserInvite);
+                            break;
+
+                        case "NO_SUCH_ROOM" when operacionResponse == "INVITE":
+                            NoSuchRoom? noSuchRoom = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
+                            MensajeParaInterfaz?.Invoke(noSuchRoom);
+                            break;
+
+                        case "NO_SUCH_ROOM" when operacionResponse == "JOIN_ROOM":
+                            NoSuchRoom? noSuchRoomJoin = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
+                            MensajeParaInterfaz?.Invoke(noSuchRoomJoin);
+                            break;
+
+                        case "NO_SUCH_ROOM" when operacionResponse == "LEAVE_ROOM":
+                            NoSuchRoom? noSuchRoomLeave = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
+                            MensajeParaInterfaz?.Invoke(noSuchRoomLeave);
+                            break;
+
+                        case "NO_SUCH_ROOM" when operacionResponse == "ROOM_USERS":
+                            NoSuchRoom? noSuchRoomUsers = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
+                            MensajeParaInterfaz?.Invoke(noSuchRoomUsers);
+                            break;
+
+                        case "NO_SUCH_ROOM" when operacionResponse == "ROOM_TEXT":
+                            NoSuchRoom? noSuchRoomText = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
+                            MensajeParaInterfaz?.Invoke(noSuchRoomText);
+                            break;
+
+                        case "NOT_INVITED" when operacionResponse == "ROOM_USERS":
+                            NotInvited? notInvited = JsonSerializer.Deserialize<NotInvited>(mensaje);
+                            MensajeParaInterfaz?.Invoke(notInvited);
+                            break;
+
+                        case "NOT_INVITED" when operacionResponse == "LEAVE_ROOM":
+                            NotInvited? notInvitedLeave = JsonSerializer.Deserialize<NotInvited>(mensaje);
+                            MensajeParaInterfaz?.Invoke(notInvitedLeave);
+                            break;
+
+                        case "NOT_JOINED" when operacionResponse == "ROOM_USERS":
+                            NotJoined? notJoined = JsonSerializer.Deserialize<NotJoined>(mensaje);
+                            MensajeParaInterfaz?.Invoke(notJoined);
+                            break;
+
+                        case "NOT_JOINED" when operacionResponse == "ROOM_TEXT":
+                            NotJoined? notJoinedText = JsonSerializer.Deserialize<NotJoined>(mensaje);
+                            MensajeParaInterfaz?.Invoke(notJoinedText);
+                            break;
+
                         case "USER_ALREADY_EXISTS":
                             UserAlreadyExist? userAlreadyExist = JsonSerializer.Deserialize<UserAlreadyExist>(mensaje);
                             MensajeParaInterfaz?.Invoke(userAlreadyExist);
@@ -289,6 +364,10 @@ public class ClienteControlador
                         case "ROOM_ALREADY_EXISTS":
                             RoomAlreadyExists? roomAlreadyExists = JsonSerializer.Deserialize<RoomAlreadyExists>(mensaje);
                             MensajeParaInterfaz?.Invoke(roomAlreadyExists);
+                            break;
+                        case "SUCCESS" when operacionResponse == "JOIN_ROOM":
+                            JoinRoomSuccess? joinRoomSuccess = JsonSerializer.Deserialize<JoinRoomSuccess>(mensaje);
+                            MensajeParaInterfaz?.Invoke(joinRoomSuccess);
                             break;
                     }
                     break;

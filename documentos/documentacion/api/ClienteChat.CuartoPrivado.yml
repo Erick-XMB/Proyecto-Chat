@@ -5,7 +5,7 @@ items:
   id: CuartoPrivado
   parent: ClienteChat
   children:
-  - ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador)
+  - ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador,System.String)
   - ClienteChat.CuartoPrivado.InitializeComponent(System.Boolean)
   langs:
   - csharp
@@ -417,16 +417,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador)
-  commentId: M:ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador)
-  id: '#ctor(ClienteChat.controlador.ClienteControlador)'
+- uid: ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador,System.String)
+  commentId: M:ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador,System.String)
+  id: '#ctor(ClienteChat.controlador.ClienteControlador,System.String)'
   parent: ClienteChat.CuartoPrivado
   langs:
   - csharp
   - vb
-  name: CuartoPrivado(ClienteControlador)
-  nameWithType: CuartoPrivado.CuartoPrivado(ClienteControlador)
-  fullName: ClienteChat.CuartoPrivado.CuartoPrivado(ClienteChat.controlador.ClienteControlador)
+  name: CuartoPrivado(ClienteControlador, string)
+  nameWithType: CuartoPrivado.CuartoPrivado(ClienteControlador, string)
+  fullName: ClienteChat.CuartoPrivado.CuartoPrivado(ClienteChat.controlador.ClienteControlador, string)
   type: Constructor
   source:
     remote:
@@ -435,23 +435,25 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/cliente/vista/CuartoPrivado.axaml.cs
-    startLine: 25
+    startLine: 37
   assemblies:
   - ClienteChat
   namespace: ClienteChat
   summary: Constructor de CuartoPrivado
   example: []
   syntax:
-    content: public CuartoPrivado(ClienteControlador clienteControlador)
+    content: public CuartoPrivado(ClienteControlador clienteControlador, string roomname)
     parameters:
     - id: clienteControlador
       type: ClienteChat.controlador.ClienteControlador
       description: es la conexion que tenemos
-    content.vb: Public Sub New(clienteControlador As ClienteControlador)
+    - id: roomname
+      type: System.String
+    content.vb: Public Sub New(clienteControlador As ClienteControlador, roomname As String)
   overload: ClienteChat.CuartoPrivado.#ctor*
-  nameWithType.vb: CuartoPrivado.New(ClienteControlador)
-  fullName.vb: ClienteChat.CuartoPrivado.New(ClienteChat.controlador.ClienteControlador)
-  name.vb: New(ClienteControlador)
+  nameWithType.vb: CuartoPrivado.New(ClienteControlador, String)
+  fullName.vb: ClienteChat.CuartoPrivado.New(ClienteChat.controlador.ClienteControlador, String)
+  name.vb: New(ClienteControlador, String)
 - uid: ClienteChat.CuartoPrivado.InitializeComponent(System.Boolean)
   commentId: M:ClienteChat.CuartoPrivado.InitializeComponent(System.Boolean)
   id: InitializeComponent(System.Boolean)
@@ -466,7 +468,7 @@ items:
   source:
     id: InitializeComponent
     path: /home/killomanlinux/Documentos/modelado&programacion/Proyecto-Chat/src/cliente/obj/Release/net10.0/Avalonia.Generators/Avalonia.Generators.NameGenerator.AvaloniaNameIncrementalGenerator/ClienteChat.CuartoPrivado.g.cs
-    startLine: 22
+    startLine: 24
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -7841,7 +7843,7 @@ references:
   - name: )
 - uid: ClienteChat.CuartoPrivado.#ctor*
   commentId: Overload:ClienteChat.CuartoPrivado.#ctor
-  href: ClienteChat.CuartoPrivado.html#ClienteChat_CuartoPrivado__ctor_ClienteChat_controlador_ClienteControlador_
+  href: ClienteChat.CuartoPrivado.html#ClienteChat_CuartoPrivado__ctor_ClienteChat_controlador_ClienteControlador_System_String_
   name: CuartoPrivado
   nameWithType: CuartoPrivado.CuartoPrivado
   fullName: ClienteChat.CuartoPrivado.CuartoPrivado
@@ -7855,6 +7857,17 @@ references:
   name: ClienteControlador
   nameWithType: ClienteControlador
   fullName: ClienteChat.controlador.ClienteControlador
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: ClienteChat.controlador
   commentId: N:ClienteChat.controlador
   href: ClienteChat.html

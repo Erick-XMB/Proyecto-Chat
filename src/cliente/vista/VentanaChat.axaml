@@ -31,16 +31,63 @@
                         </Button.Flyout>
                     </Button>
 
-                    <Button Content="Mensaje Privado" 
-                            Click="MensajePrivado_Click"/>
+                    <Button Content="Mensaje Privado">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel Width="200" Spacing="10">
+                                    <TextBox x:Name="EscribirPrivado"
+                                        Watermark="Nombre del usuario..." />
+                                    <TextBlock Text="Nombre del usuario:" />
+                                    <Button Content="Aceptar"
+                                        Click="MensajePrivado_Click" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
 
-                    <Button Content="Crear cuarto" 
-                            Click="CrearCuarto_Click"/>
+                    <Button Content="Crear Cuarto">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel Width="200" Spacing="10">
+                                    <TextBox x:Name="EscribirCuarto"
+                                        Watermark="Nombre del cuarto..." />
+                                    <TextBlock Text="Nombre del cuarto:" />
+                                    <Button Content="Aceptar"
+                                        Click="CrearCuarto_Click" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+
+                    <Button Content="Invitaciones">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel Width="200" Spacing="10">
+                                    <TextBlock Text="Invitaciones a salas:" />
+                                    <TextBox x:Name="InvitacionesCuarto"
+                                        IsReadOnly="True" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+
+                    <Button Content="Unirse Cuarto">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel Width="200" Spacing="10">
+                                    <TextBlock Text="Nombre del cuarto:" />
+                                    <TextBox x:Name="UnirseCuarto"
+                                        Watermark="Nombre del cuarto..." />
+                                    <Button Content="Aceptar"
+                                        Click="UnirseCuarto_Click" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
 
                     <Button Content="Desconectar"
                         Click="Click_Desconectar"
                         Margin="10" />
-
 
                 </StackPanel>
 

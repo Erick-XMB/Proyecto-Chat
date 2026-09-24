@@ -5,6 +5,7 @@ items:
   id: NotInvited
   parent: protocoloMensajes
   children:
+  - protocoloMensajes.NotInvited.#ctor
   - protocoloMensajes.NotInvited.#ctor(System.String)
   langs:
   - csharp
@@ -48,6 +49,37 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: protocoloMensajes.NotInvited.#ctor
+  commentId: M:protocoloMensajes.NotInvited.#ctor
+  id: '#ctor'
+  parent: protocoloMensajes.NotInvited
+  langs:
+  - csharp
+  - vb
+  name: NotInvited()
+  nameWithType: NotInvited.NotInvited()
+  fullName: protocoloMensajes.NotInvited.NotInvited()
+  type: Constructor
+  source:
+    remote:
+      path: src/protocoloMensajes/NotInvited.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: .ctor
+    path: ../../src/protocoloMensajes/NotInvited.cs
+    startLine: 12
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Constructor vacio
+  example: []
+  syntax:
+    content: public NotInvited()
+    content.vb: Public Sub New()
+  overload: protocoloMensajes.NotInvited.#ctor*
+  nameWithType.vb: NotInvited.New()
+  fullName.vb: protocoloMensajes.NotInvited.New()
+  name.vb: New()
 - uid: protocoloMensajes.NotInvited.#ctor(System.String)
   commentId: M:protocoloMensajes.NotInvited.#ctor(System.String)
   id: '#ctor(System.String)'
@@ -66,7 +98,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/protocoloMensajes/NotInvited.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - protocoloMensajes
   namespace: protocoloMensajes
@@ -371,7 +403,7 @@ references:
   fullName: System
 - uid: protocoloMensajes.NotInvited.#ctor*
   commentId: Overload:protocoloMensajes.NotInvited.#ctor
-  href: protocoloMensajes.NotInvited.html#protocoloMensajes_NotInvited__ctor_System_String_
+  href: protocoloMensajes.NotInvited.html#protocoloMensajes_NotInvited__ctor
   name: NotInvited
   nameWithType: NotInvited.NotInvited
   fullName: protocoloMensajes.NotInvited.NotInvited

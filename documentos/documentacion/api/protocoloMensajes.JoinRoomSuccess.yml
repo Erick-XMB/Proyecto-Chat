@@ -5,6 +5,7 @@ items:
   id: JoinRoomSuccess
   parent: protocoloMensajes
   children:
+  - protocoloMensajes.JoinRoomSuccess.#ctor
   - protocoloMensajes.JoinRoomSuccess.#ctor(System.String)
   langs:
   - csharp
@@ -48,6 +49,37 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: protocoloMensajes.JoinRoomSuccess.#ctor
+  commentId: M:protocoloMensajes.JoinRoomSuccess.#ctor
+  id: '#ctor'
+  parent: protocoloMensajes.JoinRoomSuccess
+  langs:
+  - csharp
+  - vb
+  name: JoinRoomSuccess()
+  nameWithType: JoinRoomSuccess.JoinRoomSuccess()
+  fullName: protocoloMensajes.JoinRoomSuccess.JoinRoomSuccess()
+  type: Constructor
+  source:
+    remote:
+      path: src/protocoloMensajes/JoinRoomSuccess.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: .ctor
+    path: ../../src/protocoloMensajes/JoinRoomSuccess.cs
+    startLine: 11
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Constructor vacio
+  example: []
+  syntax:
+    content: public JoinRoomSuccess()
+    content.vb: Public Sub New()
+  overload: protocoloMensajes.JoinRoomSuccess.#ctor*
+  nameWithType.vb: JoinRoomSuccess.New()
+  fullName.vb: protocoloMensajes.JoinRoomSuccess.New()
+  name.vb: New()
 - uid: protocoloMensajes.JoinRoomSuccess.#ctor(System.String)
   commentId: M:protocoloMensajes.JoinRoomSuccess.#ctor(System.String)
   id: '#ctor(System.String)'
@@ -66,7 +98,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/protocoloMensajes/JoinRoomSuccess.cs
-    startLine: 12
+    startLine: 20
   assemblies:
   - protocoloMensajes
   namespace: protocoloMensajes
@@ -371,7 +403,7 @@ references:
   fullName: System
 - uid: protocoloMensajes.JoinRoomSuccess.#ctor*
   commentId: Overload:protocoloMensajes.JoinRoomSuccess.#ctor
-  href: protocoloMensajes.JoinRoomSuccess.html#protocoloMensajes_JoinRoomSuccess__ctor_System_String_
+  href: protocoloMensajes.JoinRoomSuccess.html#protocoloMensajes_JoinRoomSuccess__ctor
   name: JoinRoomSuccess
   nameWithType: JoinRoomSuccess.JoinRoomSuccess
   fullName: protocoloMensajes.JoinRoomSuccess.JoinRoomSuccess

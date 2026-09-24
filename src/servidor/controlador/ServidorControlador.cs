@@ -79,7 +79,7 @@ public class ServidorControlador
 
         lock (cuartos)
         {
-            List<KeyValuePair<string, Cuarto>> copiaDeLosCuartos = new List<KeyValuePair<string, Cuarto>>();
+            List<KeyValuePair<string, Cuarto>> copiaDeLosCuartos = new List<KeyValuePair<string, Cuarto>>(cuartos);
 
             foreach (KeyValuePair<string, Cuarto> dupla in copiaDeLosCuartos)
             {
@@ -447,7 +447,7 @@ public class ServidorControlador
         // si el usuario no esta en las conexiones
         if (!usuarioEncontrado)
         {
-            NoSuchUser noSuchUser = new NoSuchUser(usernameDestino);
+            NoSuchUser noSuchUser = new NoSuchUser("TEXT",usernameDestino);
             string jsonNoSuchUser = JsonSerializer.Serialize(noSuchUser);
             await cliente.EnviarMensaje(jsonNoSuchUser);
         }
@@ -551,7 +551,7 @@ public class ServidorControlador
             ConexionCliente conexionInvitada = BuscarConexionPorNombre(username);
             if (conexionInvitada == null)
             {
-                NoSuchUser noSuchUser = new NoSuchUser(username);
+                NoSuchUser noSuchUser = new NoSuchUser("INVITE",username);
                 string jsonNoSuchUser = JsonSerializer.Serialize(noSuchUser);
                 await cliente.EnviarMensaje(jsonNoSuchUser);
                 return;

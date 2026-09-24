@@ -5,7 +5,7 @@ items:
   id: NoSuchUser
   parent: protocoloMensajes
   children:
-  - protocoloMensajes.NoSuchUser.#ctor(System.String)
+  - protocoloMensajes.NoSuchUser.#ctor(System.String,System.String)
   langs:
   - csharp
   - vb
@@ -48,16 +48,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: protocoloMensajes.NoSuchUser.#ctor(System.String)
-  commentId: M:protocoloMensajes.NoSuchUser.#ctor(System.String)
-  id: '#ctor(System.String)'
+- uid: protocoloMensajes.NoSuchUser.#ctor(System.String,System.String)
+  commentId: M:protocoloMensajes.NoSuchUser.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
   parent: protocoloMensajes.NoSuchUser
   langs:
   - csharp
   - vb
-  name: NoSuchUser(string)
-  nameWithType: NoSuchUser.NoSuchUser(string)
-  fullName: protocoloMensajes.NoSuchUser.NoSuchUser(string)
+  name: NoSuchUser(string, string)
+  nameWithType: NoSuchUser.NoSuchUser(string, string)
+  fullName: protocoloMensajes.NoSuchUser.NoSuchUser(string, string)
   type: Constructor
   source:
     remote:
@@ -73,16 +73,18 @@ items:
   summary: Constructor del mensaje NoSuchUser
   example: []
   syntax:
-    content: public NoSuchUser(string extra)
+    content: public NoSuchUser(string operation, string extra)
     parameters:
+    - id: operation
+      type: System.String
     - id: extra
       type: System.String
       description: ''
-    content.vb: Public Sub New(extra As String)
+    content.vb: Public Sub New(operation As String, extra As String)
   overload: protocoloMensajes.NoSuchUser.#ctor*
-  nameWithType.vb: NoSuchUser.New(String)
-  fullName.vb: protocoloMensajes.NoSuchUser.New(String)
-  name.vb: New(String)
+  nameWithType.vb: NoSuchUser.New(String, String)
+  fullName.vb: protocoloMensajes.NoSuchUser.New(String, String)
+  name.vb: New(String, String)
 references:
 - uid: protocoloMensajes
   commentId: N:protocoloMensajes
@@ -371,7 +373,7 @@ references:
   fullName: System
 - uid: protocoloMensajes.NoSuchUser.#ctor*
   commentId: Overload:protocoloMensajes.NoSuchUser.#ctor
-  href: protocoloMensajes.NoSuchUser.html#protocoloMensajes_NoSuchUser__ctor_System_String_
+  href: protocoloMensajes.NoSuchUser.html#protocoloMensajes_NoSuchUser__ctor_System_String_System_String_
   name: NoSuchUser
   nameWithType: NoSuchUser.NoSuchUser
   fullName: protocoloMensajes.NoSuchUser.NoSuchUser

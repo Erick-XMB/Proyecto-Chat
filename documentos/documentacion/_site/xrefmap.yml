@@ -86,15 +86,15 @@ references:
   commentId: T:ClienteChat.CuartoPrivado
   fullName: ClienteChat.CuartoPrivado
   nameWithType: CuartoPrivado
-- uid: ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador)
-  name: CuartoPrivado(ClienteControlador)
-  href: api/ClienteChat.CuartoPrivado.html#ClienteChat_CuartoPrivado__ctor_ClienteChat_controlador_ClienteControlador_
-  commentId: M:ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador)
-  name.vb: New(ClienteControlador)
-  fullName: ClienteChat.CuartoPrivado.CuartoPrivado(ClienteChat.controlador.ClienteControlador)
-  fullName.vb: ClienteChat.CuartoPrivado.New(ClienteChat.controlador.ClienteControlador)
-  nameWithType: CuartoPrivado.CuartoPrivado(ClienteControlador)
-  nameWithType.vb: CuartoPrivado.New(ClienteControlador)
+- uid: ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador,System.String)
+  name: CuartoPrivado(ClienteControlador, string)
+  href: api/ClienteChat.CuartoPrivado.html#ClienteChat_CuartoPrivado__ctor_ClienteChat_controlador_ClienteControlador_System_String_
+  commentId: M:ClienteChat.CuartoPrivado.#ctor(ClienteChat.controlador.ClienteControlador,System.String)
+  name.vb: New(ClienteControlador, String)
+  fullName: ClienteChat.CuartoPrivado.CuartoPrivado(ClienteChat.controlador.ClienteControlador, string)
+  fullName.vb: ClienteChat.CuartoPrivado.New(ClienteChat.controlador.ClienteControlador, String)
+  nameWithType: CuartoPrivado.CuartoPrivado(ClienteControlador, string)
+  nameWithType.vb: CuartoPrivado.New(ClienteControlador, String)
 - uid: ClienteChat.CuartoPrivado.#ctor*
   name: CuartoPrivado
   href: api/ClienteChat.CuartoPrivado.html#ClienteChat_CuartoPrivado__ctor_
@@ -1340,6 +1340,15 @@ references:
   commentId: T:protocoloMensajes.JoinRoomSuccess
   fullName: protocoloMensajes.JoinRoomSuccess
   nameWithType: JoinRoomSuccess
+- uid: protocoloMensajes.JoinRoomSuccess.#ctor
+  name: JoinRoomSuccess()
+  href: api/protocoloMensajes.JoinRoomSuccess.html#protocoloMensajes_JoinRoomSuccess__ctor
+  commentId: M:protocoloMensajes.JoinRoomSuccess.#ctor
+  name.vb: New()
+  fullName: protocoloMensajes.JoinRoomSuccess.JoinRoomSuccess()
+  fullName.vb: protocoloMensajes.JoinRoomSuccess.New()
+  nameWithType: JoinRoomSuccess.JoinRoomSuccess()
+  nameWithType.vb: JoinRoomSuccess.New()
 - uid: protocoloMensajes.JoinRoomSuccess.#ctor(System.String)
   name: JoinRoomSuccess(string)
   href: api/protocoloMensajes.JoinRoomSuccess.html#protocoloMensajes_JoinRoomSuccess__ctor_System_String_
@@ -1685,6 +1694,15 @@ references:
   commentId: T:protocoloMensajes.NoSuchRoom
   fullName: protocoloMensajes.NoSuchRoom
   nameWithType: NoSuchRoom
+- uid: protocoloMensajes.NoSuchRoom.#ctor
+  name: NoSuchRoom()
+  href: api/protocoloMensajes.NoSuchRoom.html#protocoloMensajes_NoSuchRoom__ctor
+  commentId: M:protocoloMensajes.NoSuchRoom.#ctor
+  name.vb: New()
+  fullName: protocoloMensajes.NoSuchRoom.NoSuchRoom()
+  fullName.vb: protocoloMensajes.NoSuchRoom.New()
+  nameWithType: NoSuchRoom.NoSuchRoom()
+  nameWithType.vb: NoSuchRoom.New()
 - uid: protocoloMensajes.NoSuchRoom.#ctor(System.String,System.String)
   name: NoSuchRoom(string, string)
   href: api/protocoloMensajes.NoSuchRoom.html#protocoloMensajes_NoSuchRoom__ctor_System_String_System_String_
@@ -1710,15 +1728,15 @@ references:
   commentId: T:protocoloMensajes.NoSuchUser
   fullName: protocoloMensajes.NoSuchUser
   nameWithType: NoSuchUser
-- uid: protocoloMensajes.NoSuchUser.#ctor(System.String)
-  name: NoSuchUser(string)
-  href: api/protocoloMensajes.NoSuchUser.html#protocoloMensajes_NoSuchUser__ctor_System_String_
-  commentId: M:protocoloMensajes.NoSuchUser.#ctor(System.String)
-  name.vb: New(String)
-  fullName: protocoloMensajes.NoSuchUser.NoSuchUser(string)
-  fullName.vb: protocoloMensajes.NoSuchUser.New(String)
-  nameWithType: NoSuchUser.NoSuchUser(string)
-  nameWithType.vb: NoSuchUser.New(String)
+- uid: protocoloMensajes.NoSuchUser.#ctor(System.String,System.String)
+  name: NoSuchUser(string, string)
+  href: api/protocoloMensajes.NoSuchUser.html#protocoloMensajes_NoSuchUser__ctor_System_String_System_String_
+  commentId: M:protocoloMensajes.NoSuchUser.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: protocoloMensajes.NoSuchUser.NoSuchUser(string, string)
+  fullName.vb: protocoloMensajes.NoSuchUser.New(String, String)
+  nameWithType: NoSuchUser.NoSuchUser(string, string)
+  nameWithType.vb: NoSuchUser.New(String, String)
 - uid: protocoloMensajes.NoSuchUser.#ctor*
   name: NoSuchUser
   href: api/protocoloMensajes.NoSuchUser.html#protocoloMensajes_NoSuchUser__ctor_
@@ -1760,6 +1778,15 @@ references:
   commentId: T:protocoloMensajes.NotInvited
   fullName: protocoloMensajes.NotInvited
   nameWithType: NotInvited
+- uid: protocoloMensajes.NotInvited.#ctor
+  name: NotInvited()
+  href: api/protocoloMensajes.NotInvited.html#protocoloMensajes_NotInvited__ctor
+  commentId: M:protocoloMensajes.NotInvited.#ctor
+  name.vb: New()
+  fullName: protocoloMensajes.NotInvited.NotInvited()
+  fullName.vb: protocoloMensajes.NotInvited.New()
+  nameWithType: NotInvited.NotInvited()
+  nameWithType.vb: NotInvited.New()
 - uid: protocoloMensajes.NotInvited.#ctor(System.String)
   name: NotInvited(string)
   href: api/protocoloMensajes.NotInvited.html#protocoloMensajes_NotInvited__ctor_System_String_

@@ -12,9 +12,9 @@ public class NoSuchUser : Response
     /// Constructor del mensaje NoSuchUser
     /// </summary>
     /// <param name="extra"></param>
-    public NoSuchUser(string extra)
+    public NoSuchUser(string operation, string extra)
     {
-        this.operation = "TEXT";
+        this.operation = operation;
         this.result = "NO_SUCH_USER";
         this.extra = extra;
     }

@@ -5,6 +5,7 @@ items:
   id: NoSuchRoom
   parent: protocoloMensajes
   children:
+  - protocoloMensajes.NoSuchRoom.#ctor
   - protocoloMensajes.NoSuchRoom.#ctor(System.String,System.String)
   langs:
   - csharp
@@ -48,6 +49,37 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: protocoloMensajes.NoSuchRoom.#ctor
+  commentId: M:protocoloMensajes.NoSuchRoom.#ctor
+  id: '#ctor'
+  parent: protocoloMensajes.NoSuchRoom
+  langs:
+  - csharp
+  - vb
+  name: NoSuchRoom()
+  nameWithType: NoSuchRoom.NoSuchRoom()
+  fullName: protocoloMensajes.NoSuchRoom.NoSuchRoom()
+  type: Constructor
+  source:
+    remote:
+      path: src/protocoloMensajes/NoSuchRoom.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: .ctor
+    path: ../../src/protocoloMensajes/NoSuchRoom.cs
+    startLine: 11
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Constructor vacio
+  example: []
+  syntax:
+    content: public NoSuchRoom()
+    content.vb: Public Sub New()
+  overload: protocoloMensajes.NoSuchRoom.#ctor*
+  nameWithType.vb: NoSuchRoom.New()
+  fullName.vb: protocoloMensajes.NoSuchRoom.New()
+  name.vb: New()
 - uid: protocoloMensajes.NoSuchRoom.#ctor(System.String,System.String)
   commentId: M:protocoloMensajes.NoSuchRoom.#ctor(System.String,System.String)
   id: '#ctor(System.String,System.String)'
@@ -66,7 +98,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/protocoloMensajes/NoSuchRoom.cs
-    startLine: 13
+    startLine: 21
   assemblies:
   - protocoloMensajes
   namespace: protocoloMensajes
@@ -374,7 +406,7 @@ references:
   fullName: System
 - uid: protocoloMensajes.NoSuchRoom.#ctor*
   commentId: Overload:protocoloMensajes.NoSuchRoom.#ctor
-  href: protocoloMensajes.NoSuchRoom.html#protocoloMensajes_NoSuchRoom__ctor_System_String_System_String_
+  href: protocoloMensajes.NoSuchRoom.html#protocoloMensajes_NoSuchRoom__ctor
   name: NoSuchRoom
   nameWithType: NoSuchRoom.NoSuchRoom
   fullName: protocoloMensajes.NoSuchRoom.NoSuchRoom

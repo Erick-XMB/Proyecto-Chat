@@ -19,12 +19,6 @@ items:
   - uid: ClienteChat.VentanaChat
     name: VentanaChat
     type: Class
-  - uid: ClienteChat.VentanaCuarto
-    name: VentanaCuarto
-    type: Class
-  - uid: ClienteChat.VentanaPrivada
-    name: VentanaPrivada
-    type: Class
 - uid: ClienteChat.controlador
   name: ClienteChat.controlador
   type: Namespace

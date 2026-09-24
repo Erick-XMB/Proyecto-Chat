@@ -5,65 +5,76 @@
     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
     x:Class="ClienteChat.CuartoPrivado">
 
-<Grid RowDefinitions="Auto,*,Auto"
-                ColumnDefinitions="*,250">
+    <Grid RowDefinitions="Auto,*,Auto"
+        ColumnDefinitions="*,250">
 
-                <!-- Botones de accion en fila 0 -->
-                <StackPanel Grid.Row="0"
-                    Grid.ColumnSpan="2"
-                    Orientation="Horizontal"
-                    Spacing="10"
-                    Margin="10">
+        <!-- Botones de accion en fila 0 -->
+        <StackPanel Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal"
+            Spacing="10"
+            Margin="10">
 
-                    <Button Content="Enviar Invitacion" 
-                            Click="EnviarInvitacion"/>
+            <Button Content="Enviar Invitacion">
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel Width="200" Spacing="10">
+                            <TextBlock Text="Nombre(s) del usuario(s):" />
+                            <TextBox x:Name="EscrbirNombresDeInvitados"
+                                Watermark="Usuario 1,Usuario 2,Usuario 3 ..." />
+                            <Button Content="Aceptar"
+                                Click="EnviarInvitacion_Click" />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
 
-                    <Button Content="Dejar cuarto"
-                        Click="Click_DejarCuarto"
-                        Margin="10" />
+            <Button Content="Dejar cuarto"
+                Click="Click_DejarCuarto"
+                Margin="10" />
 
 
-                </StackPanel>
+        </StackPanel>
 
-                <!-- Mensaje es fila 1 columna 0 -->
+        <!-- Mensaje es fila 1 columna 0 -->
 
-                <TextBox x:Name="MensajesCuartoTextBox"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    IsReadOnly="True"
-                    TextWrapping="Wrap"
-                    Margin="10" />
+        <TextBox x:Name="MensajesCuartoTextBox"
+            Grid.Row="1"
+            Grid.Column="0"
+            IsReadOnly="True"
+            TextWrapping="Wrap"
+            Margin="10" />
 
-                <!-- Usuarios es fila 1 columna 1 -->
+        <!-- Usuarios es fila 1 columna 1 -->
 
-                <Button Content="Actualizar lista de usuarios"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Click="Lista_UsuariosCuarto"
-                    HorizontalAlignment="Left"
-                    Margin="10" />
+        <Button Content="Actualizar lista de usuarios"
+            Grid.Row="0"
+            Grid.Column="1"
+            Click="Lista_UsuariosCuarto"
+            HorizontalAlignment="Left"
+            Margin="10" />
 
-                <TextBox x:Name="UsuariosCuartoTextBox"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    IsReadOnly="True"
-                    TextWrapping="Wrap"
-                    Margin="10" />
+        <TextBox x:Name="UsuariosCuartoTextBox"
+            Grid.Row="1"
+            Grid.Column="1"
+            IsReadOnly="True"
+            TextWrapping="Wrap"
+            Margin="10" />
 
-                <!-- Escribir es fila 2 columna 0 -->
+        <!-- Escribir es fila 2 columna 0 -->
 
-                <TextBox Grid.Row="2"
-                    Grid.Column="0"
-                    x:Name="EnviarMensajeCuartoTextBox"
-                    Height="40"
-                    Margin="10"
-                    PlaceholderText="Enviar mensaje..." />
+        <TextBox Grid.Row="2"
+            Grid.Column="0"
+            x:Name="EnviarMensajeCuartoTextBox"
+            Height="40"
+            Margin="10"
+            PlaceholderText="Enviar mensaje..." />
 
-                <Button Grid.Row="2"
-                    Grid.Column="1"
-                    Content="Enviar"
-                    Click="EnviarMensajeCuarto_Click"
-                    Height="40"
-                    Margin="10" />
-            </Grid>
+        <Button Grid.Row="2"
+            Grid.Column="1"
+            Content="Enviar"
+            Click="EnviarMensajeCuarto_Click"
+            Height="40"
+            Margin="10" />
+    </Grid>
 </Window>
