@@ -17,6 +17,9 @@ public class ClienteControlador
     /// </summary>
     private readonly ConexionServidor cliente;
 
+    /// <summary>
+    /// Evento que nos dispara una accion Mensaje
+    /// </summary>
     public event Action<Mensaje>? MensajeParaInterfaz;
 
     /// <summary>
@@ -94,6 +97,11 @@ public class ClienteControlador
         cliente.EnviarMensaje(json);
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de un texto privado
+    /// </summary>
+    /// <param name="username"> es a quien queremos enviar el texto privado</param>
+    /// <param name="text"> es el texto </param>
     public async void PrivText(string username, string text)
     {
         PrivText privText = new PrivText(username, text);
@@ -112,6 +120,10 @@ public class ClienteControlador
         cliente.EnviarMensaje(jsonPublicText);
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de crear un nuevo sala
+    /// </summary>
+    /// <param name="roomname"> es el nombre con el que queremos crear el sala </param>
     public async void NewRoom(string roomname)
     {
         NewRoom newRoom = new NewRoom(roomname);
@@ -119,6 +131,11 @@ public class ClienteControlador
         cliente.EnviarMensaje(jsonNewRoom);
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de invitar a alguien a un sala
+    /// </summary>
+    /// <param name="roomname"> es el nombre del sala </param>
+    /// <param name="usernames"> es la lista de personas a quienes queremos invitar </param>
     public async void Invite(string roomname, List<string> usernames)
     {
         Invite invite = new Invite(roomname, usernames);
@@ -126,6 +143,10 @@ public class ClienteControlador
         cliente.EnviarMensaje(jsonInvite);
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de Unirse a un sala
+    /// </summary>
+    /// <param name="roomname"> es el sala al que nos queremos unir </param>
     public async void JoinRoom(string roomname)
     {
         JoinRoom joinRoom = new JoinRoom(roomname);
@@ -133,6 +154,10 @@ public class ClienteControlador
         cliente.EnviarMensaje(jsonJoinRoom);
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solictud de mostrar los usuarios de un sala
+    /// </summary>
+    /// <param name="roomname"> es el nombre del sala al que nos queremso unir </param>
     public async void RoomUsers(string roomname)
     {
         RoomUsers roomUsers = new RoomUsers(roomname);
@@ -140,6 +165,11 @@ public class ClienteControlador
         cliente.EnviarMensaje(jsonRoomUsers);
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solicitud de mandar un texto a una sala
+    /// </summary>
+    /// <param name="roomname"> es el nombre de la sala </param>
+    /// <param name="text"> es el texto que queremos enviar </param>
     public async void RoomText(string roomname, string text)
     {
         RoomText roomText = new RoomText(roomname, text);
@@ -147,13 +177,20 @@ public class ClienteControlador
         cliente.EnviarMensaje(jsonRoomText);
     }
 
+    /// <summary>
+    /// Metodo que envia al servidor la solictud de abandonar un cuarto
+    /// </summary>
+    /// <param name="roomname"> es el nombre de la sala </param>
     public async void LeaveRoom(string roomname)
     {
         LeaveRoom leaveRoom = new LeaveRoom(roomname);
-        string jsonLeaveRoom = JsonSerializer.Serialize(roomname);
+        string jsonLeaveRoom = JsonSerializer.Serialize(leaveRoom);
         cliente.EnviarMensaje(jsonLeaveRoom);
     }
 
+    /// <summary>
+    /// Metodo que envia la solicitud al servidor de desconectarse
+    /// </summary>
     public async void Disconnect()
     {
         Disconnect disconnect = new Disconnect();
@@ -161,80 +198,111 @@ public class ClienteControlador
         cliente.EnviarMensaje(jsonDisconnect);
     }
 
+    /// <summary>
+    /// Metodo que nos permite enviar invocar nuestro evento de MensajeParaInterfaz con el tipo de mensaje que nos llego 
+    /// veificamos que el mensaje no sea vacio, si no lo e, obtenermos el tipo del mensaje
+    /// y dado eso es que manejamos los objetos de los mensajes
+    /// </summary>
+    /// <param name="mensaje"></param>
     public void MensajeRecibido(string mensaje)
     {
-        Console.WriteLine(mensaje);
-
-        Mensaje? mensajeBase = JsonSerializer.Deserialize<Mensaje>(mensaje);
-        string tipoDeMensajeBase = mensajeBase.type;
-
-        if (mensajeBase == null)
+        if (string.IsNullOrWhiteSpace(mensaje))
         {
             return;
         }
 
-        switch (tipoDeMensajeBase)
+
+        try
         {
-            case "NEW_USER":
-                NewUser? newUser = JsonSerializer.Deserialize<NewUser>(mensaje);
-                MensajeParaInterfaz?.Invoke(newUser);
-                break;
+            Console.WriteLine(mensaje);
 
-            case "PUBLIC_TEXT_FROM":
-                PublicTextFrom? PublicTextFrom = JsonSerializer.Deserialize<PublicTextFrom>(mensaje);
-                MensajeParaInterfaz?.Invoke(PublicTextFrom);
-                break;
-            case "DISCONNECTED":
-                Disconnected? disconnected = JsonSerializer.Deserialize<Disconnected>(mensaje);
-                MensajeParaInterfaz?.Invoke(disconnected);
-                break;
+            Mensaje? mensajeBase = JsonSerializer.Deserialize<Mensaje>(mensaje);
 
-            case "NEW_STATUS":
-                NewStatus? newStatus = JsonSerializer.Deserialize<NewStatus>(mensaje);
-                MensajeParaInterfaz?.Invoke(newStatus);
-                break;
+            if (mensajeBase == null)
+            {
+                return;
+            }
 
-            case "USER_LIST":
-                UserList? userList = JsonSerializer.Deserialize<UserList>(mensaje);
-                MensajeParaInterfaz?.Invoke(userList);
-                break;
+            string tipoDeMensajeBase = mensajeBase.type;
 
-            case "TEXT_FROM":
-                PrivTextFrom? privTextFrom = JsonSerializer.Deserialize<PrivTextFrom>(mensaje);
-                MensajeParaInterfaz?.Invoke(privTextFrom);
-                break;
-            case "RESPONSE":
-                Response? response = JsonSerializer.Deserialize<Response>(mensaje);
-                string resultadoResponse = response.result;
-                string operacionResponse = response.operation;
+            switch (tipoDeMensajeBase)
+            {
+                case "NEW_USER":
+                    NewUser? newUser = JsonSerializer.Deserialize<NewUser>(mensaje);
+                    MensajeParaInterfaz?.Invoke(newUser);
+                    break;
 
-                switch (resultadoResponse)
-                {
-                    case "NO_SUCH_USER":
-                        NoSuchUser? noSuchUser = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
-                        MensajeParaInterfaz?.Invoke(noSuchUser);
-                        break;
-                    case "USER_ALREADY_EXISTS":
-                        UserAlreadyExist? userAlreadyExist = JsonSerializer.Deserialize<UserAlreadyExist>(mensaje);
-                        MensajeParaInterfaz?.Invoke(userAlreadyExist);
-                        break;
-                    case "NOT_IDENTIFIED":
-                        NotIdentify? notIdentify = JsonSerializer.Deserialize<NotIdentify>(mensaje);
-                        MensajeParaInterfaz?.Invoke(notIdentify);
-                        break;
-                    case "SUCCESS" when operacionResponse == "IDENTIFY":
-                        IdentifySuccess? identifySuccess = JsonSerializer.Deserialize<IdentifySuccess>(mensaje);
-                        MensajeParaInterfaz?.Invoke(identifySuccess);
-                        break;
-                    case "INVALID":
-                        Invalid? invalid = JsonSerializer.Deserialize<Invalid>(mensaje);
-                        MensajeParaInterfaz?.Invoke(invalid);
-                        break;
-                }
-                break;
+                case "PUBLIC_TEXT_FROM":
+                    PublicTextFrom? PublicTextFrom = JsonSerializer.Deserialize<PublicTextFrom>(mensaje);
+                    MensajeParaInterfaz?.Invoke(PublicTextFrom);
+                    break;
+                case "DISCONNECTED":
+                    Disconnected? disconnected = JsonSerializer.Deserialize<Disconnected>(mensaje);
+                    MensajeParaInterfaz?.Invoke(disconnected);
+                    break;
+
+                case "NEW_STATUS":
+                    NewStatus? newStatus = JsonSerializer.Deserialize<NewStatus>(mensaje);
+                    MensajeParaInterfaz?.Invoke(newStatus);
+                    break;
+
+                case "USER_LIST":
+                    UserList? userList = JsonSerializer.Deserialize<UserList>(mensaje);
+                    MensajeParaInterfaz?.Invoke(userList);
+                    break;
+
+                case "TEXT_FROM":
+                    PrivTextFrom? privTextFrom = JsonSerializer.Deserialize<PrivTextFrom>(mensaje);
+                    MensajeParaInterfaz?.Invoke(privTextFrom);
+                    break;
+                case "RESPONSE":
+                    Response? response = JsonSerializer.Deserialize<Response>(mensaje);
+                    string resultadoResponse = response.result;
+                    string operacionResponse = response.operation;
+
+                    switch (resultadoResponse)
+                    {
+                        case "NO_SUCH_USER":
+                            NoSuchUser? noSuchUser = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
+                            MensajeParaInterfaz?.Invoke(noSuchUser);
+                            break;
+                        case "USER_ALREADY_EXISTS":
+                            UserAlreadyExist? userAlreadyExist = JsonSerializer.Deserialize<UserAlreadyExist>(mensaje);
+                            MensajeParaInterfaz?.Invoke(userAlreadyExist);
+                            break;
+                        case "NOT_IDENTIFIED":
+                            NotIdentify? notIdentify = JsonSerializer.Deserialize<NotIdentify>(mensaje);
+                            MensajeParaInterfaz?.Invoke(notIdentify);
+                            break;
+                        case "SUCCESS" when operacionResponse == "IDENTIFY":
+                            IdentifySuccess? identifySuccess = JsonSerializer.Deserialize<IdentifySuccess>(mensaje);
+                            MensajeParaInterfaz?.Invoke(identifySuccess);
+                            break;
+                        case "INVALID":
+                            Invalid? invalid = JsonSerializer.Deserialize<Invalid>(mensaje);
+                            MensajeParaInterfaz?.Invoke(invalid);
+                            break;
+                        case "SUCCESS" when operacionResponse == "NEW_ROOM":
+                            NewRoomSucess? newRoomSucess = JsonSerializer.Deserialize<NewRoomSucess>(mensaje);
+                            MensajeParaInterfaz?.Invoke(newRoomSucess);
+                            break;
+                        case "ROOM_ALREADY_EXISTS":
+                            RoomAlreadyExists? roomAlreadyExists = JsonSerializer.Deserialize<RoomAlreadyExists>(mensaje);
+                            MensajeParaInterfaz?.Invoke(roomAlreadyExists);
+                            break;
+                    }
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
         }
     }
 
+    /// <summary>
+    /// Tarea asincrona que nos permite recibir mensajes
+    /// </summary>
     public async Task RecibirMensajes()
     {
         await cliente.RecibirMensajes();

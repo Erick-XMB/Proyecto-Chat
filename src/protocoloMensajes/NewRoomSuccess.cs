@@ -6,6 +6,14 @@ namespace protocoloMensajes;
 /// </summary>
 public class NewRoomSucess : Response
 {
+
+    /// <summary>
+    /// Constructor vacío
+    /// </summary>
+    public NewRoomSucess()
+    {
+    }
+
     /// <summary>
     /// Contructor de la clase NewRoomSucess
     /// </summary>

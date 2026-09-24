@@ -6,6 +6,13 @@ namespace protocoloMensajes;
 /// </summary>
 public class RoomAlreadyExists : Response
 {
+    /// <summary>
+    /// Constructor vacio
+    /// </summary>
+    public RoomAlreadyExists()
+    {
+        
+    }
 
     /// <summary>
     /// Constructor de la clase RoomAlreadyExists

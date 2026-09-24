@@ -138,7 +138,7 @@ public class Cuarto
     /// false en otro caso </returns>
     public bool EstaVacio()
     {
-        if (invitados.Count == 0)
+        if (usuarios.Count == 0)
         {
             return true;
         }

@@ -13,11 +13,14 @@ public class ConexionServidor
 {
 
     /** Checa el estado de la conexion TCP*/
-    private TcpClient cliente;
+    private TcpClient? cliente;
 
     /** Atributo que maneja el flujo de la lectura*/
-    private NetworkStream stream;
+    private NetworkStream? stream;
 
+    /// <summary>
+    /// Evento que invoca a la accion de la cadena que le llamamos mensaje recibido
+    /// </summary>
     public event Action<string?> MensajeRecibido;
 
 
@@ -49,10 +52,13 @@ public class ConexionServidor
         }
     }
 
+    /// <summary>
+    /// Metodo que nos permite desonectar cerrando el TCPClient y el NetWorkStream
+    /// </summary>
     public void Desconectar()
     {   
-        stream.Close();
-        cliente.Close();
+        stream?.Close();
+        cliente?.Close();
     }
 
     /// <summary>

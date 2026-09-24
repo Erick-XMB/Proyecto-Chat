@@ -20,6 +20,13 @@ Comandos extra para la limpieza de archivos
 * make limpiarCliente
 * make clean
 
+
+Teconologias usadas
+-------------------
+DocFX 2.80.1  para la documentacion
+
+
+
 Desarrollador
 ---------
 * Erick Xavier Martinez Briones

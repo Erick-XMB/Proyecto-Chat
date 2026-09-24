@@ -26,9 +26,14 @@ public partial class MainWindow : Window
     /// </summary>
     private int puerto = 0;
 
+    /// <summary>
+    /// Atributo que nos permite esperar el resultado de identificacion de un usuario
+    /// </summary>
     private TaskCompletionSource<bool>? identificacionTCS;
 
-    /** Constructor de mainWindow*/
+    /// <summary>
+    /// Constructor de la clase MainWindow
+    /// </summary>
     public MainWindow()
     {
         /** Inicializa los elementos que estan definidios en MainWindow.axaml*/
@@ -39,6 +44,11 @@ public partial class MainWindow : Window
         controlador.MensajeParaInterfaz += MensajeRecibido;
     }
 
+    /// <summary>
+    /// Metodo que dado un mensaje recibido modifica los resultados de la identificacion
+    /// esto para poder iniciar sesion
+    /// </summary>
+    /// <param name="mensaje"> es el mensaje que etsamos recibiendo </param>
     private async void MensajeRecibido(Mensaje mensaje)
     {
         switch (mensaje)
