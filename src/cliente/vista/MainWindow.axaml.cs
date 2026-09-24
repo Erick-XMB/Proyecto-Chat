@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using ClienteChat.controlador;
+using protocoloMensajes;
 
 namespace ClienteChat;
 
@@ -25,6 +26,7 @@ public partial class MainWindow : Window
     /// </summary>
     private int puerto = 0;
 
+    private TaskCompletionSource<bool>? identificacionTCS;
 
     /** Constructor de mainWindow*/
     public MainWindow()
@@ -34,6 +36,28 @@ public partial class MainWindow : Window
 
         /** Se crea un objeto de tipo clientecontrolador*/
         controlador = new ClienteControlador();
+        controlador.MensajeParaInterfaz += MensajeRecibido;
+    }
+
+    private async void MensajeRecibido(Mensaje mensaje)
+    {
+        switch (mensaje)
+        {
+            case IdentifySuccess identifySuccess:
+                identificacionTCS?.TrySetResult(true);
+                break;
+
+            case UserAlreadyExist userAlreadyExist:
+                identificacionTCS?.TrySetResult(false);
+                break;
+
+            case NotIdentify notIdentify:
+                identificacionTCS?.TrySetResult(false);
+                break;
+            case Invalid invalid:
+                identificacionTCS?.TrySetResult(false);
+                break;
+        }
     }
 
 
@@ -43,7 +67,7 @@ public partial class MainWindow : Window
     /// <param name="sender">Representa el objeto que producjo el evento, es decir el boton.</param>
     /// <param name="e">contiene la informacion relaciona con el evento que ocurrio.</param>
     private async void Conectar_Click(object? sender, RoutedEventArgs e)
-    {   
+    {
         username = MensajeTextBox.Text;
 
         puerto = int.Parse(PuertoTextBox.Text);
@@ -55,28 +79,31 @@ public partial class MainWindow : Window
         /** Si la conexion se hace el */
         if (conectado)
         {
-
             _ = controlador.RecibirMensajes();
 
+            identificacionTCS = new TaskCompletionSource<bool>();
+
             /** el controlador pasa este mensaje a ConexionCliente y este lo envia usando NetworkStream*/
-            if (controlador.Identificar(username))
+            controlador.Identificar(username);
+
+            bool identificacionSuccess = await identificacionTCS.Task;
+
+            if (identificacionSuccess)
             {
-
                 controlador.Status("ACTIVE");
-
                 VentanaChat ventanaChat = new VentanaChat(controlador);
                 ventanaChat.Show();
                 this.Close();
-
-            }
-            else
+            } else
             {
+                controlador.Desconectar();
+                EstadoTexto.Text = "Estado: Error en la identidicacion";
                 this.Close();
             }
-
         }
         else
-        {
+        {   
+            controlador.Desconectar();
             /** Se modifica el texto que tenemos en MainWindow en caso de que la conexion se pudo hacer*/
             EstadoTexto.Text = "Estado: Error de conexión";
 

@@ -49,6 +49,12 @@ public class ConexionServidor
         }
     }
 
+    public void Desconectar()
+    {   
+        stream.Close();
+        cliente.Close();
+    }
+
     /// <summary>
     /// Metodo que envia un mensaje al servidor usando la conexion de TCP
     /// </summary>

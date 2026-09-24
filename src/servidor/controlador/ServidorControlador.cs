@@ -219,7 +219,7 @@ public class ServidorControlador
                     }
                     else
                     {
-                        await ProcesarJsonNoValido(cliente);
+                        await ProcesarInvalid(cliente);
                         await CerrarConexion(cliente);
                     }
                     break;
@@ -227,7 +227,7 @@ public class ServidorControlador
         }
         catch (JsonException)
         {
-            await ProcesarJsonNoValido(cliente);
+            await ProcesarInvalid(cliente);
             await CerrarConexion(cliente);
         }
     }
@@ -247,7 +247,7 @@ public class ServidorControlador
 
         foreach (ConexionCliente c in clientes)
         {
-            if (c.GetUsername() == identify.username)
+            if (c.GetUsername() == identify?.username)
             {
                 repetido = true;
 
@@ -262,8 +262,15 @@ public class ServidorControlador
 
                 await CerrarConexion(cliente);
 
-                break;
+                return;
             }
+        }
+
+        if (identify?.username.Length > 8)
+        {
+            await ProcesarInvalid(cliente);
+            await CerrarConexion(cliente);
+            return;
         }
 
         if (!repetido)
@@ -272,18 +279,15 @@ public class ServidorControlador
 
             cliente.SetStatus("ACTIVE");
 
-            Response respuesta = new Response();
-            respuesta.operation = "IDENTIFY";
-            respuesta.result = "SUCCESS";
-            respuesta.extra = identify.username;
+            IdentifySuccess identifySuccess = new IdentifySuccess(identify.username);
 
-            string jsonRespuesta = JsonSerializer.Serialize(respuesta);
+            string jsonRespuestaSuccess = JsonSerializer.Serialize(identifySuccess);
 
             string identifyMostrar = JsonSerializer.Serialize(identify);
 
             await ProcesarNewUser(cliente);
 
-            await cliente.EnviarMensaje(jsonRespuesta);
+            await cliente.EnviarMensaje(jsonRespuestaSuccess);
 
             Console.WriteLine(identifyMostrar);
         }
@@ -454,13 +458,10 @@ public class ServidorControlador
     /// </summary>
     /// <param name="cliente"> es la conexion del cliente que envio el mensaje</param>
     /// <returns> Una tarea que representa la operacion asincrona de procesar un type no valido </returns>
-    private async Task ProcesarJsonNoValido(ConexionCliente cliente)
+    private async Task ProcesarInvalid(ConexionCliente cliente)
     {
-        Response response = new Response();
-        response.operation = "INVALID";
-        response.result = "INVALID";
-
-        string jsonNovalido = JsonSerializer.Serialize(response);
+        Invalid invalid = new Invalid();
+        string jsonNovalido = JsonSerializer.Serialize(invalid);
         await cliente.EnviarMensaje(jsonNovalido);
     }
 
@@ -480,7 +481,7 @@ public class ServidorControlador
 
         if (string.IsNullOrEmpty(roomname) || roomname.Length > 16)
         {
-            await ProcesarJsonNoValido(cliente);
+            await ProcesarInvalid(cliente);
             return;
         }
 
@@ -520,7 +521,7 @@ public class ServidorControlador
 
         if (string.IsNullOrEmpty(roomname) || usernames == null || usernames.Contains(null))
         {
-            await ProcesarJsonNoValido(cliente);
+            await ProcesarInvalid(cliente);
             await CerrarConexion(cliente);
             return;
         }
@@ -530,7 +531,7 @@ public class ServidorControlador
         // verifivamos que quien invita esta en el cuarto
         if (!cuartos[roomname].EstaEnElCuarto(cliente))
         {
-            await ProcesarJsonNoValido(cliente);
+            await ProcesarInvalid(cliente);
             await CerrarConexion(cliente);
             return;
         }
@@ -589,7 +590,7 @@ public class ServidorControlador
 
         if (string.IsNullOrEmpty(roomname))
         {
-            await ProcesarJsonNoValido(cliente);
+            await ProcesarInvalid(cliente);
             await CerrarConexion(cliente);
             return;
         }
@@ -655,7 +656,7 @@ public class ServidorControlador
 
         if (string.IsNullOrEmpty(roomname))
         {
-            ProcesarJsonNoValido(cliente);
+            ProcesarInvalid(cliente);
             CerrarConexion(cliente);
             return;
         }
@@ -710,7 +711,7 @@ public class ServidorControlador
 
         if (string.IsNullOrEmpty(roomname) || text == null)
         {
-            await ProcesarJsonNoValido(cliente);
+            await ProcesarInvalid(cliente);
             await CerrarConexion(cliente);
             return;
         }
@@ -763,7 +764,7 @@ public class ServidorControlador
 
         if (string.IsNullOrEmpty(roomname))
         {
-            await ProcesarJsonNoValido(cliente);
+            await ProcesarInvalid(cliente);
             await CerrarConexion(cliente);
             return;
         }

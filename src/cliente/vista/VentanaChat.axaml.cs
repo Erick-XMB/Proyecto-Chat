@@ -57,6 +57,17 @@ public partial class VentanaChat : Window
         CrearConversacionPrivada(usuario, true);
     }
 
+    private async void CrearCuarto_Click(object? sender, RoutedEventArgs e)
+    {
+        VentanaCuarto ventana = new VentanaCuarto();
+        string? cuarto = await ventana.ShowDialog<string?>(this);
+
+        if (string.IsNullOrWhiteSpace(cuarto))
+        {
+            return;
+        }
+    }
+
     private async void CrearConversacionPrivada(string usuario, bool seleccionarConversacion, PrivTextFrom? mensajeInicial = null)
     {
 
@@ -142,10 +153,12 @@ public partial class VentanaChat : Window
                     UsuariosTextBox.Text += $"{par.Key}: {par.Value}\n";
                 }
                 break;
+
             case PrivTextFrom privTextFrom:
                 CrearConversacionPrivada(privTextFrom.username, false, privTextFrom);
                 break;
-
         }
     }
+
+
 }

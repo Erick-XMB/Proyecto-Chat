@@ -34,7 +34,8 @@
                     <Button Content="Mensaje Privado" 
                             Click="MensajePrivado_Click"/>
 
-                    <Button Content="Crear cuarto" />
+                    <Button Content="Crear cuarto" 
+                            Click="CrearCuarto_Click"/>
 
                     <Button Content="Desconectar"
                         Click="Click_Desconectar"
@@ -84,10 +85,6 @@
                     Height="40"
                     Margin="10" />
             </Grid>
-
-        </TabItem>
-
-        <TabItem Header="Privado">
 
         </TabItem>
 

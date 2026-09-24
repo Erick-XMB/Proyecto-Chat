@@ -40,6 +40,11 @@ public class ClienteControlador
         return cliente.Conectar(puerto);
     }
 
+    public void Desconectar()
+    {
+        cliente.Desconectar();
+    }
+
     /// <summary>
     /// Envia un mensaje al servidor mediante la conexion 
     /// </summary>
@@ -58,12 +63,11 @@ public class ClienteControlador
     /// <param name="username">
     /// nombre de usuario con el que el cliente desea identificarse</param>
     /// <returns> true si se identifico </returns>
-    public bool Identificar(string username)
+    public void Identificar(string username)
     {
         Identify mensaje = new Identify(username);
         string json = JsonSerializer.Serialize(mensaje);
         cliente.EnviarMensaje(json);
-        return true;
     }
 
     /// <summary>
@@ -201,14 +205,33 @@ public class ClienteControlador
                 break;
             case "RESPONSE":
                 Response? response = JsonSerializer.Deserialize<Response>(mensaje);
+                string resultadoResponse = response.result;
+                string operacionResponse = response.operation;
 
-                if(response?.result == "NO_SUCH_USER")
+                switch (resultadoResponse)
                 {
-                    NoSuchUser? noSuchUser = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
-                    MensajeParaInterfaz?.Invoke(noSuchUser);
+                    case "NO_SUCH_USER":
+                        NoSuchUser? noSuchUser = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
+                        MensajeParaInterfaz?.Invoke(noSuchUser);
+                        break;
+                    case "USER_ALREADY_EXISTS":
+                        UserAlreadyExist? userAlreadyExist = JsonSerializer.Deserialize<UserAlreadyExist>(mensaje);
+                        MensajeParaInterfaz?.Invoke(userAlreadyExist);
+                        break;
+                    case "NOT_IDENTIFIED":
+                        NotIdentify? notIdentify = JsonSerializer.Deserialize<NotIdentify>(mensaje);
+                        MensajeParaInterfaz?.Invoke(notIdentify);
+                        break;
+                    case "SUCCESS" when operacionResponse == "IDENTIFY":
+                        IdentifySuccess? identifySuccess = JsonSerializer.Deserialize<IdentifySuccess>(mensaje);
+                        MensajeParaInterfaz?.Invoke(identifySuccess);
+                        break;
+                    case "INVALID":
+                        Invalid? invalid = JsonSerializer.Deserialize<Invalid>(mensaje);
+                        MensajeParaInterfaz?.Invoke(invalid);
+                        break;
                 }
-
-                break;  
+                break;
         }
     }
 
