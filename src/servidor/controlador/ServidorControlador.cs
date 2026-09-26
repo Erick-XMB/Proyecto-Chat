@@ -1,9 +1,6 @@
-
 using ServidorChat.Modelo;
-using System.Text;
 using System.Text.Json;
 using protocoloMensajes;
-using Microsoft.VisualBasic.FileIO;
 
 namespace ServidorChat.controlador;
 /// <summary>
@@ -171,6 +168,11 @@ public class ServidorControlador
         {
             Mensaje? mensajeBase = JsonSerializer.Deserialize<Mensaje>(mensaje);
 
+            if (mensajeBase == null)
+            {
+                return;
+            }
+
             switch (mensajeBase.type)
             {
                 case "IDENTIFY":
@@ -275,6 +277,11 @@ public class ServidorControlador
 
         if (!repetido)
         {
+            if (identify == null)
+            {
+                return;
+            }
+
             cliente.SetUsername(identify.username);
 
             cliente.SetStatus("ACTIVE");
@@ -316,6 +323,12 @@ public class ServidorControlador
     private async Task ProcesarStatus(ConexionCliente cliente, string mensaje)
     {
         Status? status = JsonSerializer.Deserialize<Status>(mensaje);
+
+        if (status == null)
+        {
+            return;
+        }
+
         cliente.SetStatus(status.status);
 
         NewStatus newStatus = new NewStatus(cliente.GetUsername(), cliente.GetStatus());
@@ -355,12 +368,16 @@ public class ServidorControlador
 
         Dictionary<string, string> users = new Dictionary<string, string>();
 
-        foreach (ConexionCliente c in clientes)
+        lock (clientes)
         {
-            string username = c.GetUsername();
-            string status = c.GetStatus();
 
-            users.Add(username, status);
+            foreach (ConexionCliente c in clientes)
+            {
+                string username = c.GetUsername();
+                string status = c.GetStatus();
+
+                users.Add(username, status);
+            }
         }
 
         UserList userList = new UserList(users);
@@ -396,6 +413,11 @@ public class ServidorControlador
 
         PublicText? publicText = JsonSerializer.Deserialize<PublicText>(mensaje);
 
+        if (publicText == null)
+        {
+            return;
+        }
+
         PublicTextFrom publicTextFrom = new PublicTextFrom(cliente.GetUsername(), publicText.text);
 
         string jsonPublicTextFrom = JsonSerializer.Serialize(publicTextFrom);
@@ -422,6 +444,11 @@ public class ServidorControlador
         Console.WriteLine(mensaje);
         PrivText? privText = JsonSerializer.Deserialize<PrivText>(mensaje);
 
+        if (privText == null)
+        {
+            return;
+        }
+
         // guardamos la informacion
         string usernameDestino = privText.username;
         string usernameOrigen = cliente.GetUsername();
@@ -447,7 +474,7 @@ public class ServidorControlador
         // si el usuario no esta en las conexiones
         if (!usuarioEncontrado)
         {
-            NoSuchUser noSuchUser = new NoSuchUser("TEXT",usernameDestino);
+            NoSuchUser noSuchUser = new NoSuchUser("TEXT", usernameDestino);
             string jsonNoSuchUser = JsonSerializer.Serialize(noSuchUser);
             await cliente.EnviarMensaje(jsonNoSuchUser);
         }
@@ -477,6 +504,11 @@ public class ServidorControlador
     {
         Console.WriteLine(mensaje);
         NewRoom? newRoom = JsonSerializer.Deserialize<NewRoom>(mensaje);
+
+        if (newRoom == null)
+        {
+            return;
+        }
         string roomname = newRoom.roomname;
 
         if (string.IsNullOrEmpty(roomname) || roomname.Length > 16)
@@ -516,6 +548,11 @@ public class ServidorControlador
         Console.WriteLine(mensaje);
         Invite? invite = JsonSerializer.Deserialize<Invite>(mensaje);
 
+        if (invite == null)
+        {
+            return;
+        }
+
         string roomname = invite.roomname;
         List<string> usernames = invite.usernames;
 
@@ -548,10 +585,10 @@ public class ServidorControlador
         // verificamos que cada conexion (nombre) este en la lista de clients
         foreach (string username in usernames)
         {
-            ConexionCliente conexionInvitada = BuscarConexionPorNombre(username);
+            ConexionCliente? conexionInvitada = BuscarConexionPorNombre(username);
             if (conexionInvitada == null)
             {
-                NoSuchUser noSuchUser = new NoSuchUser("INVITE",username);
+                NoSuchUser noSuchUser = new NoSuchUser("INVITE", username);
                 string jsonNoSuchUser = JsonSerializer.Serialize(noSuchUser);
                 await cliente.EnviarMensaje(jsonNoSuchUser);
                 return;
@@ -585,6 +622,12 @@ public class ServidorControlador
     {
         Console.WriteLine(mensaje);
         JoinRoom? joinRoom = JsonSerializer.Deserialize<JoinRoom>(mensaje);
+
+        if (joinRoom == null)
+        {
+            return;
+        }
+
         string roomname = joinRoom.roomname;
 
 
@@ -651,13 +694,19 @@ public class ServidorControlador
     private async Task ProcesarRoomUsers(ConexionCliente cliente, string mensaje)
     {
         Console.WriteLine(mensaje);
-        RoomUsers roomUsers = JsonSerializer.Deserialize<RoomUsers>(mensaje);
+        RoomUsers? roomUsers = JsonSerializer.Deserialize<RoomUsers>(mensaje);
+
+        if (roomUsers == null)
+        {
+            return;
+        }
+
         string roomname = roomUsers.roomname;
 
         if (string.IsNullOrEmpty(roomname))
         {
-            ProcesarInvalid(cliente);
-            CerrarConexion(cliente);
+            await ProcesarInvalid(cliente);
+            await CerrarConexion(cliente);
             return;
         }
 
@@ -705,6 +754,12 @@ public class ServidorControlador
     {
         Console.WriteLine(mensaje);
         RoomText? roomText = JsonSerializer.Deserialize<RoomText>(mensaje);
+
+        if (roomText == null)
+        {
+            return;
+        }
+
         string roomname = roomText.roomname;
         string text = roomText.text;
         string username = cliente.GetUsername();
@@ -759,6 +814,12 @@ public class ServidorControlador
     {
         Console.WriteLine(mensaje);
         LeaveRoom? leaveRoom = JsonSerializer.Deserialize<LeaveRoom>(mensaje);
+
+        if (leaveRoom == null)
+        {
+            return;
+        }
+
         string roomname = leaveRoom.roomname;
         string username = cliente.GetUsername();
 
@@ -827,7 +888,7 @@ public class ServidorControlador
     /// </summary>
     /// <param name="username"> es el nombre de la conexion que queremos devolver</param>
     /// <returns> ConexionCliente si encuetra al cliente, null en otro caso</returns>
-    private ConexionCliente BuscarConexionPorNombre(string username)
+    private ConexionCliente? BuscarConexionPorNombre(string username)
     {
         foreach (ConexionCliente c in clientes)
         {

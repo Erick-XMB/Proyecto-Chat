@@ -30,7 +30,7 @@ public partial class ChatPrivado : UserControl
         this.controlador = clienteControlador;
         this.controlador.MensajeParaInterfaz += RecibirMensaje;
         this.username = username;
-        if(primerMensaje != null)
+        if (primerMensaje != null)
         {
             MensajesPrivadosTextBox.Text += $"{primerMensaje.username}: {primerMensaje.text}\n";
         }
@@ -64,6 +64,11 @@ public partial class ChatPrivado : UserControl
     private async void EnviarMensajePrivado_Click(object? sender, RoutedEventArgs e)
     {
         string? text = EnviarMensajePrivadoTextBox.Text;
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return;
+        }
 
         controlador.PrivText(username, text);
 

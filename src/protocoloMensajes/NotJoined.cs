@@ -7,6 +7,15 @@ namespace protocoloMensajes;
 /// </summary>
 public class NotJoined : Response
 {
+
+    /// <summary>
+    /// Constructor vacio de notJoined
+    /// </summary>
+    public NotJoined()
+    {
+        
+    }
+
     /// <summary>
     /// Constructor del mensaje NotJoined
     /// </summary>

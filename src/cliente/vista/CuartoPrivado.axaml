@@ -21,7 +21,7 @@
                         <StackPanel Width="200" Spacing="10">
                             <TextBlock Text="Nombre(s) del usuario(s):" />
                             <TextBox x:Name="EscrbirNombresDeInvitados"
-                                Watermark="Usuario 1,Usuario 2,Usuario 3 ..." />
+                                PlaceholderText="Usuario 1,Usuario 2,Usuario 3 ..." />
                             <Button Content="Aceptar"
                                 Click="EnviarInvitacion_Click" />
                         </StackPanel>

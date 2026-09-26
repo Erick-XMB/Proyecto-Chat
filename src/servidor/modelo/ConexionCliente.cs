@@ -1,4 +1,3 @@
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -77,6 +76,8 @@ public class ConexionCliente
     {
         this.tcpCliente = tcpCliente;
         this.stream = tcpCliente.GetStream();
+        this.username = "";
+        this.status = "";
     }
 
     /// <summary>

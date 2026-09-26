@@ -1,7 +1,6 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ClienteChat.modelo;
@@ -21,7 +20,7 @@ public class ConexionServidor
     /// <summary>
     /// Evento que invoca a la accion de la cadena que le llamamos mensaje recibido
     /// </summary>
-    public event Action<string?> MensajeRecibido;
+    public event Action<string>? MensajeRecibido;
 
 
     /// <summary>
@@ -56,7 +55,7 @@ public class ConexionServidor
     /// Metodo que nos permite desonectar cerrando el TCPClient y el NetWorkStream
     /// </summary>
     public void Desconectar()
-    {   
+    {
         stream?.Close();
         cliente?.Close();
     }
@@ -102,6 +101,10 @@ public class ConexionServidor
 
             try
             {
+                if (stream == null)
+                {
+                    return;
+                }
 
                 /** leemos los bytes de manera asincrona y los guardamos en bytesLeidos */
                 bytesLeidos = await stream.ReadAsync(buffer);

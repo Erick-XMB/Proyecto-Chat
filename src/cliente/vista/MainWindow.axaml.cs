@@ -19,7 +19,7 @@ public partial class MainWindow : Window
     /// <summary>
     /// Variable que hace referencia al username con el que se quiere iniciar sesion
     /// </summary>
-    private string username = "";
+    private string? username;
 
     /// <summary>
     /// Variable que hace referencia al puerto al que deseamos conectarnos
@@ -78,12 +78,25 @@ public partial class MainWindow : Window
     /// <param name="e">contiene la informacion relaciona con el evento que ocurrio.</param>
     private async void Conectar_Click(object? sender, RoutedEventArgs e)
     {
-        username = MensajeTextBox.Text;
+        string? textoUsername = MensajeTextBox.Text;
 
-        puerto = int.Parse(PuertoTextBox.Text);
+        if (string.IsNullOrWhiteSpace(textoUsername))
+        {
+            EstadoTexto.Text = "Estado: EL NOMBRE NO PUEDE SER VACIO";
+            return;
+        }
+
+        username = textoUsername;
+
+        if (!int.TryParse(PuertoTextBox.Text, out puerto))
+        {
+            EstadoTexto.Text = "Estado: Puerto NO VALIDO";
+            return;
+        }
 
         /** variable que guarda si se pudo establecer la conexion*/
         bool conectado = controlador.Conectar(puerto);
+
 
 
         /** Si la conexion se hace el */
@@ -104,7 +117,8 @@ public partial class MainWindow : Window
                 VentanaChat ventanaChat = new VentanaChat(controlador);
                 ventanaChat.Show();
                 this.Close();
-            } else
+            }
+            else
             {
                 controlador.Desconectar();
                 EstadoTexto.Text = "Estado: Error en la identidicacion";
@@ -112,7 +126,7 @@ public partial class MainWindow : Window
             }
         }
         else
-        {   
+        {
             controlador.Desconectar();
             /** Se modifica el texto que tenemos en MainWindow en caso de que la conexion se pudo hacer*/
             EstadoTexto.Text = "Estado: Error de conexión";

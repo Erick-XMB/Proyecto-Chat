@@ -28,7 +28,7 @@ public partial class CuartoPrivado : UserControl
     /// <summary>
     /// Atributo que usamos para representar los nombres de usuario que escribimos
     /// </summary>
-    private string nombresDeUsuario;
+    private string nombresDeUsuario = "";
 
 
     /// <summary>
@@ -125,7 +125,12 @@ public partial class CuartoPrivado : UserControl
     private void EnviarInvitacion_Click(object? sender, RoutedEventArgs e)
     {
         var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("EscrbirNombresDeInvitados");
-        nombresDeUsuario = cajaDeTextoEscribirCuarto.Text;
+
+        if (cajaDeTextoEscribirCuarto == null)
+        return;
+
+
+        nombresDeUsuario = cajaDeTextoEscribirCuarto.Text ?? "";
 
         if (string.IsNullOrWhiteSpace(nombresDeUsuario))
         {
@@ -166,6 +171,11 @@ public partial class CuartoPrivado : UserControl
     {
 
         string? text = EnviarMensajeCuartoTextBox.Text;
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return;
+        }
 
         controlador.RoomText(this.roomname, text);
 

@@ -23,13 +23,13 @@ public partial class VentanaChat : Window
     /// Variable que hace referencia al nombre de la sala que escribimos en los botones
     /// asociadas a las salas
     /// </summary>
-    private string roomnameEscrito;
+    private string roomnameEscrito = "";
 
     /// <summary>
     /// Variable que hace referencia al nombre de usuario que escribimos en el boton de 
     /// escribir un mensaje privado
     /// </summary>
-    private string usuarioEscrito;
+    private string usuarioEscrito = "";
 
 
     /// <summary>
@@ -66,7 +66,11 @@ public partial class VentanaChat : Window
     private async void MensajePrivado_Click(object? sender, RoutedEventArgs e)
     {
         var cajaDeTextoEscribirPrivado = this.FindControl<TextBox>("EscribirPrivado");
-        usuarioEscrito = cajaDeTextoEscribirPrivado.Text;
+
+        if (cajaDeTextoEscribirPrivado == null)
+            return;
+
+        usuarioEscrito = cajaDeTextoEscribirPrivado.Text ?? "";
 
         if (string.IsNullOrWhiteSpace(usuarioEscrito))
         {
@@ -86,7 +90,11 @@ public partial class VentanaChat : Window
     {
 
         var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("UnirseCuarto");
-        roomnameEscrito = cajaDeTextoEscribirCuarto.Text;
+
+        if (cajaDeTextoEscribirCuarto == null)
+            return;
+
+        roomnameEscrito = cajaDeTextoEscribirCuarto.Text ?? "";
         if (string.IsNullOrWhiteSpace(roomnameEscrito))
         {
             return;
@@ -108,7 +116,11 @@ public partial class VentanaChat : Window
         //string? roomname = await ventana.ShowDialog<string?>(this);
 
         var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("EscribirCuarto");
-        roomnameEscrito = cajaDeTextoEscribirCuarto.Text;
+
+        if (cajaDeTextoEscribirCuarto == null)
+            return;
+
+        roomnameEscrito = cajaDeTextoEscribirCuarto.Text ?? "";
         if (string.IsNullOrWhiteSpace(roomnameEscrito))
         {
             return;
@@ -127,7 +139,7 @@ public partial class VentanaChat : Window
     {
         foreach (TabItem? tabItem in ConversacionesTabControl.Items)
         {
-            if (tabItem.Tag?.ToString() == roomname)
+            if (tabItem?.Tag?.ToString() == roomname)
             {
                 return;
             }
@@ -155,7 +167,7 @@ public partial class VentanaChat : Window
     {
         foreach (TabItem? tabItem in ConversacionesTabControl.Items)
         {
-            if (tabItem.Tag?.ToString() == usuario)
+            if (tabItem?.Tag?.ToString() == usuario)
             {
                 return;
             }
@@ -227,7 +239,13 @@ public partial class VentanaChat : Window
     /// <param name="e">Contiene la informacion relaciona con el evento que ocurrio</param>
     public async void EnviarMensaje_Click(object? sender, RoutedEventArgs e)
     {
+
         string? text = EnviarMensajeTextBox.Text;
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return;
+        }
 
         controlador.PublicText(text);
 
@@ -287,7 +305,13 @@ public partial class VentanaChat : Window
 
             case Invitation invitation:
                 var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("InvitacionesCuarto");
-                cajaDeTextoEscribirCuarto.Text += $"Invitado a '{invitation.roomname}' por '{invitation.username}' \n";
+
+                if (cajaDeTextoEscribirCuarto == null)
+                {
+                    return;
+                }
+                
+                cajaDeTextoEscribirCuarto.Text += $"INVITADO A '{invitation.roomname}' POR '{invitation.username}' \n";
                 break;
 
             case JoinRoomSuccess joinRoomSuccess:

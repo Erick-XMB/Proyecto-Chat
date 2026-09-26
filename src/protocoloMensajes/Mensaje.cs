@@ -7,7 +7,6 @@ public class Mensaje
     /// <summary>
     /// atributo type que reprsentara el tipo de mensaje
     /// </summary>
-    public string type { get; set;}
-
+    public string type { get; set;} = "";
 
 }

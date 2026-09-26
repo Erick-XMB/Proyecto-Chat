@@ -228,146 +228,241 @@ public class ClienteControlador
             {
                 case "NEW_USER":
                     NewUser? newUser = JsonSerializer.Deserialize<NewUser>(mensaje);
-                    MensajeParaInterfaz?.Invoke(newUser);
+                    if (newUser != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(newUser);
+                    }
                     break;
 
                 case "INVITATION":
                     Invitation? invitation = JsonSerializer.Deserialize<Invitation>(mensaje);
-                    MensajeParaInterfaz?.Invoke(invitation);
+                    if (invitation != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(invitation);
+                    }
                     break;
 
                 case "JOINED_ROOM":
                     JoinedRoom? joinedRoom = JsonSerializer.Deserialize<JoinedRoom>(mensaje);
-                    MensajeParaInterfaz?.Invoke(joinedRoom);
+                    if (joinedRoom != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(joinedRoom);
+                    }
                     break;
+
 
                 case "PUBLIC_TEXT_FROM":
                     PublicTextFrom? PublicTextFrom = JsonSerializer.Deserialize<PublicTextFrom>(mensaje);
-                    MensajeParaInterfaz?.Invoke(PublicTextFrom);
+                    if (PublicTextFrom != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(PublicTextFrom);
+                    }
                     break;
 
                 case "ROOM_USER_LIST":
                     RoomUserList? roomUserList = JsonSerializer.Deserialize<RoomUserList>(mensaje);
-                    MensajeParaInterfaz?.Invoke(roomUserList);
+                    if (roomUserList != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(roomUserList);
+                    }
                     break;
 
                 case "LEFT_ROOM":
                     LeftRoom? leftRoom = JsonSerializer.Deserialize<LeftRoom>(mensaje);
-                    MensajeParaInterfaz?.Invoke(leftRoom);
+                    if (leftRoom != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(leftRoom);
+                    }
                     break;
 
                 case "DISCONNECTED":
                     Disconnected? disconnected = JsonSerializer.Deserialize<Disconnected>(mensaje);
-                    MensajeParaInterfaz?.Invoke(disconnected);
+                    if (disconnected != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(disconnected);
+                    }
                     break;
 
                 case "NEW_STATUS":
                     NewStatus? newStatus = JsonSerializer.Deserialize<NewStatus>(mensaje);
-                    MensajeParaInterfaz?.Invoke(newStatus);
+                    if (newStatus != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(newStatus);
+                    }
                     break;
 
                 case "USER_LIST":
                     UserList? userList = JsonSerializer.Deserialize<UserList>(mensaje);
-                    MensajeParaInterfaz?.Invoke(userList);
+                    if (userList != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(userList);
+                    }
                     break;
 
                 case "ROOM_TEXT_FROM":
                     RoomTextFrom? roomTextFrom = JsonSerializer.Deserialize<RoomTextFrom>(mensaje);
-                    MensajeParaInterfaz?.Invoke(roomTextFrom);
+                    if (roomTextFrom != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(roomTextFrom);
+                    }
                     break;
 
                 case "TEXT_FROM":
                     PrivTextFrom? privTextFrom = JsonSerializer.Deserialize<PrivTextFrom>(mensaje);
-                    MensajeParaInterfaz?.Invoke(privTextFrom);
+                    if (privTextFrom != null)
+                    {
+                        MensajeParaInterfaz?.Invoke(privTextFrom);
+                    }
                     break;
                 case "RESPONSE":
                     Response? response = JsonSerializer.Deserialize<Response>(mensaje);
+
+                    if(response == null)
+                    {
+                        break;
+                    }
+
                     string resultadoResponse = response.result;
                     string operacionResponse = response.operation;
+                    
 
                     switch (resultadoResponse)
                     {
                         case "NO_SUCH_USER" when operacionResponse == "TEXT":
                             NoSuchUser? noSuchUser = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
-                            MensajeParaInterfaz?.Invoke(noSuchUser);
+                            if (noSuchUser != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(noSuchUser);
+                            }
                             break;
                         case "NO_SUCH_USER" when operacionResponse == "INVITE":
                             NoSuchUser? noSuchUserInvite = JsonSerializer.Deserialize<NoSuchUser>(mensaje);
-                            MensajeParaInterfaz?.Invoke(noSuchUserInvite);
+                            if (noSuchUserInvite != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(noSuchUserInvite);
+                            }
                             break;
 
                         case "NO_SUCH_ROOM" when operacionResponse == "INVITE":
                             NoSuchRoom? noSuchRoom = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
-                            MensajeParaInterfaz?.Invoke(noSuchRoom);
+                            if (noSuchRoom != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(noSuchRoom);
+                            }
                             break;
 
                         case "NO_SUCH_ROOM" when operacionResponse == "JOIN_ROOM":
                             NoSuchRoom? noSuchRoomJoin = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
-                            MensajeParaInterfaz?.Invoke(noSuchRoomJoin);
+                            if (noSuchRoomJoin != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(noSuchRoomJoin);
+                            }
                             break;
 
                         case "NO_SUCH_ROOM" when operacionResponse == "LEAVE_ROOM":
                             NoSuchRoom? noSuchRoomLeave = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
-                            MensajeParaInterfaz?.Invoke(noSuchRoomLeave);
+                            if (noSuchRoomLeave != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(noSuchRoomLeave);
+                            }
                             break;
 
                         case "NO_SUCH_ROOM" when operacionResponse == "ROOM_USERS":
                             NoSuchRoom? noSuchRoomUsers = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
-                            MensajeParaInterfaz?.Invoke(noSuchRoomUsers);
+                            if (noSuchRoomUsers != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(noSuchRoomUsers);
+                            }
                             break;
 
                         case "NO_SUCH_ROOM" when operacionResponse == "ROOM_TEXT":
                             NoSuchRoom? noSuchRoomText = JsonSerializer.Deserialize<NoSuchRoom>(mensaje);
-                            MensajeParaInterfaz?.Invoke(noSuchRoomText);
+                            if (noSuchRoomText != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(noSuchRoomText);
+                            }
                             break;
 
                         case "NOT_INVITED" when operacionResponse == "ROOM_USERS":
                             NotInvited? notInvited = JsonSerializer.Deserialize<NotInvited>(mensaje);
-                            MensajeParaInterfaz?.Invoke(notInvited);
+                            if (notInvited != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(notInvited);
+                            }
                             break;
 
                         case "NOT_INVITED" when operacionResponse == "LEAVE_ROOM":
                             NotInvited? notInvitedLeave = JsonSerializer.Deserialize<NotInvited>(mensaje);
-                            MensajeParaInterfaz?.Invoke(notInvitedLeave);
+                            if (notInvitedLeave != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(notInvitedLeave);
+                            }
                             break;
 
                         case "NOT_JOINED" when operacionResponse == "ROOM_USERS":
                             NotJoined? notJoined = JsonSerializer.Deserialize<NotJoined>(mensaje);
-                            MensajeParaInterfaz?.Invoke(notJoined);
+                            if (notJoined != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(notJoined);
+                            }
                             break;
 
                         case "NOT_JOINED" when operacionResponse == "ROOM_TEXT":
                             NotJoined? notJoinedText = JsonSerializer.Deserialize<NotJoined>(mensaje);
-                            MensajeParaInterfaz?.Invoke(notJoinedText);
+                            if (notJoinedText != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(notJoinedText);
+                            }
                             break;
 
                         case "USER_ALREADY_EXISTS":
                             UserAlreadyExist? userAlreadyExist = JsonSerializer.Deserialize<UserAlreadyExist>(mensaje);
-                            MensajeParaInterfaz?.Invoke(userAlreadyExist);
+                            if (userAlreadyExist != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(userAlreadyExist);
+                            }
                             break;
                         case "NOT_IDENTIFIED":
                             NotIdentify? notIdentify = JsonSerializer.Deserialize<NotIdentify>(mensaje);
-                            MensajeParaInterfaz?.Invoke(notIdentify);
+                            if (notIdentify != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(notIdentify);
+                            }
                             break;
                         case "SUCCESS" when operacionResponse == "IDENTIFY":
                             IdentifySuccess? identifySuccess = JsonSerializer.Deserialize<IdentifySuccess>(mensaje);
-                            MensajeParaInterfaz?.Invoke(identifySuccess);
+                            if (identifySuccess != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(identifySuccess);
+                            }
                             break;
                         case "INVALID":
                             Invalid? invalid = JsonSerializer.Deserialize<Invalid>(mensaje);
-                            MensajeParaInterfaz?.Invoke(invalid);
+                            if (invalid != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(invalid);
+                            }
                             break;
                         case "SUCCESS" when operacionResponse == "NEW_ROOM":
                             NewRoomSucess? newRoomSucess = JsonSerializer.Deserialize<NewRoomSucess>(mensaje);
-                            MensajeParaInterfaz?.Invoke(newRoomSucess);
+                            if (newRoomSucess != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(newRoomSucess);
+                            }
                             break;
                         case "ROOM_ALREADY_EXISTS":
                             RoomAlreadyExists? roomAlreadyExists = JsonSerializer.Deserialize<RoomAlreadyExists>(mensaje);
-                            MensajeParaInterfaz?.Invoke(roomAlreadyExists);
+                            if (roomAlreadyExists != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(roomAlreadyExists);
+                            }
                             break;
                         case "SUCCESS" when operacionResponse == "JOIN_ROOM":
                             JoinRoomSuccess? joinRoomSuccess = JsonSerializer.Deserialize<JoinRoomSuccess>(mensaje);
-                            MensajeParaInterfaz?.Invoke(joinRoomSuccess);
+                            if (joinRoomSuccess != null)
+                            {
+                                MensajeParaInterfaz?.Invoke(joinRoomSuccess);
+                            }
                             break;
                     }
                     break;

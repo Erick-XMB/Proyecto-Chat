@@ -36,7 +36,7 @@
                             <Flyout>
                                 <StackPanel Width="200" Spacing="10">
                                     <TextBox x:Name="EscribirPrivado"
-                                        Watermark="Nombre del usuario..." />
+                                        PlaceholderText="Nombre del usuario..." />
                                     <TextBlock Text="Nombre del usuario:" />
                                     <Button Content="Aceptar"
                                         Click="MensajePrivado_Click" />
@@ -50,7 +50,7 @@
                             <Flyout>
                                 <StackPanel Width="200" Spacing="10">
                                     <TextBox x:Name="EscribirCuarto"
-                                        Watermark="Nombre del cuarto..." />
+                                        PlaceholderText="Nombre del cuarto..." />
                                     <TextBlock Text="Nombre del cuarto:" />
                                     <Button Content="Aceptar"
                                         Click="CrearCuarto_Click" />
@@ -77,7 +77,7 @@
                                 <StackPanel Width="200" Spacing="10">
                                     <TextBlock Text="Nombre del cuarto:" />
                                     <TextBox x:Name="UnirseCuarto"
-                                        Watermark="Nombre del cuarto..." />
+                                        PlaceholderText="Nombre del cuarto..." />
                                     <Button Content="Aceptar"
                                         Click="UnirseCuarto_Click" />
                                 </StackPanel>
