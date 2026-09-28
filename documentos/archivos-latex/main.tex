@@ -89,7 +89,7 @@
         \textbf{Modelado y Programación $|$ Grupo 7079}\\[0.1cm]
         Proyecto: Programa chat\\[0.1cm]
         Erick Xavier Martinez Briones\\[0.1cm]
-        18 de Septiembre de 2026
+        28 de Septiembre de 2026
     	\end{center}
     \end{minipage}\hfill
     \begin{minipage}{3cm}
@@ -110,7 +110,7 @@
 \end{center}
 
 \begin{quote}
-El problema a resolver es el desarrollo de un sistema de comunicación de mensajes usando el protocolo de red TCP; dicho problema se buscará atacar haciendo uso del método de desarrollo de la cascada, dicho método estará plasmado en este reporte (exceptuando el paso del mantenimiento); se abordará el análisis del problema para que con base en ello, podamos efectuar un diseño que nos pueda servir como guía para atacar el planeteamiento preestablecido, gracias a ello, podremos hacer uso de algún lenguaje de progrmación que se acople a nuestras necesidades para poder llevar a cabo la implementación de nuestro diseño. Cada una de las etapas previamente mencionadas podrán ser visibles en este reporte, para que, como resultado final, tengamos un resultado exitoso del sistema a desarrollar.
+El problema a resolver es el desarrollo de un sistema de comunicación de mensajes usando el protocolo de red TCP; dicho problema se buscará atacar haciendo uso del método de desarrollo de la cascada, dicho método estará plasmado en este reporte (exceptuando el paso del mantenimiento); se abordará el análisis del problema para que con base en ello, podamos efectuar un diseño que nos pueda servir como guía para atacar el planteamiento preestablecido, gracias a ello, podremos hacer uso de algún lenguaje de progrmación que se acople a nuestras necesidades para poder llevar a cabo la implementación de nuestro diseño. Cada una de las etapas previamente mencionadas podrán ser visibles en este reporte, para que, como conclusión final, tengamos un resultado exitoso del sistema a desarrollar.
 \end{quote}
   
   \chapter{Introducción al problema}
@@ -119,7 +119,7 @@ El problema a resolver es el desarrollo de un sistema de comunicación de mensaj
 
 \vspace{0.2cm}
 
-\noindent  La importancia de realizar este primer poryecto es tener un primer acercamiento a lo que involucra el desarrollo de software, pues a diferencia de cursos pasados donde probablemente lo primero que se hacía era ir al teclado a generar código e ir improvisando durante el camino, en este curso justamente como su nombre indica, es demostrar la importancia que tiene tener un análisis del problema que se propone para poder generar un diseño independiente de las tecnologías que se pueden implementar para resolver el problema, pues de esa manera la etapa de la implementación resulta ser más limpia, y así,  poder realizar el proyecto de una manera optima; es por lo anterior, que se ve la importancia de este primer proyecto, para empezar a tener las base de buenas prácticas al momento de desarrollar software.
+\noindent  La importancia de realizar este primer poryecto es tener un primer acercamiento a lo que involucra el desarrollo de software, pues a diferencia de cursos pasados donde probablemente lo primero que se hacía era ir al teclado a generar código e ir improvisando durante el camino, en este curso justamente como su nombre indica, es demostrar la importancia que tiene tener un análisis del problema que se propone, para poder generar un diseño independiente de las tecnologías que se pueden implementar para resolver el problema, pues de esa manera la etapa de la implementación resulta ser más limpia, y así,  poder realizar el proyecto de una manera optima; es por lo anterior, que se ve la importancia de este primer proyecto, para empezar a tener las base de buenas prácticas al momento de desarrollar software.
 
 \vspace{0.2cm}
 
@@ -127,7 +127,7 @@ El problema a resolver es el desarrollo de un sistema de comunicación de mensaj
 
 \vspace{0.2 cm}
 
-\noindent Sin embargo las dificultades previamente mencionadas, corresponden a tecnologías particulares, las cuales debemos pensar de una manera más abstracta, pues al momento de dar un análisis y diseño  a nuestro problema, estos deben ser pensados de manera general sin todavia estar pensando totalmente en todas las tecnologías que implemenetaremos, es por ello, que plasmar dicha parte del desarrollo es importante para poder dar un buen código, por esa razón es que se hace este reporte del proyecto, pues si bien, podemos decirnos a nosotros mismos que el análisis ya lo tengo en la cabeza, es importante poder plasmarlo, así como tambien es importante plasmar nuestro diseño, aunque esto se pueda escuchar tedioso, veremos que si hacemos una buena etapa de modelado, la parte de la implemenación resultará ser más sencilla (o eso es lo que se espera)
+\noindent Sin embargo las dificultades previamente mencionadas, corresponden a tecnologías particulares, las cuales debemos pensar de una manera más abstracta, pues al momento de dar un análisis y diseño  a nuestro problema, estos deben ser pensados de manera general sin todavia estar pensando totalmente en todas las tecnologías que implementaremos, es por ello, que plasmar dicha parte del desarrollo es importante para poder dar un buen código, por esa razón es que se hace este reporte del proyecto, pues si bien, podemos decirnos a nosotros mismos que el análisis ya lo tengo en la cabeza, es importante poder plasmarlo, así como tambien es importante expresar nuestro diseño, aunque esto se pueda escuchar tedioso, veremos que si hacemos una buena etapa de modelado, la parte de la implementación resultará ser más sencilla (o eso es lo que se espera)
 
 \vspace{0.2 cm}
 
@@ -191,10 +191,10 @@ every node/.style={draw, rectangle, rounded corners}
 
 \vspace{0.5cm}
 
-\noindent Sin embargo, como hemos mencionado "intercambio de información", vale la pena preguntarnos "¿Qué es la información mutua que ambas entidades estarán compartiendo?" La respuesta a esta pregunta la tenemos en el protocolo establecido, dado que es a través de este que definimos como tanto el cliente como el servidor intercambiaran información, esta es una capa que debe vivir simultanea a ambas entidades, pues ambas deben poder tener acceso a él.
+\noindent Sin embargo, como hemos mencionado ``intercambio de información'', vale la pena preguntarnos "¿Qué es la información mutua que ambas entidades estarán compartiendo?" La respuesta a esta pregunta la tenemos en el protocolo establecido, dado que es a través de este que definimos como tanto el cliente como el servidor intercambiaran información, esta es una capa que debe vivir simultanea a ambas entidades, pues ambas deben poder tener acceso a él.
 
 \vspace{0.5cm}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 
 \begin{tikzpicture}[
@@ -247,7 +247,7 @@ every node/.style={draw, rectangle, rounded corners}
 
 \vspace{0.2cm}
 
-\noindent De manera analoga, como en el proyecto se nos están pidiendo salas, vemos que es lógico que las salas vivan el servidor, pues es este el que se encarga de hacer las gestiones en ellas, ya sea permitir crearlas, borrarlas y demas acciones que correspondan a las salas. Asi que esto lo podemos ver simplemente como $Salas$.
+\noindent De manera análoga, como en el proyecto se nos están pidiendo salas, vemos que es lógico que las salas vivan el servidor, pues es este el que se encarga de hacer las gestiones en ellas, ya sea permitir crearlas, borrarlas y demás acciones que correspondan a las salas. Asi que esto lo podemos ver simplemente como $Salas$.
 
 \vspace{0.2cm}
 
@@ -313,13 +313,15 @@ every node/.style={draw, rectangle, rounded corners}
 
 \vspace{0.2cm}
 
-\noindent De la misma manera en que en el Servidor, necesitamos una entidad que sea capaz de recibir la comunicación mutua con el servidor, pero esta comunicación no es arbitraria sino que esta dada por el protocolo, por tanto aquí tambien es necesario tener una entidad llamada $Manejar$ $Protocolo$
+\noindent De la igual manera en que en el Servidor, necesitamos una entidad que sea capaz de recibir la comunicación mutua con el servidor, pero esta comunicación no es arbitraria sino que esta dada por el protocolo, por tanto aquí tambien es necesario tener una entidad llamada $Manejar$ $Protocolo$
+
+\vspace{0.2cm}
 
 \noindent Una entidad que es distintiva del cliente a comparación del servidor, es que en nuestro cliente debemos ser capaces de mostrar la información que estamos recibiendo del servidor, por tanto podemos pensar en una entidad abstracta (abstracta en la definción de la palabra, no de un lenguaje de programación) llamada \textit{Mostrar-Informacion}
 
 \vspace{0.2cm}
 
-\noindent Por lo tanto nuestro árbol del servidor se ve de la siguiente manera: 
+\noindent Por lo tanto nuestro árbol del cliente se ve de la siguiente manera: 
 
 \vspace{0.5cm}
 \begin{figure}[H]
@@ -377,14 +379,14 @@ every node/.style={draw, rectangle, rounded corners}
 \end{figure}
 
 \noindent Tras revisar los problemas que deberemos afrontar para la realización del proyecto (así como de sus subproblemas), podemos destacar lo siguiente:
-Durante el desarrollo de los árboles hemos estado haciendo referencia a la palabra ``ente'' (u ``entidad''), esto debido a que sabemos que hay ``algo'' que queremos que tenga una cierta responsabilidad en nuestro sistema, pues resulta coherente que no podemos englobar todas las acciones que queremos que haga el chat en una sola; dicho ``ente'' aun no sabemos exactamente como se comportara, pero si sabemos que resultado deseamos obtener; por tanto podemos decir que es un ``Objeto'' con propiedades y responsabilidades unicas, asi que resulta aún mas coherente que una manera de abordar este proyecto es utilizando el paradigma orientado a objetos, pues vemos que tras realizar el análisis, el proyecto practicamente nos esta gritando ``!!!Modela esto como un objeto!!!''.
+Durante el desarrollo de los árboles hemos estado haciendo referencia a la palabra ``ente'' (u ``entidad''), esto debido a que sabemos que hay ``algo'' que queremos que tenga una cierta responsabilidad en nuestro sistema, pues resulta coherente que no podemos englobar todas las acciones que queremos que haga el chat en una sola; dicho ``ente'' aun no sabemos exactamente como se comportará, pero si sabemos que resultado deseamos obtener; por tanto podemos decir que es un ``Objeto'' con propiedades y responsabilidades únicas, asi que resulta aún mas coherente que una manera de abordar este proyecto es utilizando el paradigma orientado a objetos, pues vemos que tras realizar el análisis, el proyecto practicamente nos esta gritando ``!!!Modela esto como un objeto!!!''.
 
 \vspace{0.2cm}
 \noindent Asi que, una vez que hemos analizado el problema, viendo que casos debemos atacar y concluyendo que la mejor manera de abordarlo es mediante Orientación a Objetos pasaremos a la siguiente etapa del método cascada que es el \textit{DISEÑO} 
 
 \chapter{Diseño de la solución al problema}
 
-\noindent Hemos avanzado a la siguiente parte de nuestro desarrollo, el diseño asi que ahora vale la pena preguntarnos ¿Qué patrones de diseño es conveniente utilizar para el desarrollo de la aplicación?. Aqui la respuesta que hemos elegido (además de que fue petición por parte del profesor) es utilizar el patrón de diseño \textit{MVC} (Modelo,Vista,Controlador).
+\noindent Hemos avanzado a la siguiente parte de nuestro desarrollo, el diseño, asi que ahora vale la pena preguntarnos ¿Qué patrones de diseño es conveniente utilizar para el desarrollo de la aplicación?. Aqui la respuesta que hemos elegido (además de que fue petición por parte del profesor) es utilizar el patrón de diseño \textit{MVC} (Modelo,Vista,Controlador).
 
 \vspace{0.2cm}
 
@@ -411,16 +413,16 @@ Durante el desarrollo de los árboles hemos estado haciendo referencia a la pala
 
 \vspace{0.2cm}
 
-Vemos que en nuestra Figura~\ref{fig:capas} no incluimos la capa del \textit{Protocolo}, esto porque en dicha capa no aplicaremos MVC, pues dicha capa solo la estaremos usando para almacenar los mensajes que estan involucrados en el protocolo, por ello el diagrama de como estará la capa de \textit{Protocolo} la podemos ver de la siguiente manera:
+\noindent Vemos que en nuestra Figura~\ref{fig:capas} no incluimos la capa del \textit{Protocolo}, esto porque en dicha capa no aplicaremos MVC, pues dicha capa solo la estaremos usando para almacenar los mensajes que estan involucrados en el protocolo, por ello el diagrama de como estará la capa de \textit{Protocolo} la podemos ver de la siguiente manera:
 
- \begin{figure}[h]
+ \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{protocolo.jpg}
     \caption{Diagrama de la capa del protocolo.}
     \label{fig:protocolo}
 \end{figure}
 
-\noindent En esta decisión de diseño vemos que los mensajes los vamos a representar como objetos, pero solo con atributos que es donde guardaremos la información necesaria de cada mensaje; en la Figura~\ref{fig:protocolo} vemos que todos los tipos de mensaje heredarán de la clase \textit{Mensaje}, pues al revisar el protocolo vemos que cada uno de los mensajes tiene como atributo un \textit{type}; de aquí vemos que la clase de \textit{MensajeParticular} representará los disitintos tipos de mensaje que deberemos manejar, no quiere decir que solo vaya a haber una clase llamada MensajeParticular, sino que solo es la representación de todos los demas mensajes que pueden llegar a habe.
+\noindent En esta decisión de diseño vemos que los mensajes los vamos a representar como objetos, pero solo con atributos que es donde guardaremos la información necesaria de cada mensaje; en la Figura~\ref{fig:protocolo} vemos que todos los tipos de mensaje heredarán de la clase \textit{Mensaje}, pues al revisar el protocolo vemos que cada uno de los mensajes tiene como atributo un \textit{type}; de aquí vemos que la clase de \textit{MensajeParticular} representará los disitintos tipos de mensaje que deberemos manejar, no quiere decir que solo vaya a haber una clase llamada MensajeParticular, sino que solo es la representación de todos los demas mensajes que pueden llegar a haber (\textit{IDENTIFY,STATUS,TEXT} y demás).
 
 \vspace{0.2cm}
 
@@ -435,7 +437,7 @@ Describiremos de mejor manera como es que cada uno de ellos nos ayuda a llegar a
 
     \begin{itemize}
         \item[-] \textbf{Conexion-Cliente}\\
-        \noindent Conexion-Cliente representará la conexión que tiene el cliente con el servidor, suena redundante, pero en particular este objeto se refiere a que cada que el cliente se conecte con el servidor, se le asigne una instancia de Conexion-Cliente, que nos servirá para identificar a ese cliente (usuario) en especifíco en la aplicación del chat; por lo anterior es que Conexion-Cliente puede tener como atributos: \textit{username, status, socket} con el cual se intercambiará la información. Mientras que los metodos que podemos pensar son: 
+        \noindent Conexion-Cliente representará la conexión que tiene el cliente con el servidor, suena redundante, pero en particular este objeto se refiere a que cada que un cliente se conecte con el servidor, se le asigne una instancia de Conexion-Cliente, que nos servirá para identificar a ese cliente (usuario) en especifíco en la aplicación del chat; por lo anterior es que Conexion-Cliente puede tener como atributos: \textit{username, status, socket} con el cual se intercambiará la información. Mientras que los metodos que podemos pensar son: 
                     \begin{itemize}
                 \item[-] {\textit{RecibirMensajes:}} Este método nos servirá para poder recibir los mensajes que vendran del cliente
                 \item[-] {\textit{EnviarMensaje:}} Este método nos serviŕa para poder enviar un mensaje al cliente, este nos servira para poder enviar mensaje de tipo \textit{RESPONSE} requeridos por el protocolo.
@@ -589,8 +591,8 @@ Por tanto vamos a describir de mejor manera a dichos objetos para poder ver como
 
     \noindent Después, vemos que la base del proyecto es poder tener comuncación de red entre el servidor y el cliente, por lo general y en bajo nivel podemos utilizar sockets junto a sus operaciones asociadas como \textit{bind(), listen(), write()} y demás; pero investigando que cualidades y facilidades que nos da nuestro lenguaje C\# , encontré dos clases que simplifican de manera muy grande tener que trabajar diectamente con sockets, dichas clases son \textit{TcpCliente y TcpListener},  de las cuales vamos a hablar:
     \begin{itemize}
-        \item[-] {TcpListener:} TcpListener nos ayuda a supervisar un puerto TCP que va a buscar las soliciudaes entrantes y luego crear objeto TcpClient que administre la conexión del  cliente. Vemos que funciona como el socket que se encargará de admnistrar el servidor, es por ello que este se utiliza en la misma clase \textit{servidor}, con los métodos \textit{Start(), AcceptTcpClientAsync()} así como el construtor de la clase TcpListener, que es aquí donde iniciamos el servidor con una dirección IP y un puerto; usando las operaciones anteriores es que podemos tener nuestro servidor funcional.
-        \item[-] {TcpClient:} Esta clase la usamos para crear una conexión de cliente a un host remoto, aquí se abstraen los detalles para que creemos un Sockett con el fin de solicitar y recibir datos mediante TCP, es decir en palabras más sencillas, es el socket asociado a nuestro cliente.
+        \item[-] {TcpListener:} TcpListener nos ayuda a supervisar un puerto TCP que va a buscar las solicitudes entrantes y luego crear objeto TcpClient que administre la conexión del  cliente. Vemos que funciona como el socket que se encargará de admnistrar el servidor, es por ello que este se utiliza en la misma clase \textit{servidor}, con los métodos \textit{Start(), AcceptTcpClientAsync()} así como el construtor de la clase TcpListener, que es aquí donde iniciamos el servidor con una dirección IP y un puerto; usando las operaciones anteriores es que podemos tener nuestro servidor funcional.
+        \item[-] {TcpClient:} Esta clase la usamos para crear una conexión de cliente a un host remoto, aquí se abstraen los detalles para que creemos un Socket con el fin de solicitar y recibir datos mediante TCP, es decir en palabras más sencillas, es el socket asociado a nuestro cliente.
 
         Por lo anterior es que TcpClient, lo llamamos tanto en el servidor como en el cliente, esto pues en nuestra clase \textit{ConexionCliente} se usa como el parametro para construir dicha clase, pues dicha clase representa los comportamientos que queremos que tengan nuestra conexiones una vez que llegan al servidor; sin embargo, tambien la usamos en nuestro Cliente, ya que en la clase \textit{ConexionServidor} es que lo usamos para conectarnos usando el metodo Conectar() al asociar nuestro objeto TCPclient con una dirección IP y puerto  (que son los mismos de nuestro TcpListener).
     \end{itemize}
@@ -632,7 +634,7 @@ Por tanto vamos a describir de mejor manera a dichos objetos para poder ver como
     
      \noindent Como siguiente punto a destacar fue la decisión de usar \textit{MakeFile} para nuestro sistema de construccion, si bien al parecer el entorno .NET ya trae incorporados métodos para el sitsema de construcción por medio de dotnet, el usar MakeFile se me hizo más comodo pues al simplemente colocar ``Make Accion'' se ejecuta la acción deseada, por ello el sistema se construye usando \textit{MakeFile}
 
-     \noindent Para hacer generación de la documentación se utlizó DocFX, esto pues al momento de buscar de que maneras podia generar la documentación me salió como opción, siendo sinceros al ser de las primeras opciones que conocí y al ver que podia generar un sitio html para poder ver la documentación de manera similar a como lo hace javaDoc en Java, pues fue una buena decisión para mi; sin embargo, hay un ``problema'', pues al parecer para generar dicho sitiio, DocFx genera archivos JavaScript lo que hace que en el repositorio de Github marque que en los lenguajes utilizados hay al rededor de 2.7\%  de uso de JavaScript, sin embargo dado que esos son archivos que la propia documentación me generó, y que no influyen en el funcionamiento del programa, doy por hecho que no estoy violando alguna regla establecida por el profesor.
+     \noindent Para hacer generación de la documentación se utlizó DocFX, esto pues al momento de buscar de que maneras podia generar la documentación me salió como opción, siendo sinceros al ser de las primeras opciones que conocí y al ver que podia generar un sitio html para poder ver la documentación de manera similar a como lo hace javaDoc en Java, pues fue una buena decisión para mi.
 
     \vspace{0.3cm}
 
