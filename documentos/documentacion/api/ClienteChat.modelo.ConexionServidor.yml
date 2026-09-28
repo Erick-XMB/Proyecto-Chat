@@ -24,7 +24,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: ConexionServidor
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 11
+    startLine: 10
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
@@ -61,14 +61,14 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: MensajeRecibido
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 23
+    startLine: 22
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
   summary: Evento que invoca a la accion de la cadena que le llamamos mensaje recibido
   example: []
   syntax:
-    content: public event Action<string?> MensajeRecibido
+    content: public event Action<string>? MensajeRecibido
     return:
       type: System.Action{System.String}
     content.vb: Public Event MensajeRecibido As Action(Of String)
@@ -90,7 +90,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: Conectar
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 32
+    startLine: 31
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
@@ -127,7 +127,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: Desconectar
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 57
+    startLine: 56
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
@@ -155,7 +155,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: EnviarMensaje
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 69
+    startLine: 68
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
@@ -190,7 +190,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: RecibirMensajes
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 92
+    startLine: 91
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo

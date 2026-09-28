@@ -154,8 +154,8 @@ public partial class CuartoPrivado : UserControl
     /// Metodo que nos permie que al dar click en Dejar cuarto abandonemos el cuarto
     /// correspondiente
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    /// <param name="sender">Representa el objeto que producjo el evento, es decir el boton.</param>
+    /// <param name="e">contiene la informacion relaciona con el evento que ocurrio.</param>
     /// <returns></returns>
     private void Click_DejarCuarto(object? sender, RoutedEventArgs e)
     {

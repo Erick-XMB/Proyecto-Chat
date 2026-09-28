@@ -11,6 +11,7 @@ items:
   - ClienteChat.VentanaChat.OpcionActive(System.Object,Avalonia.Interactivity.RoutedEventArgs)
   - ClienteChat.VentanaChat.OpcionAway(System.Object,Avalonia.Interactivity.RoutedEventArgs)
   - ClienteChat.VentanaChat.OpcionBusy(System.Object,Avalonia.Interactivity.RoutedEventArgs)
+  - ClienteChat.VentanaChat.RemoverPestania(System.String)
   langs:
   - csharp
   - vb
@@ -554,7 +555,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 38
+    startLine: 39
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -589,7 +590,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: OpcionActive
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 196
+    startLine: 209
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -627,7 +628,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: OpcionAway
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 206
+    startLine: 219
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -665,7 +666,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: OpcionBusy
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 216
+    startLine: 229
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -703,7 +704,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: EnviarMensaje_Click
     path: ../../src/cliente/vista/VentanaChat.axaml.cs
-    startLine: 227
+    startLine: 240
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -726,6 +727,48 @@ items:
   nameWithType.vb: VentanaChat.EnviarMensaje_Click(Object, RoutedEventArgs)
   fullName.vb: ClienteChat.VentanaChat.EnviarMensaje_Click(Object, Avalonia.Interactivity.RoutedEventArgs)
   name.vb: EnviarMensaje_Click(Object, RoutedEventArgs)
+- uid: ClienteChat.VentanaChat.RemoverPestania(System.String)
+  commentId: M:ClienteChat.VentanaChat.RemoverPestania(System.String)
+  id: RemoverPestania(System.String)
+  parent: ClienteChat.VentanaChat
+  langs:
+  - csharp
+  - vb
+  name: RemoverPestania(string)
+  nameWithType: VentanaChat.RemoverPestania(string)
+  fullName: ClienteChat.VentanaChat.RemoverPestania(string)
+  type: Method
+  source:
+    remote:
+      path: src/cliente/vista/VentanaChat.axaml.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: RemoverPestania
+    path: ../../src/cliente/vista/VentanaChat.axaml.cs
+    startLine: 264
+  assemblies:
+  - ClienteChat
+  namespace: ClienteChat
+  summary: >-
+    Metodo que elimina una pestania (tabItem) de nuestro
+
+    TabControl (ConversacionesTabControl) usando una cadena
+
+    que representa el nombre de la pestania como referencia
+  example: []
+  syntax:
+    content: public void RemoverPestania(string tituloDeLaPestania)
+    parameters:
+    - id: tituloDeLaPestania
+      type: System.String
+      description: >-
+        es la cadena que represneta la pestania
+           con el titulo que queremos eliminar
+    content.vb: Public Sub RemoverPestania(tituloDeLaPestania As String)
+  overload: ClienteChat.VentanaChat.RemoverPestania*
+  nameWithType.vb: VentanaChat.RemoverPestania(String)
+  fullName.vb: ClienteChat.VentanaChat.RemoverPestania(String)
+  name.vb: RemoverPestania(String)
 - uid: ClienteChat.VentanaChat.InitializeComponent(System.Boolean)
   commentId: M:ClienteChat.VentanaChat.InitializeComponent(System.Boolean)
   id: InitializeComponent(System.Boolean)
@@ -9514,6 +9557,23 @@ references:
   name: EnviarMensaje_Click
   nameWithType: VentanaChat.EnviarMensaje_Click
   fullName: ClienteChat.VentanaChat.EnviarMensaje_Click
+- uid: ClienteChat.VentanaChat.RemoverPestania*
+  commentId: Overload:ClienteChat.VentanaChat.RemoverPestania
+  href: ClienteChat.VentanaChat.html#ClienteChat_VentanaChat_RemoverPestania_System_String_
+  name: RemoverPestania
+  nameWithType: VentanaChat.RemoverPestania
+  fullName: ClienteChat.VentanaChat.RemoverPestania
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: ClienteChat.VentanaChat.InitializeComponent*
   commentId: Overload:ClienteChat.VentanaChat.InitializeComponent
   href: ClienteChat.VentanaChat.html#ClienteChat_VentanaChat_InitializeComponent_System_Boolean_

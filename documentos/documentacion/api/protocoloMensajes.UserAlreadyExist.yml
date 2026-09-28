@@ -6,7 +6,6 @@ items:
   parent: protocoloMensajes
   children:
   - protocoloMensajes.UserAlreadyExist.#ctor(System.String)
-  - protocoloMensajes.UserAlreadyExist.extra
   langs:
   - csharp
   - vb
@@ -37,6 +36,7 @@ items:
   inheritedMembers:
   - protocoloMensajes.Response.operation
   - protocoloMensajes.Response.result
+  - protocoloMensajes.Response.extra
   - protocoloMensajes.Mensaje.type
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -45,37 +45,6 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: protocoloMensajes.UserAlreadyExist.extra
-  commentId: P:protocoloMensajes.UserAlreadyExist.extra
-  id: extra
-  parent: protocoloMensajes.UserAlreadyExist
-  langs:
-  - csharp
-  - vb
-  name: extra
-  nameWithType: UserAlreadyExist.extra
-  fullName: protocoloMensajes.UserAlreadyExist.extra
-  type: Property
-  source:
-    remote:
-      path: src/protocoloMensajes/UserAlreadyExist.cs
-      branch: dev
-      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
-    id: extra
-    path: ../../src/protocoloMensajes/UserAlreadyExist.cs
-    startLine: 11
-  assemblies:
-  - protocoloMensajes
-  namespace: protocoloMensajes
-  summary: atributo que representa el nombre del usuario
-  example: []
-  syntax:
-    content: public string extra { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property extra As String
-  overload: protocoloMensajes.UserAlreadyExist.extra*
 - uid: protocoloMensajes.UserAlreadyExist.#ctor(System.String)
   commentId: M:protocoloMensajes.UserAlreadyExist.#ctor(System.String)
   id: '#ctor(System.String)'
@@ -94,7 +63,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/protocoloMensajes/UserAlreadyExist.cs
-    startLine: 17
+    startLine: 12
   assemblies:
   - protocoloMensajes
   namespace: protocoloMensajes
@@ -157,6 +126,13 @@ references:
   name: result
   nameWithType: Response.result
   fullName: protocoloMensajes.Response.result
+- uid: protocoloMensajes.Response.extra
+  commentId: P:protocoloMensajes.Response.extra
+  parent: protocoloMensajes.Response
+  href: protocoloMensajes.Response.html#protocoloMensajes_Response_extra
+  name: extra
+  nameWithType: Response.extra
+  fullName: protocoloMensajes.Response.extra
 - uid: protocoloMensajes.Mensaje.type
   commentId: P:protocoloMensajes.Mensaje.type
   parent: protocoloMensajes.Mensaje
@@ -390,12 +366,15 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: protocoloMensajes.UserAlreadyExist.extra*
-  commentId: Overload:protocoloMensajes.UserAlreadyExist.extra
-  href: protocoloMensajes.UserAlreadyExist.html#protocoloMensajes_UserAlreadyExist_extra
-  name: extra
-  nameWithType: UserAlreadyExist.extra
-  fullName: protocoloMensajes.UserAlreadyExist.extra
+- uid: protocoloMensajes.UserAlreadyExist.#ctor*
+  commentId: Overload:protocoloMensajes.UserAlreadyExist.#ctor
+  href: protocoloMensajes.UserAlreadyExist.html#protocoloMensajes_UserAlreadyExist__ctor_System_String_
+  name: UserAlreadyExist
+  nameWithType: UserAlreadyExist.UserAlreadyExist
+  fullName: protocoloMensajes.UserAlreadyExist.UserAlreadyExist
+  nameWithType.vb: UserAlreadyExist.New
+  fullName.vb: protocoloMensajes.UserAlreadyExist.New
+  name.vb: New
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -407,12 +386,3 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: protocoloMensajes.UserAlreadyExist.#ctor*
-  commentId: Overload:protocoloMensajes.UserAlreadyExist.#ctor
-  href: protocoloMensajes.UserAlreadyExist.html#protocoloMensajes_UserAlreadyExist__ctor_System_String_
-  name: UserAlreadyExist
-  nameWithType: UserAlreadyExist.UserAlreadyExist
-  fullName: protocoloMensajes.UserAlreadyExist.UserAlreadyExist
-  nameWithType.vb: UserAlreadyExist.New
-  fullName.vb: protocoloMensajes.UserAlreadyExist.New
-  name.vb: New

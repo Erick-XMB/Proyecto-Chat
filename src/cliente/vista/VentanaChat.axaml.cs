@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using ClienteChat.controlador;
 using protocoloMensajes;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace ClienteChat;
@@ -255,6 +256,32 @@ public partial class VentanaChat : Window
     }
 
     /// <summary>
+    /// Metodo que elimina una pestania (tabItem) de nuestro
+    /// TabControl (ConversacionesTabControl) usando una cadena
+    /// que representa el nombre de la pestania como referencia
+    /// </summary>
+    /// <param name="tituloDeLaPestania"> es la cadena que represneta la pestania
+    /// con el titulo que queremos eliminar </param>
+    public void RemoverPestania(string tituloDeLaPestania)
+    {
+        TabItem? pestaniaAEliminar = null;
+
+        foreach(TabItem? tab in ConversacionesTabControl.Items)
+        {
+            if(tab?.Tag?.ToString() == tituloDeLaPestania)
+            {
+                pestaniaAEliminar = tab;
+                break;
+            }
+        }
+
+        if(pestaniaAEliminar != null)
+        {
+            ConversacionesTabControl.Items.Remove(pestaniaAEliminar);
+        }
+    }
+
+    /// <summary>
     /// Metodo que nos permite dado un mensaje, manejar el tipo de mensaje que es
     /// ya sea para mostrarlo en la terminal, o para hacer operaciones asociadas
     /// como crear conversaciones privadas o salas
@@ -274,6 +301,7 @@ public partial class VentanaChat : Window
 
             case Disconnected disconnected:
                 MensajesTextBox.Text += $"{disconnected.username} has left the chat...\n";
+                RemoverPestania(disconnected.username);
                 break;
 
             case NewStatus newStatus:
@@ -310,7 +338,7 @@ public partial class VentanaChat : Window
                 {
                     return;
                 }
-                
+
                 cajaDeTextoEscribirCuarto.Text += $"INVITADO A '{invitation.roomname}' POR '{invitation.username}' \n";
                 break;
 

@@ -5,6 +5,7 @@ items:
   id: NotJoined
   parent: protocoloMensajes
   children:
+  - protocoloMensajes.NotJoined.#ctor
   - protocoloMensajes.NotJoined.#ctor(System.String,System.String)
   langs:
   - csharp
@@ -48,6 +49,37 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: protocoloMensajes.NotJoined.#ctor
+  commentId: M:protocoloMensajes.NotJoined.#ctor
+  id: '#ctor'
+  parent: protocoloMensajes.NotJoined
+  langs:
+  - csharp
+  - vb
+  name: NotJoined()
+  nameWithType: NotJoined.NotJoined()
+  fullName: protocoloMensajes.NotJoined.NotJoined()
+  type: Constructor
+  source:
+    remote:
+      path: src/protocoloMensajes/NotJoined.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: .ctor
+    path: ../../src/protocoloMensajes/NotJoined.cs
+    startLine: 13
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Constructor vacio de notJoined
+  example: []
+  syntax:
+    content: public NotJoined()
+    content.vb: Public Sub New()
+  overload: protocoloMensajes.NotJoined.#ctor*
+  nameWithType.vb: NotJoined.New()
+  fullName.vb: protocoloMensajes.NotJoined.New()
+  name.vb: New()
 - uid: protocoloMensajes.NotJoined.#ctor(System.String,System.String)
   commentId: M:protocoloMensajes.NotJoined.#ctor(System.String,System.String)
   id: '#ctor(System.String,System.String)'
@@ -66,7 +98,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/protocoloMensajes/NotJoined.cs
-    startLine: 14
+    startLine: 23
   assemblies:
   - protocoloMensajes
   namespace: protocoloMensajes
@@ -374,7 +406,7 @@ references:
   fullName: System
 - uid: protocoloMensajes.NotJoined.#ctor*
   commentId: Overload:protocoloMensajes.NotJoined.#ctor
-  href: protocoloMensajes.NotJoined.html#protocoloMensajes_NotJoined__ctor_System_String_System_String_
+  href: protocoloMensajes.NotJoined.html#protocoloMensajes_NotJoined__ctor
   name: NotJoined
   nameWithType: NotJoined.NotJoined
   fullName: protocoloMensajes.NotJoined.NotJoined

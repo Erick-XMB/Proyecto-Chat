@@ -26,7 +26,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: ServidorControlador
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 11
+    startLine: 8
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador
@@ -63,7 +63,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 31
+    startLine: 28
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador
@@ -103,7 +103,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: GetServidor
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 44
+    startLine: 41
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador
@@ -134,7 +134,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: NuevaConexion
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 55
+    startLine: 52
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador
@@ -166,7 +166,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: SacarDeTodosLosCuartos
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 73
+    startLine: 70
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador
@@ -204,7 +204,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: CerrarConexion
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 121
+    startLine: 118
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador
@@ -244,7 +244,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: MensajeRecibido
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 166
+    startLine: 163
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador
@@ -282,7 +282,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: Iniciar
     path: ../../src/servidor/controlador/ServidorControlador.cs
-    startLine: 845
+    startLine: 906
   assemblies:
   - ServidorChat
   namespace: ServidorChat.controlador

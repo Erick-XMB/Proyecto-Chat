@@ -267,6 +267,22 @@ references:
   isSpec: "True"
   fullName: ClienteChat.VentanaChat.OpcionBusy
   nameWithType: VentanaChat.OpcionBusy
+- uid: ClienteChat.VentanaChat.RemoverPestania(System.String)
+  name: RemoverPestania(string)
+  href: api/ClienteChat.VentanaChat.html#ClienteChat_VentanaChat_RemoverPestania_System_String_
+  commentId: M:ClienteChat.VentanaChat.RemoverPestania(System.String)
+  name.vb: RemoverPestania(String)
+  fullName: ClienteChat.VentanaChat.RemoverPestania(string)
+  fullName.vb: ClienteChat.VentanaChat.RemoverPestania(String)
+  nameWithType: VentanaChat.RemoverPestania(string)
+  nameWithType.vb: VentanaChat.RemoverPestania(String)
+- uid: ClienteChat.VentanaChat.RemoverPestania*
+  name: RemoverPestania
+  href: api/ClienteChat.VentanaChat.html#ClienteChat_VentanaChat_RemoverPestania_
+  commentId: Overload:ClienteChat.VentanaChat.RemoverPestania
+  isSpec: "True"
+  fullName: ClienteChat.VentanaChat.RemoverPestania
+  nameWithType: VentanaChat.RemoverPestania
 - uid: ClienteChat.VentanaCuarto
   name: VentanaCuarto
   href: api/ClienteChat.VentanaCuarto.html
@@ -1812,6 +1828,15 @@ references:
   commentId: T:protocoloMensajes.NotJoined
   fullName: protocoloMensajes.NotJoined
   nameWithType: NotJoined
+- uid: protocoloMensajes.NotJoined.#ctor
+  name: NotJoined()
+  href: api/protocoloMensajes.NotJoined.html#protocoloMensajes_NotJoined__ctor
+  commentId: M:protocoloMensajes.NotJoined.#ctor
+  name.vb: New()
+  fullName: protocoloMensajes.NotJoined.NotJoined()
+  fullName.vb: protocoloMensajes.NotJoined.New()
+  nameWithType: NotJoined.NotJoined()
+  nameWithType.vb: NotJoined.New()
 - uid: protocoloMensajes.NotJoined.#ctor(System.String,System.String)
   name: NotJoined(string, string)
   href: api/protocoloMensajes.NotJoined.html#protocoloMensajes_NotJoined__ctor_System_String_System_String_
@@ -2387,19 +2412,6 @@ references:
   fullName.vb: protocoloMensajes.UserAlreadyExist.New
   nameWithType: UserAlreadyExist.UserAlreadyExist
   nameWithType.vb: UserAlreadyExist.New
-- uid: protocoloMensajes.UserAlreadyExist.extra
-  name: extra
-  href: api/protocoloMensajes.UserAlreadyExist.html#protocoloMensajes_UserAlreadyExist_extra
-  commentId: P:protocoloMensajes.UserAlreadyExist.extra
-  fullName: protocoloMensajes.UserAlreadyExist.extra
-  nameWithType: UserAlreadyExist.extra
-- uid: protocoloMensajes.UserAlreadyExist.extra*
-  name: extra
-  href: api/protocoloMensajes.UserAlreadyExist.html#protocoloMensajes_UserAlreadyExist_extra_
-  commentId: Overload:protocoloMensajes.UserAlreadyExist.extra
-  isSpec: "True"
-  fullName: protocoloMensajes.UserAlreadyExist.extra
-  nameWithType: UserAlreadyExist.extra
 - uid: protocoloMensajes.UserList
   name: UserList
   href: api/protocoloMensajes.UserList.html

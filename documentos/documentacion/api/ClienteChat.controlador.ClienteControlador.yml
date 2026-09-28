@@ -691,7 +691,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: RecibirMensajes
     path: ../../src/cliente/controlador/ClienteControlador.cs
-    startLine: 384
+    startLine: 479
   assemblies:
   - ClienteChat
   namespace: ClienteChat.controlador

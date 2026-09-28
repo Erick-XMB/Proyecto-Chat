@@ -28,7 +28,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: ConexionCliente
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -68,7 +68,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: mensajeRecibido
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 23
+    startLine: 22
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -95,7 +95,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: GetStatus
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -126,7 +126,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: SetStatus
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 48
+    startLine: 47
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -163,7 +163,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: GetUsername
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 57
+    startLine: 56
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -194,7 +194,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: SetUsername
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 66
+    startLine: 65
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -231,7 +231,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 75
+    startLine: 74
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -266,7 +266,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: Desconectar
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 84
+    startLine: 85
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -294,7 +294,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: RecibirMensajes
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 96
+    startLine: 97
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
@@ -325,7 +325,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: EnviarMensaje
     path: ../../src/servidor/modelo/ConexionCliente.cs
-    startLine: 162
+    startLine: 163
   assemblies:
   - ServidorChat
   namespace: ServidorChat.Modelo
