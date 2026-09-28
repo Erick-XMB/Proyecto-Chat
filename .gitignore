@@ -2,3 +2,6 @@ bin/
 obj/
 
 *.o
+
+# Generada por DocFX
+documentos/documentacion/_site/
