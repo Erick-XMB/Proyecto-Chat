@@ -22,6 +22,11 @@ public partial class MainWindow : Window
     private string? username;
 
     /// <summary>
+    /// Variable que hace referencia a la direccion IP con el que se quiere iniciar sesion
+    /// </summary>
+    private string? direccionIP;
+
+    /// <summary>
     /// Variable que hace referencia al puerto al que deseamos conectarnos
     /// </summary>
     private int puerto = 0;
@@ -94,10 +99,18 @@ public partial class MainWindow : Window
             return;
         }
 
+        string? textoIP = IPTextBox.Text;
+
+        if (string.IsNullOrWhiteSpace(textoIP))
+        {
+            EstadoTexto.Text = "Estado: LA IP NO PUEDE SER VACIA";
+            return;
+        }
+
+        direccionIP = textoIP;
+
         /** variable que guarda si se pudo establecer la conexion*/
-        bool conectado = controlador.Conectar(puerto);
-
-
+        bool conectado = controlador.Conectar(direccionIP, puerto);
 
         /** Si la conexion se hace el */
         if (conectado)

@@ -549,7 +549,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: .ctor
     path: ../../src/cliente/vista/MainWindow.axaml.cs
-    startLine: 36
+    startLine: 41
   assemblies:
   - ClienteChat
   namespace: ClienteChat
@@ -576,7 +576,7 @@ items:
   source:
     id: InitializeComponent
     path: /home/killomanlinux/Documentos/modelado&programacion/Proyecto-Chat/src/cliente/obj/Release/net10.0/Avalonia.Generators/Avalonia.Generators.NameGenerator.AvaloniaNameIncrementalGenerator/ClienteChat.MainWindow.g.cs
-    startLine: 26
+    startLine: 30
   assemblies:
   - ClienteChat
   namespace: ClienteChat

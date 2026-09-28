@@ -5,7 +5,7 @@ items:
   id: ConexionServidor
   parent: ClienteChat.modelo
   children:
-  - ClienteChat.modelo.ConexionServidor.Conectar(System.Int32)
+  - ClienteChat.modelo.ConexionServidor.Conectar(System.String,System.Int32)
   - ClienteChat.modelo.ConexionServidor.Desconectar
   - ClienteChat.modelo.ConexionServidor.EnviarMensaje(System.String)
   - ClienteChat.modelo.ConexionServidor.MensajeRecibido
@@ -72,16 +72,16 @@ items:
     return:
       type: System.Action{System.String}
     content.vb: Public Event MensajeRecibido As Action(Of String)
-- uid: ClienteChat.modelo.ConexionServidor.Conectar(System.Int32)
-  commentId: M:ClienteChat.modelo.ConexionServidor.Conectar(System.Int32)
-  id: Conectar(System.Int32)
+- uid: ClienteChat.modelo.ConexionServidor.Conectar(System.String,System.Int32)
+  commentId: M:ClienteChat.modelo.ConexionServidor.Conectar(System.String,System.Int32)
+  id: Conectar(System.String,System.Int32)
   parent: ClienteChat.modelo.ConexionServidor
   langs:
   - csharp
   - vb
-  name: Conectar(int)
-  nameWithType: ConexionServidor.Conectar(int)
-  fullName: ClienteChat.modelo.ConexionServidor.Conectar(int)
+  name: Conectar(string, int)
+  nameWithType: ConexionServidor.Conectar(string, int)
+  fullName: ClienteChat.modelo.ConexionServidor.Conectar(string, int)
   type: Method
   source:
     remote:
@@ -97,18 +97,20 @@ items:
   summary: Metodo que nos permite conectarnos al servidor
   example: []
   syntax:
-    content: public bool Conectar(int puerto)
+    content: public bool Conectar(string servidor, int puerto)
     parameters:
+    - id: servidor
+      type: System.String
     - id: puerto
       type: System.Int32
     return:
       type: System.Boolean
       description: <code>true</code> si se pudo establecer conexion, en caso contrario, <code>false</code>.
-    content.vb: Public Function Conectar(puerto As Integer) As Boolean
+    content.vb: Public Function Conectar(servidor As String, puerto As Integer) As Boolean
   overload: ClienteChat.modelo.ConexionServidor.Conectar*
-  nameWithType.vb: ConexionServidor.Conectar(Integer)
-  fullName.vb: ClienteChat.modelo.ConexionServidor.Conectar(Integer)
-  name.vb: Conectar(Integer)
+  nameWithType.vb: ConexionServidor.Conectar(String, Integer)
+  fullName.vb: ClienteChat.modelo.ConexionServidor.Conectar(String, Integer)
+  name.vb: Conectar(String, Integer)
 - uid: ClienteChat.modelo.ConexionServidor.Desconectar
   commentId: M:ClienteChat.modelo.ConexionServidor.Desconectar
   id: Desconectar
@@ -127,7 +129,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: Desconectar
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 56
+    startLine: 54
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
@@ -155,7 +157,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: EnviarMensaje
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 68
+    startLine: 66
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
@@ -190,7 +192,7 @@ items:
       repo: https://github.com/Erick-XMB/Proyecto-Chat.git
     id: RecibirMensajes
     path: ../../src/cliente/modelo/ConexionServidor.cs
-    startLine: 91
+    startLine: 89
   assemblies:
   - ClienteChat
   namespace: ClienteChat.modelo
@@ -528,10 +530,21 @@ references:
   - name: )
 - uid: ClienteChat.modelo.ConexionServidor.Conectar*
   commentId: Overload:ClienteChat.modelo.ConexionServidor.Conectar
-  href: ClienteChat.modelo.ConexionServidor.html#ClienteChat_modelo_ConexionServidor_Conectar_System_Int32_
+  href: ClienteChat.modelo.ConexionServidor.html#ClienteChat_modelo_ConexionServidor_Conectar_System_String_System_Int32_
   name: Conectar
   nameWithType: ConexionServidor.Conectar
   fullName: ClienteChat.modelo.ConexionServidor.Conectar
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -566,17 +579,6 @@ references:
   name: EnviarMensaje
   nameWithType: ConexionServidor.EnviarMensaje
   fullName: ClienteChat.modelo.ConexionServidor.EnviarMensaje
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: ClienteChat.modelo.ConexionServidor.RecibirMensajes*
   commentId: Overload:ClienteChat.modelo.ConexionServidor.RecibirMensajes
   href: ClienteChat.modelo.ConexionServidor.html#ClienteChat_modelo_ConexionServidor_RecibirMensajes

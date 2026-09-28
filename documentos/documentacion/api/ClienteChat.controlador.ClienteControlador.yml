@@ -6,7 +6,7 @@ items:
   parent: ClienteChat.controlador
   children:
   - ClienteChat.controlador.ClienteControlador.#ctor
-  - ClienteChat.controlador.ClienteControlador.Conectar(System.Int32)
+  - ClienteChat.controlador.ClienteControlador.Conectar(System.String,System.Int32)
   - ClienteChat.controlador.ClienteControlador.Desconectar
   - ClienteChat.controlador.ClienteControlador.Disconnect
   - ClienteChat.controlador.ClienteControlador.EnviarMensaje(System.String)
@@ -117,16 +117,16 @@ items:
   nameWithType.vb: ClienteControlador.New()
   fullName.vb: ClienteChat.controlador.ClienteControlador.New()
   name.vb: New()
-- uid: ClienteChat.controlador.ClienteControlador.Conectar(System.Int32)
-  commentId: M:ClienteChat.controlador.ClienteControlador.Conectar(System.Int32)
-  id: Conectar(System.Int32)
+- uid: ClienteChat.controlador.ClienteControlador.Conectar(System.String,System.Int32)
+  commentId: M:ClienteChat.controlador.ClienteControlador.Conectar(System.String,System.Int32)
+  id: Conectar(System.String,System.Int32)
   parent: ClienteChat.controlador.ClienteControlador
   langs:
   - csharp
   - vb
-  name: Conectar(int)
-  nameWithType: ClienteControlador.Conectar(int)
-  fullName: ClienteChat.controlador.ClienteControlador.Conectar(int)
+  name: Conectar(string, int)
+  nameWithType: ClienteControlador.Conectar(string, int)
+  fullName: ClienteChat.controlador.ClienteControlador.Conectar(string, int)
   type: Method
   source:
     remote:
@@ -142,8 +142,10 @@ items:
   summary: Se solicita que establezca una conexion TCP
   example: []
   syntax:
-    content: public bool Conectar(int puerto)
+    content: public bool Conectar(string servidor, int puerto)
     parameters:
+    - id: servidor
+      type: System.String
     - id: puerto
       type: System.Int32
     return:
@@ -152,11 +154,11 @@ items:
         <code>true</code> si la conexion se establezca correctamente
 
         <code>false</code> si hay un error
-    content.vb: Public Function Conectar(puerto As Integer) As Boolean
+    content.vb: Public Function Conectar(servidor As String, puerto As Integer) As Boolean
   overload: ClienteChat.controlador.ClienteControlador.Conectar*
-  nameWithType.vb: ClienteControlador.Conectar(Integer)
-  fullName.vb: ClienteChat.controlador.ClienteControlador.Conectar(Integer)
-  name.vb: Conectar(Integer)
+  nameWithType.vb: ClienteControlador.Conectar(String, Integer)
+  fullName.vb: ClienteChat.controlador.ClienteControlador.Conectar(String, Integer)
+  name.vb: Conectar(String, Integer)
 - uid: ClienteChat.controlador.ClienteControlador.Desconectar
   commentId: M:ClienteChat.controlador.ClienteControlador.Desconectar
   id: Desconectar
@@ -1035,10 +1037,21 @@ references:
   name.vb: New
 - uid: ClienteChat.controlador.ClienteControlador.Conectar*
   commentId: Overload:ClienteChat.controlador.ClienteControlador.Conectar
-  href: ClienteChat.controlador.ClienteControlador.html#ClienteChat_controlador_ClienteControlador_Conectar_System_Int32_
+  href: ClienteChat.controlador.ClienteControlador.html#ClienteChat_controlador_ClienteControlador_Conectar_System_String_System_Int32_
   name: Conectar
   nameWithType: ClienteControlador.Conectar
   fullName: ClienteChat.controlador.ClienteControlador.Conectar
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1073,17 +1086,6 @@ references:
   name: EnviarMensaje
   nameWithType: ClienteControlador.EnviarMensaje
   fullName: ClienteChat.controlador.ClienteControlador.EnviarMensaje
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: ClienteChat.controlador.ClienteControlador.Identificar*
   commentId: Overload:ClienteChat.controlador.ClienteControlador.Identificar
   href: ClienteChat.controlador.ClienteControlador.html#ClienteChat_controlador_ClienteControlador_Identificar_System_String_

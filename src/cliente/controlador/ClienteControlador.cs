@@ -38,9 +38,9 @@ public class ClienteControlador
     /// <c>true</c> si la conexion se establezca correctamente
     /// <c>false</c> si hay un error
     /// </returns>
-    public bool Conectar(int puerto)
+    public bool Conectar(string servidor, int puerto)
     {
-        return cliente.Conectar(puerto);
+        return cliente.Conectar(servidor, puerto);
     }
 
     public void Desconectar()

@@ -396,15 +396,15 @@ references:
   fullName.vb: ClienteChat.controlador.ClienteControlador.New
   nameWithType: ClienteControlador.ClienteControlador
   nameWithType.vb: ClienteControlador.New
-- uid: ClienteChat.controlador.ClienteControlador.Conectar(System.Int32)
-  name: Conectar(int)
-  href: api/ClienteChat.controlador.ClienteControlador.html#ClienteChat_controlador_ClienteControlador_Conectar_System_Int32_
-  commentId: M:ClienteChat.controlador.ClienteControlador.Conectar(System.Int32)
-  name.vb: Conectar(Integer)
-  fullName: ClienteChat.controlador.ClienteControlador.Conectar(int)
-  fullName.vb: ClienteChat.controlador.ClienteControlador.Conectar(Integer)
-  nameWithType: ClienteControlador.Conectar(int)
-  nameWithType.vb: ClienteControlador.Conectar(Integer)
+- uid: ClienteChat.controlador.ClienteControlador.Conectar(System.String,System.Int32)
+  name: Conectar(string, int)
+  href: api/ClienteChat.controlador.ClienteControlador.html#ClienteChat_controlador_ClienteControlador_Conectar_System_String_System_Int32_
+  commentId: M:ClienteChat.controlador.ClienteControlador.Conectar(System.String,System.Int32)
+  name.vb: Conectar(String, Integer)
+  fullName: ClienteChat.controlador.ClienteControlador.Conectar(string, int)
+  fullName.vb: ClienteChat.controlador.ClienteControlador.Conectar(String, Integer)
+  nameWithType: ClienteControlador.Conectar(string, int)
+  nameWithType.vb: ClienteControlador.Conectar(String, Integer)
 - uid: ClienteChat.controlador.ClienteControlador.Conectar*
   name: Conectar
   href: api/ClienteChat.controlador.ClienteControlador.html#ClienteChat_controlador_ClienteControlador_Conectar_
@@ -674,15 +674,15 @@ references:
   commentId: T:ClienteChat.modelo.ConexionServidor
   fullName: ClienteChat.modelo.ConexionServidor
   nameWithType: ConexionServidor
-- uid: ClienteChat.modelo.ConexionServidor.Conectar(System.Int32)
-  name: Conectar(int)
-  href: api/ClienteChat.modelo.ConexionServidor.html#ClienteChat_modelo_ConexionServidor_Conectar_System_Int32_
-  commentId: M:ClienteChat.modelo.ConexionServidor.Conectar(System.Int32)
-  name.vb: Conectar(Integer)
-  fullName: ClienteChat.modelo.ConexionServidor.Conectar(int)
-  fullName.vb: ClienteChat.modelo.ConexionServidor.Conectar(Integer)
-  nameWithType: ConexionServidor.Conectar(int)
-  nameWithType.vb: ConexionServidor.Conectar(Integer)
+- uid: ClienteChat.modelo.ConexionServidor.Conectar(System.String,System.Int32)
+  name: Conectar(string, int)
+  href: api/ClienteChat.modelo.ConexionServidor.html#ClienteChat_modelo_ConexionServidor_Conectar_System_String_System_Int32_
+  commentId: M:ClienteChat.modelo.ConexionServidor.Conectar(System.String,System.Int32)
+  name.vb: Conectar(String, Integer)
+  fullName: ClienteChat.modelo.ConexionServidor.Conectar(string, int)
+  fullName.vb: ClienteChat.modelo.ConexionServidor.Conectar(String, Integer)
+  nameWithType: ConexionServidor.Conectar(string, int)
+  nameWithType.vb: ConexionServidor.Conectar(String, Integer)
 - uid: ClienteChat.modelo.ConexionServidor.Conectar*
   name: Conectar
   href: api/ClienteChat.modelo.ConexionServidor.html#ClienteChat_modelo_ConexionServidor_Conectar_

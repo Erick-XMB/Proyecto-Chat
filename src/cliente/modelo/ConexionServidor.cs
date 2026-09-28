@@ -29,10 +29,8 @@ public class ConexionServidor
     /// <returns>
     /// <c>true</c> si se pudo establecer conexion, en caso contrario, <c>false</c>.
     /// </returns>
-    public bool Conectar(int puerto)
+    public bool Conectar(string servidor, int puerto)
     {
-        /** Esta es la drieccion de servdior, usamos la del localhost*/
-        string servidor = "127.0.0.1";
 
         try
         {

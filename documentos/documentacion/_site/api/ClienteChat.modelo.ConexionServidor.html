@@ -155,8 +155,8 @@ Class ConexionServidor  <a class="header-action link-secondary" title="View sour
 
   <a id="ClienteChat_modelo_ConexionServidor_Conectar_" data-uid="ClienteChat.modelo.ConexionServidor.Conectar*"></a>
 
-  <h3 id="ClienteChat_modelo_ConexionServidor_Conectar_System_Int32_" data-uid="ClienteChat.modelo.ConexionServidor.Conectar(System.Int32)">
-  Conectar(int)
+  <h3 id="ClienteChat_modelo_ConexionServidor_Conectar_System_String_System_Int32_" data-uid="ClienteChat.modelo.ConexionServidor.Conectar(System.String,System.Int32)">
+  Conectar(string, int)
   <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/cliente/modelo/ConexionServidor.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -165,11 +165,13 @@ Class ConexionServidor  <a class="header-action link-secondary" title="View sour
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Conectar(int puerto)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Conectar(string servidor, int puerto)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>servidor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
     <dt><code>puerto</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
@@ -195,7 +197,7 @@ Class ConexionServidor  <a class="header-action link-secondary" title="View sour
 
   <h3 id="ClienteChat_modelo_ConexionServidor_Desconectar" data-uid="ClienteChat.modelo.ConexionServidor.Desconectar">
   Desconectar()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/cliente/modelo/ConexionServidor.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/cliente/modelo/ConexionServidor.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Metodo que nos permite desonectar cerrando el TCPClient y el NetWorkStream</p>
@@ -222,7 +224,7 @@ Class ConexionServidor  <a class="header-action link-secondary" title="View sour
 
   <h3 id="ClienteChat_modelo_ConexionServidor_EnviarMensaje_System_String_" data-uid="ClienteChat.modelo.ConexionServidor.EnviarMensaje(System.String)">
   EnviarMensaje(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/cliente/modelo/ConexionServidor.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/cliente/modelo/ConexionServidor.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Metodo que envia un mensaje al servidor usando la conexion de TCP</p>
@@ -255,7 +257,7 @@ Class ConexionServidor  <a class="header-action link-secondary" title="View sour
 
   <h3 id="ClienteChat_modelo_ConexionServidor_RecibirMensajes" data-uid="ClienteChat.modelo.ConexionServidor.RecibirMensajes">
   RecibirMensajes()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/cliente/modelo/ConexionServidor.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Erick-XMB/Proyecto-Chat/blob/dev/src/cliente/modelo/ConexionServidor.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Metodo por el cual recibimos mensajes de manera asincrona</p>
