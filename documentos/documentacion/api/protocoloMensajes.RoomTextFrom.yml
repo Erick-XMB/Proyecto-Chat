@@ -1,0 +1,479 @@
+### YamlMime:ManagedReference
+items:
+- uid: protocoloMensajes.RoomTextFrom
+  commentId: T:protocoloMensajes.RoomTextFrom
+  id: RoomTextFrom
+  parent: protocoloMensajes
+  children:
+  - protocoloMensajes.RoomTextFrom.#ctor(System.String,System.String,System.String)
+  - protocoloMensajes.RoomTextFrom.roomname
+  - protocoloMensajes.RoomTextFrom.text
+  - protocoloMensajes.RoomTextFrom.username
+  langs:
+  - csharp
+  - vb
+  name: RoomTextFrom
+  nameWithType: RoomTextFrom
+  fullName: protocoloMensajes.RoomTextFrom
+  type: Class
+  source:
+    remote:
+      path: src/protocoloMensajes/RoomTextFrom.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: RoomTextFrom
+    path: ../../src/protocoloMensajes/RoomTextFrom.cs
+    startLine: 5
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: >-
+    Clase que hereda de mensaje que representa 
+
+    quien envia un texto al cuarto
+  example: []
+  syntax:
+    content: 'public class RoomTextFrom : Mensaje'
+    content.vb: Public Class RoomTextFrom Inherits Mensaje
+  inheritance:
+  - System.Object
+  - protocoloMensajes.Mensaje
+  inheritedMembers:
+  - protocoloMensajes.Mensaje.type
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: protocoloMensajes.RoomTextFrom.roomname
+  commentId: P:protocoloMensajes.RoomTextFrom.roomname
+  id: roomname
+  parent: protocoloMensajes.RoomTextFrom
+  langs:
+  - csharp
+  - vb
+  name: roomname
+  nameWithType: RoomTextFrom.roomname
+  fullName: protocoloMensajes.RoomTextFrom.roomname
+  type: Property
+  source:
+    remote:
+      path: src/protocoloMensajes/RoomTextFrom.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: roomname
+    path: ../../src/protocoloMensajes/RoomTextFrom.cs
+    startLine: 10
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Atibuto que representa el nombre de la sala
+  example: []
+  syntax:
+    content: public string roomname { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property roomname As String
+  overload: protocoloMensajes.RoomTextFrom.roomname*
+- uid: protocoloMensajes.RoomTextFrom.username
+  commentId: P:protocoloMensajes.RoomTextFrom.username
+  id: username
+  parent: protocoloMensajes.RoomTextFrom
+  langs:
+  - csharp
+  - vb
+  name: username
+  nameWithType: RoomTextFrom.username
+  fullName: protocoloMensajes.RoomTextFrom.username
+  type: Property
+  source:
+    remote:
+      path: src/protocoloMensajes/RoomTextFrom.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: username
+    path: ../../src/protocoloMensajes/RoomTextFrom.cs
+    startLine: 15
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Atirbuto que representa quien envia el mensaje
+  example: []
+  syntax:
+    content: public string username { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property username As String
+  overload: protocoloMensajes.RoomTextFrom.username*
+- uid: protocoloMensajes.RoomTextFrom.text
+  commentId: P:protocoloMensajes.RoomTextFrom.text
+  id: text
+  parent: protocoloMensajes.RoomTextFrom
+  langs:
+  - csharp
+  - vb
+  name: text
+  nameWithType: RoomTextFrom.text
+  fullName: protocoloMensajes.RoomTextFrom.text
+  type: Property
+  source:
+    remote:
+      path: src/protocoloMensajes/RoomTextFrom.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: text
+    path: ../../src/protocoloMensajes/RoomTextFrom.cs
+    startLine: 20
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Atirbuto que representa el mensaje
+  example: []
+  syntax:
+    content: public string text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property text As String
+  overload: protocoloMensajes.RoomTextFrom.text*
+- uid: protocoloMensajes.RoomTextFrom.#ctor(System.String,System.String,System.String)
+  commentId: M:protocoloMensajes.RoomTextFrom.#ctor(System.String,System.String,System.String)
+  id: '#ctor(System.String,System.String,System.String)'
+  parent: protocoloMensajes.RoomTextFrom
+  langs:
+  - csharp
+  - vb
+  name: RoomTextFrom(string, string, string)
+  nameWithType: RoomTextFrom.RoomTextFrom(string, string, string)
+  fullName: protocoloMensajes.RoomTextFrom.RoomTextFrom(string, string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/protocoloMensajes/RoomTextFrom.cs
+      branch: dev
+      repo: https://github.com/Erick-XMB/Proyecto-Chat.git
+    id: .ctor
+    path: ../../src/protocoloMensajes/RoomTextFrom.cs
+    startLine: 28
+  assemblies:
+  - protocoloMensajes
+  namespace: protocoloMensajes
+  summary: Constructor de la clase Room text from
+  example: []
+  syntax:
+    content: public RoomTextFrom(string roomname, string username, string text)
+    parameters:
+    - id: roomname
+      type: System.String
+      description: es el nombre del cuarto
+    - id: username
+      type: System.String
+      description: es el nombre de usuario
+    - id: text
+      type: System.String
+      description: es el mensaje
+    content.vb: Public Sub New(roomname As String, username As String, text As String)
+  overload: protocoloMensajes.RoomTextFrom.#ctor*
+  nameWithType.vb: RoomTextFrom.New(String, String, String)
+  fullName.vb: protocoloMensajes.RoomTextFrom.New(String, String, String)
+  name.vb: New(String, String, String)
+references:
+- uid: protocoloMensajes
+  commentId: N:protocoloMensajes
+  href: protocoloMensajes.html
+  name: protocoloMensajes
+  nameWithType: protocoloMensajes
+  fullName: protocoloMensajes
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: protocoloMensajes.Mensaje
+  commentId: T:protocoloMensajes.Mensaje
+  parent: protocoloMensajes
+  href: protocoloMensajes.Mensaje.html
+  name: Mensaje
+  nameWithType: Mensaje
+  fullName: protocoloMensajes.Mensaje
+- uid: protocoloMensajes.Mensaje.type
+  commentId: P:protocoloMensajes.Mensaje.type
+  parent: protocoloMensajes.Mensaje
+  href: protocoloMensajes.Mensaje.html#protocoloMensajes_Mensaje_type
+  name: type
+  nameWithType: Mensaje.type
+  fullName: protocoloMensajes.Mensaje.type
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: protocoloMensajes.RoomTextFrom.roomname*
+  commentId: Overload:protocoloMensajes.RoomTextFrom.roomname
+  href: protocoloMensajes.RoomTextFrom.html#protocoloMensajes_RoomTextFrom_roomname
+  name: roomname
+  nameWithType: RoomTextFrom.roomname
+  fullName: protocoloMensajes.RoomTextFrom.roomname
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: protocoloMensajes.RoomTextFrom.username*
+  commentId: Overload:protocoloMensajes.RoomTextFrom.username
+  href: protocoloMensajes.RoomTextFrom.html#protocoloMensajes_RoomTextFrom_username
+  name: username
+  nameWithType: RoomTextFrom.username
+  fullName: protocoloMensajes.RoomTextFrom.username
+- uid: protocoloMensajes.RoomTextFrom.text*
+  commentId: Overload:protocoloMensajes.RoomTextFrom.text
+  href: protocoloMensajes.RoomTextFrom.html#protocoloMensajes_RoomTextFrom_text
+  name: text
+  nameWithType: RoomTextFrom.text
+  fullName: protocoloMensajes.RoomTextFrom.text
+- uid: protocoloMensajes.RoomTextFrom.#ctor*
+  commentId: Overload:protocoloMensajes.RoomTextFrom.#ctor
+  href: protocoloMensajes.RoomTextFrom.html#protocoloMensajes_RoomTextFrom__ctor_System_String_System_String_System_String_
+  name: RoomTextFrom
+  nameWithType: RoomTextFrom.RoomTextFrom
+  fullName: protocoloMensajes.RoomTextFrom.RoomTextFrom
+  nameWithType.vb: RoomTextFrom.New
+  fullName.vb: protocoloMensajes.RoomTextFrom.New
+  name.vb: New

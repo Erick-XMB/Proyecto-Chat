@@ -1,7 +1,6 @@
 using System;
 using System.Net.Sockets;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ClienteChat.modelo;
@@ -13,10 +12,15 @@ public class ConexionServidor
 {
 
     /** Checa el estado de la conexion TCP*/
-    private TcpClient cliente;
+    private TcpClient? cliente;
 
     /** Atributo que maneja el flujo de la lectura*/
-    private NetworkStream stream;
+    private NetworkStream? stream;
+
+    /// <summary>
+    /// Evento que invoca a la accion de la cadena que le llamamos mensaje recibido
+    /// </summary>
+    public event Action<string>? MensajeRecibido;
 
 
     /// <summary>
@@ -25,10 +29,8 @@ public class ConexionServidor
     /// <returns>
     /// <c>true</c> si se pudo establecer conexion, en caso contrario, <c>false</c>.
     /// </returns>
-    public bool Conectar(int puerto)
+    public bool Conectar(string servidor, int puerto)
     {
-        /** Esta es la drieccion de servdior, usamos la del localhost*/
-        string servidor = "127.0.0.1";
 
         try
         {
@@ -45,7 +47,15 @@ public class ConexionServidor
         {
             return false;
         }
+    }
 
+    /// <summary>
+    /// Metodo que nos permite desonectar cerrando el TCPClient y el NetWorkStream
+    /// </summary>
+    public void Desconectar()
+    {
+        stream?.Close();
+        cliente?.Close();
     }
 
     /// <summary>
@@ -89,14 +99,19 @@ public class ConexionServidor
 
             try
             {
+                if (stream == null)
+                {
+                    return;
+                }
 
                 /** leemos los bytes de manera asincrona y los guardamos en bytesLeidos */
                 bytesLeidos = await stream.ReadAsync(buffer);
 
+
                 /** guardamos en una cadena los bytes codificados usando el formato UTF8*/
                 string mensaje = Encoding.UTF8.GetString(buffer, 0, bytesLeidos);
 
-                Console.WriteLine(mensaje);
+                MensajeRecibido?.Invoke(mensaje);
 
             }
             catch (Exception)

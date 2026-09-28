@@ -24,6 +24,16 @@
                         Width="200"
                         PlaceholderText="Ingresa tu nombre aqui..." />
 
+                <TextBlock x:Name="EscribirIP"
+                        Text="Escribe la direccion IP: "
+                        FontSize="18"
+                        HorizontalAlignment="Center" />
+
+                <TextBox x:Name="IPTextBox"
+                        Width="200"
+                        PlaceholderText="Ingresa la direccion IP aqui..." />
+
+
                 <TextBlock x:Name="EscribirPuerto"
                         Text="Ingresa el puerto: "
                         FontSize="18"

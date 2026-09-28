@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ClienteChat.modelo
+  commentId: N:ClienteChat.modelo
+  id: ClienteChat.modelo
+  children:
+  - ClienteChat.modelo.ConexionServidor
+  langs:
+  - csharp
+  - vb
+  name: ClienteChat.modelo
+  nameWithType: ClienteChat.modelo
+  fullName: ClienteChat.modelo
+  type: Namespace
+  assemblies:
+  - ClienteChat
+references:
+- uid: ClienteChat.modelo.ConexionServidor
+  commentId: T:ClienteChat.modelo.ConexionServidor
+  href: ClienteChat.modelo.ConexionServidor.html
+  name: ConexionServidor
+  nameWithType: ConexionServidor
+  fullName: ClienteChat.modelo.ConexionServidor

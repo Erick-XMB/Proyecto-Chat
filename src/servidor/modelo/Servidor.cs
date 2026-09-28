@@ -63,22 +63,10 @@ public class Servidor
         /** Usamos la funcion Start() que nos proporciona TcpListener para iniciar el servidor*/
         listener.Start();
 
-        Console.WriteLine("Servidor se inicio");
+        Console.WriteLine("\nComando para detener el servidor: Ctrl + c");
 
         /** Esperamos a que aceptemos los clientes*/
         await AceptarClientesTCPdeModoAsincrono();
-    }
-
-    /// <summary>
-    /// Metodo que desactiva el servidor y detiene al TcpListener
-    /// </summary>
-    public void CerrarPuerto()
-    {
-        /** Pasamos el atributo de activo a falso */
-        activo = false;
-
-        /** Usamos la funcion Stop() que nos proporciona TcpListener para detener el servidor */
-        listener.Stop();
     }
 
     /// <summary>

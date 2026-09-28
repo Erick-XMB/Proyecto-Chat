@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServidorChat.Modelo
+  commentId: N:ServidorChat.Modelo
+  id: ServidorChat.Modelo
+  children:
+  - ServidorChat.Modelo.ConexionCliente
+  - ServidorChat.Modelo.Servidor
+  langs:
+  - csharp
+  - vb
+  name: ServidorChat.Modelo
+  nameWithType: ServidorChat.Modelo
+  fullName: ServidorChat.Modelo
+  type: Namespace
+  assemblies:
+  - ServidorChat
+references:
+- uid: ServidorChat.Modelo.ConexionCliente
+  commentId: T:ServidorChat.Modelo.ConexionCliente
+  parent: ServidorChat.Modelo
+  href: ServidorChat.Modelo.ConexionCliente.html
+  name: ConexionCliente
+  nameWithType: ConexionCliente
+  fullName: ServidorChat.Modelo.ConexionCliente
+- uid: ServidorChat.Modelo.Servidor
+  commentId: T:ServidorChat.Modelo.Servidor
+  parent: ServidorChat.Modelo
+  href: ServidorChat.Modelo.Servidor.html
+  name: Servidor
+  nameWithType: Servidor
+  fullName: ServidorChat.Modelo.Servidor
+- uid: ServidorChat.Modelo
+  commentId: N:ServidorChat.Modelo
+  href: ServidorChat.html
+  name: ServidorChat.Modelo
+  nameWithType: ServidorChat.Modelo
+  fullName: ServidorChat.Modelo
+  spec.csharp:
+  - uid: ServidorChat
+    name: ServidorChat
+    href: ServidorChat.html
+  - name: .
+  - uid: ServidorChat.Modelo
+    name: Modelo
+    href: ServidorChat.Modelo.html
+  spec.vb:
+  - uid: ServidorChat
+    name: ServidorChat
+    href: ServidorChat.html
+  - name: .
+  - uid: ServidorChat.Modelo
+    name: Modelo
+    href: ServidorChat.Modelo.html

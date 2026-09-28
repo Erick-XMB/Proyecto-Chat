@@ -27,6 +27,9 @@ public class Response : Mensaje
     public Response()
     {
         this.type = "RESPONSE";
+        this.operation = "";
+        this.result = "";
+        this.extra = "";
     }
 
 

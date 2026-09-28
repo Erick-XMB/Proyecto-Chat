@@ -5,11 +5,6 @@ namespace protocoloMensajes;
 /// </summary>
 public class UserAlreadyExist : Response
 {
-    /// <summary>
-    /// atributo que representa el nombre del usuario
-    /// </summary>
-    /// 
-    public string extra { get; set; }
 
     /// <summary>
     /// Constructor de la clase UserAlreadyExist

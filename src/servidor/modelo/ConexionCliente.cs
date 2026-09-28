@@ -1,4 +1,3 @@
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -77,6 +76,8 @@ public class ConexionCliente
     {
         this.tcpCliente = tcpCliente;
         this.stream = tcpCliente.GetStream();
+        this.username = "";
+        this.status = "";
     }
 
     /// <summary>
@@ -148,7 +149,7 @@ public class ConexionCliente
                 /* vemos que no esta vacio*/
                 if (!string.IsNullOrEmpty(mensaje))
                 {
-                    /* invocamos que s genero un mensaje*/
+                    /* invocamos que se genero un mensaje*/
                     mensajeRecibido?.Invoke(this, mensaje);
                 }
             }
