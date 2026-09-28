@@ -16,15 +16,21 @@ Los comandos para compilar y ejecutar el cliente son:
 * make cliente
 * make runCliente
 
-Los comandos para realizar la documentación del proyecto son:
-
-* make documentación
-* make verDocumentacion
-
 Comandos extra para la limpieza de archivos
 * make limpiarServidor
 * make limpiarCliente
 * make clean
+
+Documentación
+-------------------
+La documentación del proyecto se genera mediante DocFX 
+
+Para generar la documentación:
+* make documentacion
+
+Despues de ejecutar dicho comando, se podrá consultar la documentación generada con:
+
+* make verDocumentacion
 
 
 Teconologias utilizadas en el proyecto
