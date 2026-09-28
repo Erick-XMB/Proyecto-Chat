@@ -585,6 +585,8 @@ Por tanto vamos a describir de mejor manera a dichos objetos para poder ver como
 
     \vspace{0.2cm}
 
+        \noindent \textbf{Implementación de la conexion Cliente-Servidor}
+
     \noindent Después, vemos que la base del proyecto es poder tener comuncación de red entre el servidor y el cliente, por lo general y en bajo nivel podemos utilizar sockets junto a sus operaciones asociadas como \textit{bind(), listen(), write()} y demás; pero investigando que cualidades y facilidades que nos da nuestro lenguaje C\# , encontré dos clases que simplifican de manera muy grande tener que trabajar diectamente con sockets, dichas clases son \textit{TcpCliente y TcpListener},  de las cuales vamos a hablar:
     \begin{itemize}
         \item[-] {TcpListener:} TcpListener nos ayuda a supervisar un puerto TCP que va a buscar las soliciudaes entrantes y luego crear objeto TcpClient que administre la conexión del  cliente. Vemos que funciona como el socket que se encargará de admnistrar el servidor, es por ello que este se utiliza en la misma clase \textit{servidor}, con los métodos \textit{Start(), AcceptTcpClientAsync()} así como el construtor de la clase TcpListener, que es aquí donde iniciamos el servidor con una dirección IP y un puerto; usando las operaciones anteriores es que podemos tener nuestro servidor funcional.
@@ -595,7 +597,9 @@ Por tanto vamos a describir de mejor manera a dichos objetos para poder ver como
 
     \noindent Además cabe señalar que tanto en el cliente como en el servidor, junto a TcpCliente y TcpListener conviven junto a la clase \textit{NetWorkStream} la cual nos proporciona un flujo de datos (stream) para enviar y recibir infomación, es por ello que esta clase la usamos en nuestros métodos de RecibirMensajes() y EnviarMensaje() pues con sus métodos como ReadAsync() y WriteAsync() es que podemos hacer el flujo de mensajes.
 
-    \vspace{0.2cm}
+    \vspace{0.3cm}
+
+    \noindent \textbf{Uso de eventos y programación asíncrona}
     
     \noindent Otro de los recursos que nos proporciono nuestro lengauje de programación fue el uso de Eventos, esta herramienta fue nueva de trabajar para mi, pues antes de saber como llevar mi diseño a su implementación no sabia que existian, sin embargo, estos fueron de mucha utilidad para el programa; vemos que los eventos nos permiten notificar a otros objetos cuando ocurre una acción, esto lo usamos usando las bases que definen al evento, que son \textit{publisher, suscriber y delegate}
     
@@ -613,7 +617,84 @@ Por tanto vamos a describir de mejor manera a dichos objetos para poder ver como
 
     \vspace{0.2cm}
 
-    \noindent Como siguiente punto importante a mencionar en nuestra implementación, es que al revisar el código vemos que no se están viendo explicitamente el uso de hilos de ejecución, pues debido (nuevamente) a las facilidades que nos proporciona C\#, vemos que trabajamos con programación asincrona, usando metodos \textit{async} y \textit{Task}; esto lo maneje de esta forma pues al usar \textit{Task} (que representa una operación que ya inicio pero aún no termina) podemos hacer que un método se supenda sin tener que bloquear el hilo, esto lo hacemos usando \textit{await} , así en cuando se termine la tarea, el método sigue donde quedo esperando; lo anterior me parece que funciona bien pues en el chat practicamente lo único que hacemos son operaciones de entrada y salida, y hacer que estas operaciones no se mezclen entre sí fue manejable usando la programación asincrona que nos dio C\#,
+    \noindent Como siguiente punto importante a mencionar en nuestra implementación, es que al revisar el código vemos que no se están viendo explicitamente el uso de hilos de ejecución, pues debido (nuevamente) a las facilidades que nos proporciona C\#, vemos que trabajamos con programación asincrona, usando metodos \textit{async} y \textit{Task}; esto lo maneje de esta forma pues al usar \textit{Task} (que representa una operación que ya inicio pero aún no termina) podemos hacer que un método se supenda sin tener que bloquear el hilo, esto lo hacemos usando \textit{await} , así en cuando se termine la tarea, el método sigue donde quedo esperando; lo anterior me parece que funciona bien pues en el chat practicamente lo único que hacemos son operaciones de entrada y salida, y hacer que estas operaciones no se mezclen entre sí fue manejable usando la programación asincrona que nos dio C\#.
+
+     \vspace{0.3cm}
+
+            \noindent \textbf{Interfaz gráfica} 
+    
+
+     \noindent En la implementación del diseño, vemos que en la vista simplemente definimos que tanto \textit{Chat-General, Chat-Privado y Chat-Cuarto} serían pestañas de la interfaz que ibamos a integrar al sistema, al mometno de diseñar la solución eso lo podiamos dejar de manera abstracta, pero al momento de hacer la implementación ya era necesario encontrar una manera integrar una interfaz gráfica a nuestro proyecto, es por ello que se utilizó el framework \textit{Avalonia}; investigando encontré que una manera de realizar interfaces gráficas en C\# era justamente con el framework mencionado, si bien habia otras opciones como \textit{WinForms}, se decidió usar Avalonia por sus comptabilidad en sistemas linux. El usar avalonia fue algo completamente nuevo pues nunca había trabajado con algo parecido, es por ello que la interfaz gráfica, si bien es muy mejorable cumple con lo más básico que deberia ser capaz de hacer, esto pues el uso básico de avalonia no es muy dificl de entender, pues por cada \textit{axaml} que generemos, deberemos tambien generar su \textit{axaml.cs} que será la manera en que podamos interactuar; si vemos, nuestra interfaz gráfica solo esta conformada por \textit{TextBlock, TextBox, TabItem }y \textit{Button}, que al interactuar con ellas (sobre todo con el Botton) estaremos enviando los mensajes en el formato que pide el protocolo al servidor, y el servidor al responder, los métodos de la interfaz sabrán que mostrar al usuario según el tipo de \textit{RESPONSE} recibido.
+
+        \vspace{0.3cm}
+
+        \noindent \textbf{Sistema de construcción y documentación}
+    
+     \noindent Como siguiente punto a destacar fue la decisión de usar \textit{MakeFile} para nuestro sistema de construccion, si bien al parecer el entorno .NET ya trae incorporados métodos para el sitsema de construcción por medio de dotnet, el usar MakeFile se me hizo más comodo pues al simplemente colocar ``Make Accion'' se ejecuta la acción deseada, por ello el sistema se construye usando \textit{MakeFile}
+
+     \noindent Para hacer generación de la documentación se utlizó DocFX, esto pues al momento de buscar de que maneras podia generar la documentación me salió como opción, siendo sinceros al ser de las primeras opciones que conocí y al ver que podia generar un sitio html para poder ver la documentación de manera similar a como lo hace javaDoc en Java, pues fue una buena decisión para mi; sin embargo, hay un ``problema'', pues al parecer para generar dicho sitiio, DocFx genera archivos JavaScript lo que hace que en el repositorio de Github marque que en los lenguajes utilizados hay al rededor de 2.7\%  de uso de JavaScript, sin embargo dado que esos son archivos que la propia documentación me generó, y que no influyen en el funcionamiento del programa, doy por hecho que no estoy violando alguna regla establecida por el profesor.
+
+    \vspace{0.3cm}
+
+    \noindent \textbf{Mensajes como DTO}
+        
+     \noindent Otro punto que quiero mencionar, es que si se revisan mis clases de los Mensajes, podemos ver que tienen sus atributos públicos, esto podría ser un problema a primera vista, pues podríamos decir que no se esta haciendo una encapsulación correcta de los objetos, sin embargo como los objetos de Mensajes son un DTO (Data Transfer Object), vemos que estos no tienen alguna lógica implementada pues solos nos sirven como un almacén de datos para transportar información, por lo que en estos casos usar los atributos con \textit{public string {get; set;}} es una prática válida.
+
+    \vspace{0.3cm}
+    
+    \noindent Las tecnologías previamente mencionadas fueron parte de los recursos que se usaron en la elaboración del chat, además claramente de \textit{System.Text.Json} para poder trabajar con Json; asi que haciendo uso de todo lo visto es que se pudo llegar a una solución al problema planteado.
+
+    \chapter{Conclusiones}
+
+    \noindent El desarrollo de este proyecto fue un gran reto que en ratos senti que sobrepasaba mis habilidades como programador, sin embargo, al final del camino se pudo cumplir al menos con lo que el protocolo requería.
+
+    \noindent Durante el proyecto, como en un inicio plantee, hubo muchas cosas que desconocí y que tuve que ir aprendiendo (y quiza no de la mejor forma) durante la marcha, trabajar con Json, entablar una comunicación de red, trabajar con métodos de manera asíncrona fueron algunos de los conceptos que pude revisar al momento de trabahar en el chat, y, de lo que me siento satisfecho, fue de poder llevar a cabo la implementación de una interfaz gráfica, pues aunque sencilla, creo que es funcional para lo que se requería.
+
+    \vspace{0.2 cm}
+
+    \noindent Claramente mi proyecto no es perfecto, y estoy seguro que hay muchas áreas de oportunidad, sobre todo en el inicio de este, pues al iniciar el proyecto me sentía muy perdido, y las cosas que pensaba en mi análisis como en mi diseño simplemente no funcionaban al momento de llevarlas a la implementación, y si funcionaban, era una implementación que resultaba ser muy compleja, es por ello que es ahí donde identifico que debería mejorar conforme avancen los proyectos.
+
+    \vspace{0.2 cm}
+    \noindent Otro punto de mejora es la interfaz gráfica, pues está no cumple con muchas de las funciones extra que me hubiera gustado, como la actualización de la lista de usuarios en tiempo real, ser más explicitó con los botones y vanalidades de ese estilo, pero no es un curso de diseño de interfaces de usuario, así que supongo que para lo que requiere el curso funciona.
+
+    \vspace{0.2 cm}
+
+   \noindent  Otro de los puntos de mejora es que no implemente prueba unitarias en mi diseño, si se revisa el repositorio, vemos que en efecto al inicio del proyecto había una carpeta llamada ``test'' , y en etapas tempranas del análisis tambien se encontraba, sin embargo conforme avanzaba en el proyecto iba dejando de lado dichas pruebas, hasta que al final quedaron descartadas, así es que ahí es un área de mejora que tengo como programador.
+
+   \vspace{0.2 cm}
+
+  \noindent  Otra área de oportunidad se ve reflejada en el uso correcto de los \textit{Task} y \textit{Async} en el proyecto, si bien, el proyecto funciona, el uso de esas dos herramientos se me fue muy limitado y algunas veces a ciegas, pues una vez que creí entender como funcionaban los implemente, y al ver que compilaba y se ejecutaba de manera correcta, los seguí usando en otros métodos, hasta que alguno me daba un error y entonces lo quitaba de dicho método; entiendo que lo anterior es una mala práctica, pero por palabras del mismo profesor si funciona, funciona, por lo que seguí con dicha filosofía, y no tanto por gusto, sino que por tener el tiempo límitado no podía detenerme a entender al 100\% su funcionamiento.
+
+  \vspace{0.2 cm}
+
+  \noindent Un error que quiero destacar y creo necesario hacerlo, es que al momento de compilar el cliente tiene 3 Warnings que no supe como deshacerme de ellos pues estos se solucionarían agregando un constructor vacio a cada clase de la vista, sin embargo, temo que esto pudierá romper algo en el programa, pues como cada clase ya tiene su constructor, podría generar conflictos, así es que queria y creía necesario explicar este punto.
+
+  \vspace{0.2 cm}
+
+  \noindent Por lo anterior es que el proyecto tiene diversas areas de mejora, que, si se quisiera expandir, necesitarian ser solucionadas antes de hacerlo; que bien, expandirlo debería de ser ``sencillo'' pues al estar usando el patrón MVC, todas las clases del programa están bien separadas dentro de mismo, por lo que si se quiere implementar algo extra, ya no se tendría que seguir a ciegas, pues la base que se tiene ahora mismo tiene bien separadas sus responsabilidades.
+
+\vspace{0.2 cm}
+    
+  \noindent Así damos por concluido el modelado y la programación de este proyecto, y tambien con el reporte del mismo, el cuál espero haya dejado bien expresadas las decisiones que se tomarón para poder tener un chat funcional.
+
+  \chapter{Referencias}
+
+    \noindent Como refencias solo puedo citar a la propia documentación de .NET que nos da Microsoft \textit{https://learn.microsoft.com/es-es/dotnet/}, sin embargo algunas de las secciones más relevantes que puedo dar son:
+    \begin{itemize}
+        \item [-] https://learn.microsoft.com/es-es/dotnet/fundamentals/networking/sockets/tcp-classes
+        \item [-] https://learn.microsoft.com/es-es/dotnet/api/system.net.sockets.tcpclient?view=net-10.0
+        \item [-] https://learn.microsoft.com/es-es/dotnet/api/system.net.sockets.tcplistener?view=net-10.0
+        \item [-] https://learn.microsoft.com/es-es/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5
+        \item [-] https://learn.microsoft.com/es-es/dotnet/api/system.threading.tasks.task?view=net-10.0
+        \item [-] https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/operators/await
+        \item[-] https://learn.microsoft.com/es-es/dotnet/csharp/programming-guide/events/
+        \item [-] https://learn.microsoft.com/es-es/dotnet/standard/serialization/system-text-json/how-to
+    \end{itemize}
+    
+    
+    
+
+    
     
 
 \newpage
