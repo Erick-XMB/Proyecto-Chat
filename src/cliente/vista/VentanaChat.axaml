@@ -35,9 +35,9 @@
                         <Button.Flyout>
                             <Flyout>
                                 <StackPanel Width="200" Spacing="10">
+                                    <TextBlock Text="Nombre del usuario:" />
                                     <TextBox x:Name="EscribirPrivado"
                                         PlaceholderText="Nombre del usuario..." />
-                                    <TextBlock Text="Nombre del usuario:" />
                                     <Button Content="Aceptar"
                                         Click="MensajePrivado_Click" />
                                 </StackPanel>
@@ -49,9 +49,9 @@
                         <Button.Flyout>
                             <Flyout>
                                 <StackPanel Width="200" Spacing="10">
+                                    <TextBlock Text="Nombre del cuarto:" />
                                     <TextBox x:Name="EscribirCuarto"
                                         PlaceholderText="Nombre del cuarto..." />
-                                    <TextBlock Text="Nombre del cuarto:" />
                                     <Button Content="Aceptar"
                                         Click="CrearCuarto_Click" />
                                 </StackPanel>
