@@ -32,6 +32,17 @@ public partial class VentanaChat : Window
     /// </summary>
     private string usuarioEscrito = "";
 
+    /// <summary>
+    /// Constructor vacio 
+    /// Este metodo solo se coloco pues el compilador nos pedia
+    /// un constructor vacio para la clase, sino lanzaba un warning
+    /// </summary>
+    public VentanaChat()
+    {
+        InitializeComponent();
+        controlador = null!;
+    }
+
 
     /// <summary>
     /// Constructor de la clase VentanaChat
@@ -266,16 +277,16 @@ public partial class VentanaChat : Window
     {
         TabItem? pestaniaAEliminar = null;
 
-        foreach(TabItem? tab in ConversacionesTabControl.Items)
+        foreach (TabItem? tab in ConversacionesTabControl.Items)
         {
-            if(tab?.Tag?.ToString() == tituloDeLaPestania)
+            if (tab?.Tag?.ToString() == tituloDeLaPestania)
             {
                 pestaniaAEliminar = tab;
                 break;
             }
         }
 
-        if(pestaniaAEliminar != null)
+        if (pestaniaAEliminar != null)
         {
             ConversacionesTabControl.Items.Remove(pestaniaAEliminar);
         }

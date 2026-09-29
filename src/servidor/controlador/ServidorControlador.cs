@@ -556,7 +556,7 @@ public class ServidorControlador
         string roomname = invite.roomname;
         List<string> usernames = invite.usernames;
 
-        if (string.IsNullOrEmpty(roomname) || usernames == null || usernames.Contains(null))
+        if (string.IsNullOrEmpty(roomname) || usernames == null || usernames.Contains(null!))
         {
             await ProcesarInvalid(cliente);
             await CerrarConexion(cliente);
@@ -564,14 +564,6 @@ public class ServidorControlador
         }
 
         List<ConexionCliente> conexionesInvitadas = new List<ConexionCliente>();
-
-        // verifivamos que quien invita esta en el cuarto
-        if (!cuartos[roomname].EstaEnElCuarto(cliente))
-        {
-            await ProcesarInvalid(cliente);
-            await CerrarConexion(cliente);
-            return;
-        }
 
         // verificamos que el cuarto exista
         if (!cuartos.ContainsKey(roomname))
@@ -581,6 +573,16 @@ public class ServidorControlador
             await cliente.EnviarMensaje(jsonNoSuchRoom);
             return;
         }
+
+        // verifivamos que quien invita esta en el cuarto
+        if (!cuartos[roomname].EstaEnElCuarto(cliente))
+        {
+            await ProcesarInvalid(cliente);
+            await CerrarConexion(cliente);
+            return;
+        }
+
+
 
         // verificamos que cada conexion (nombre) este en la lista de clients
         foreach (string username in usernames)

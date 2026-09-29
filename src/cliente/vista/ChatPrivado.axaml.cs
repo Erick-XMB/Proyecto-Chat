@@ -18,6 +18,18 @@ public partial class ChatPrivado : UserControl
     private string username;
 
     /// <summary>
+    /// Constructor vacio 
+    /// Este metodo solo se coloco pues el compilador nos pedia
+    /// un constructro vacio para la clase, sino lanzaba un warning
+    /// </summary>
+    public ChatPrivado()
+    {
+        InitializeComponent();
+        controlador = null!;
+        username = string.Empty;
+    }
+
+    /// <summary>
     /// Constructor de la clase ChatPrivado
     /// </summary>
     /// <param name="clienteControlador">es la conexion que tenemos</param>

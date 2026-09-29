@@ -32,6 +32,18 @@ public partial class CuartoPrivado : UserControl
 
 
     /// <summary>
+    /// Constructor vacio 
+    /// Este metodo solo se coloco pues el compilador nos pedia
+    /// un constructor vacio para la clase, sino lanzaba un warning
+    /// </summary>
+    public CuartoPrivado()
+    {
+        InitializeComponent();
+        roomname = string.Empty;
+        controlador = null!;
+    }
+
+    /// <summary>
     /// Constructor de CuartoPrivado
     /// </summary>
     /// <param name="clienteControlador"> es la conexion que tenemos </param>
@@ -127,7 +139,7 @@ public partial class CuartoPrivado : UserControl
         var cajaDeTextoEscribirCuarto = this.FindControl<TextBox>("EscrbirNombresDeInvitados");
 
         if (cajaDeTextoEscribirCuarto == null)
-        return;
+            return;
 
 
         nombresDeUsuario = cajaDeTextoEscribirCuarto.Text ?? "";
