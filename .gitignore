@@ -2,6 +2,7 @@ bin/
 obj/
 
 *.o
+.vscode/
 
 # Generada por DocFX
 documentos/documentacion/_site/
