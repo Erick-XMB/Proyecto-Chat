@@ -9,7 +9,7 @@ Comandos sistemas de construccion
 Los comandos para compilar y ejecutar el servidor son:
 
 * make servidor
-* make runServidor p={el numero del puerto al que deseamos conectarnos}
+* make runServidor p={el numero del puerto con el que deseamos iniciar el servidor}
 
 
 Los comandos para compilar y ejecutar el cliente son:
