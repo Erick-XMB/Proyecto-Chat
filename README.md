@@ -11,6 +11,7 @@ Los comandos para compilar y ejecutar el servidor son:
 * make servidor
 * make runServidor p={el numero del puerto al que deseamos conectarnos}
 
+
 Los comandos para compilar y ejecutar el cliente son:
 
 * make cliente
@@ -20,6 +21,9 @@ Comandos extra para la limpieza de archivos
 * make limpiarServidor
 * make limpiarCliente
 * make clean
+
+Comando general
+* make all (solo compila tanto el cliente como el servidor)
 
 Documentación
 -------------------
@@ -36,8 +40,10 @@ Despues de ejecutar dicho comando, se podrá consultar la documentación generad
 Teconologias utilizadas en el proyecto
 -------------------
 - .NET SDK 10.0.112
+- System.Text.Json (Incluido en .NET)
 - Framework: Avalonia 12.1.1
 - DocFX 2.80.1 para la documentacion
+- Make 4.3 como sistema de construcción
 
 
 Desarrollador
